@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Dashboard - FreeMark</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/client/layout.css">
+    <link rel="stylesheet" href="../css/client/components.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <aside class="client-sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
+                </svg>
+                FreeMark
+            </a>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="dashboard.html" class="active"><i data-lucide="layout-dashboard"></i> Overview</a></li>
+                <li><a href="post-project.html"><i data-lucide="plus-circle"></i> Post Project</a></li>
+                <li><a href="freelancers.html"><i data-lucide="users"></i> Freelancers</a></li>
+                <li><a href="proposals.html"><i data-lucide="file-text"></i> Proposals</a></li>
+                <li><a href="work-approval.html"><i data-lucide="check-square"></i> Work & Ratings</a></li>
+                <li><a href="chat.html"><i data-lucide="message-square"></i> Messages</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="../index.html" style="color: var(--text-secondary); text-decoration: none; display: flex; align-items: center; gap: 10px;">
+                <i data-lucide="log-out"></i> Logout
+            </a>
+        </div>
+    </aside>
+
+    <main class="client-main">
+        <header class="client-header">
+            <div class="header-title">
+                <h2>Welcome back, Client</h2>
+                <p>Manage your projects and hire top talent.</p>
+            </div>
+            <div class="header-actions">
+                <a href="post-project.html" class="btn btn-primary">Post a New Project</a>
+            </div>
+        </header>
+
+        <div class="client-content">
+            <!-- Sleek Stats Grid -->
+            <div class="sleek-stats-grid">
+                <div class="sleek-stat-card">
+                    <div class="sleek-stat-header">
+                        <span class="sleek-stat-title">Active Projects</span>
+                        <div class="sleek-stat-icon icon-blue"><i data-lucide="briefcase"></i></div>
+                    </div>
+                    <div class="sleek-stat-value">3</div>
+                    <div class="sleek-stat-trend trend-neutral"><i data-lucide="minus"></i> No change</div>
+                </div>
+                
+                <div class="sleek-stat-card">
+                    <div class="sleek-stat-header">
+                        <span class="sleek-stat-title">Pending Proposals</span>
+                        <div class="sleek-stat-icon icon-yellow"><i data-lucide="file-text"></i></div>
+                    </div>
+                    <div class="sleek-stat-value">12</div>
+                    <div class="sleek-stat-trend trend-up"><i data-lucide="trending-up"></i> +4 this week</div>
+                </div>
+                
+                <div class="sleek-stat-card">
+                    <div class="sleek-stat-header">
+                        <span class="sleek-stat-title">Total Spent</span>
+                        <div class="sleek-stat-icon icon-green"><i data-lucide="dollar-sign"></i></div>
+                    </div>
+                    <div class="sleek-stat-value">$24,500</div>
+                    <div class="sleek-stat-trend trend-up"><i data-lucide="trending-up"></i> Active milestones</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Your Active Projects</h3>
+                    <a href="#" style="color: var(--accent); font-size: 0.9rem;">View all</a>
+                </div>
+                <div class="card-body">
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid var(--border-color);">
+                        <div>
+                            <h4 style="margin: 0 0 5px 0; color: var(--accent);">React Dashboard Implementation</h4>
+                            <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">Hired: Md Sami • In Progress</p>
+                        </div>
+                        <a href="work-approval.html" class="btn btn-outline" style="padding: 5px 15px; font-size: 0.85rem;">Review Work</a>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px;">
+                        <div>
+                            <h4 style="margin: 0 0 5px 0; color: var(--text-primary);">Mobile App UI Design</h4>
+                            <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">8 New Proposals • Open</p>
+                        </div>
+                        <a href="proposals.html" class="btn btn-outline" style="padding: 5px 15px; font-size: 0.85rem;">View Proposals</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Proposal - FreeMark</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/freelancer/layout.css">
+    <link rel="stylesheet" href="../css/freelancer/components.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <aside class="freelancer-sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+                FreeMark
+            </a>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="dashboard.html"><i data-lucide="layout-dashboard"></i> Overview</a></li>
+                <li><a href="profile.html"><i data-lucide="user"></i> My Profile</a></li>
+                <li><a href="jobs.html" class="active"><i data-lucide="briefcase"></i> Find Jobs</a></li>
+                <li><a href="tests.html"><i data-lucide="check-square"></i> Skill Tests</a></li>
+                <li><a href="work.html"><i data-lucide="upload-cloud"></i> My Contracts</a></li>
+                <li><a href="chat.html"><i data-lucide="message-square"></i> Messages</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="freelancer-main">
+        <header class="freelancer-header">
+            <div class="header-title">
+                <h2>Submit Proposal</h2>
+                <p>Apply for: Senior React Developer for Fintech App</p>
+            </div>
+            <a href="jobs.html" class="btn btn-outline">Cancel</a>
+        </header>
+
+        <div class="freelancer-content">
+            <div style="display: flex; gap: 30px; align-items: flex-start;">
+                <!-- Application Form -->
+                <div class="card" style="flex-grow: 1; max-width: 800px;">
+                    <div class="card-header">
+                        <h3>Proposal Details</h3>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Proposed Bid / Rate ($)</label>
+                                    <input type="number" placeholder="e.g. 5500" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Estimated Time to Complete</label>
+                                    <select required>
+                                        <option value="">Select duration...</option>
+                                        <option value="1w">Less than 1 week</option>
+                                        <option value="2w">1 to 2 weeks</option>
+                                        <option value="1m">Less than 1 month</option>
+                                        <option value="3m">1 to 3 months</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Cover Letter</label>
+                                <textarea placeholder="Introduce yourself, explain why you're a great fit for this project, and detail your approach..." required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Relevant Attachments (Optional)</label>
+                                <div style="border: 1px dashed var(--border-color); padding: 20px; text-align: center; border-radius: 4px; background: var(--bg-primary);">
+                                    <i data-lucide="upload" style="color: var(--text-secondary); margin-bottom: 10px;"></i>
+                                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Drag and drop files here, or click to select files</p>
+                                    <input type="file" style="display: none;">
+                                </div>
+                            </div>
+                            
+                            <div style="margin-top: 30px; border-top: 1px solid var(--border-color); padding-top: 20px;">
+                                <button type="button" class="btn btn-primary" style="width: 100%;">Submit Application</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Job Summary Sidebar -->
+                <div class="card" style="width: 320px; flex-shrink: 0;">
+                    <div class="card-header">
+                        <h3>Job Summary</h3>
+                    </div>
+                    <div class="card-body" style="font-size: 0.9rem;">
+                        <h4 style="margin: 0 0 10px 0; color: var(--text-primary);">Client Budget</h4>
+                        <p style="margin: 0 0 20px 0; color: var(--accent); font-weight: bold; font-size: 1.1rem;">$5,000 – $8,000</p>
+                        
+                        <h4 style="margin: 0 0 10px 0; color: var(--text-primary);">Required Skills</h4>
+                        <div style="display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 20px;">
+                            <span style="background: var(--bg-secondary); padding: 4px 10px; border-radius: 4px; font-size: 0.8rem;">React</span>
+                            <span style="background: var(--bg-secondary); padding: 4px 10px; border-radius: 4px; font-size: 0.8rem;">TypeScript</span>
+                        </div>
+
+                        <h4 style="margin: 0 0 10px 0; color: var(--text-primary);">Client History</h4>
+                        <div style="color: var(--text-secondary); margin-bottom: 5px;">★ 4.8 Rating (24 reviews)</div>
+                        <div style="color: var(--text-secondary);">15 Jobs Posted</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

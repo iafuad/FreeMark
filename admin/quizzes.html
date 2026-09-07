@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Banks - FreeMark Admin</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin/layout.css">
+    <link rel="stylesheet" href="../css/admin/components.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <aside class="admin-sidebar">
+        <!-- Sidebar content same as dashboard -->
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
+                </svg>
+                FreeMark Admin
+            </a>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="dashboard.html"><i data-lucide="layout-dashboard"></i> Overview</a></li>
+                <li><a href="approvals.html"><i data-lucide="check-circle"></i> Approvals</a></li>
+                <li><a href="skills.html"><i data-lucide="award"></i> Skill Categories</a></li>
+                <li><a href="quizzes.html" class="active"><i data-lucide="help-circle"></i> Quiz Banks</a></li>
+                <li><a href="users.html"><i data-lucide="users"></i> User Management</a></li>
+                <li><a href="reports.html"><i data-lucide="file-text"></i> Reports</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="admin-main">
+        <header class="admin-header">
+            <div class="header-title">
+                <h2>Manage Quiz & Question Banks</h2>
+                <p>Manage skill verification tests</p>
+            </div>
+            <a href="quiz-editor.html" class="btn btn-primary" style="text-decoration: none;">+ Create New Quiz</a>
+        </header>
+
+        <div class="admin-content">
+            <div class="admin-card">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Test</th>
+                            <th>Questions</th>
+                            <th>Attempts</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>UI/UX Design</td>
+                            <td>20</td>
+                            <td>200</td>
+                            <td><a href="quiz-editor.html" class="btn-sm btn-outline" style="text-decoration: none;">Edit</a></td>
+                        </tr>
+                        <tr>
+                            <td>Frontend Developer</td>
+                            <td>30</td>
+                            <td>250</td>
+                            <td><a href="quiz-editor.html" class="btn-sm btn-outline" style="text-decoration: none;">Edit</a></td>
+                        </tr>
+                        <tr>
+                            <td>React</td>
+                            <td>50</td>
+                            <td>300</td>
+                            <td><a href="quiz-editor.html" class="btn-sm btn-outline" style="text-decoration: none;">Edit</a></td>
+                        </tr>
+                        <tr>
+                            <td>Node.js</td>
+                            <td>10</td>
+                            <td>50</td>
+                            <td><a href="quiz-editor.html" class="btn-sm btn-outline" style="text-decoration: none;">Edit</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

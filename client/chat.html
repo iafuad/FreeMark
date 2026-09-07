@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages - FreeMark</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/client/layout.css">
+    <link rel="stylesheet" href="../css/client/components.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <aside class="client-sidebar">
+        <!-- Sidebar -->
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+                FreeMark
+            </a>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="dashboard.html"><i data-lucide="layout-dashboard"></i> Overview</a></li>
+                <li><a href="post-project.html"><i data-lucide="plus-circle"></i> Post Project</a></li>
+                <li><a href="freelancers.html"><i data-lucide="users"></i> Freelancers</a></li>
+                <li><a href="proposals.html"><i data-lucide="file-text"></i> Proposals</a></li>
+                <li><a href="work-approval.html"><i data-lucide="check-square"></i> Work & Ratings</a></li>
+                <li><a href="chat.html" class="active"><i data-lucide="message-square"></i> Messages</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="client-main">
+        <header class="client-header">
+            <div class="header-title">
+                <h2>Messages</h2>
+                <p>Chat with your hired freelancers or applicants</p>
+            </div>
+        </header>
+
+        <div class="client-content">
+            <div style="display: flex; height: 600px; border: 1px solid var(--border-color); border-radius: 8px; background-color: var(--bg-card); overflow: hidden;">
+                <div style="width: 250px; border-right: 1px solid var(--border-color); overflow-y: auto;">
+                    <div style="padding: 15px; border-bottom: 1px solid var(--border-color); cursor: pointer; display: flex; align-items: center; gap: 10px; background-color: var(--bg-secondary);">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; background: #ca8a04; display: flex; align-items: center; justify-content: center; font-weight: bold;">MS</div>
+                        <div>
+                            <h4 style="margin: 0; font-size: 0.95rem;">Md Sami</h4>
+                            <p style="margin: 0; font-size: 0.8rem; color: var(--text-secondary);">Sounds great, thanks!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="flex-grow: 1; display: flex; flex-direction: column;">
+                    <div style="padding: 15px; border-bottom: 1px solid var(--border-color); font-weight: 600;">
+                        Md Sami
+                    </div>
+                    <div style="flex-grow: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px;">
+                        <div style="max-width: 70%; padding: 10px 15px; border-radius: 8px; font-size: 0.95rem; background-color: rgba(250, 204, 21, 0.15); color: var(--text-primary); border: 1px solid rgba(250, 204, 21, 0.3); align-self: flex-end;">
+                            Hi! We reviewed your proposal for the React Dashboard project. Do you have time for a quick call tomorrow?
+                        </div>
+                        <div style="max-width: 70%; padding: 10px 15px; border-radius: 8px; font-size: 0.95rem; background-color: var(--bg-secondary); align-self: flex-start;">
+                            Hello! Yes, I am available tomorrow between 2 PM and 5 PM EST. Does that work for you?
+                        </div>
+                        <div style="max-width: 70%; padding: 10px 15px; border-radius: 8px; font-size: 0.95rem; background-color: rgba(250, 204, 21, 0.15); color: var(--text-primary); border: 1px solid rgba(250, 204, 21, 0.3); align-self: flex-end;">
+                            Perfect. Let's aim for 3 PM EST. I will send you the meeting link.
+                        </div>
+                        <div style="max-width: 70%; padding: 10px 15px; border-radius: 8px; font-size: 0.95rem; background-color: var(--bg-secondary); align-self: flex-start;">
+                            Sounds great, thanks! Looking forward to it.
+                        </div>
+                    </div>
+                    <div style="padding: 15px; border-top: 1px solid var(--border-color); display: flex; gap: 10px;">
+                        <input type="text" placeholder="Type your message here..." style="flex-grow: 1; padding: 10px; background-color: var(--bg-primary); border: 1px solid var(--border-color); color: white; border-radius: 4px;">
+                        <button class="btn btn-primary"><i data-lucide="send" style="width: 18px;"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

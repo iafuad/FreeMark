@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Jobs - FreeMark</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/guest/components.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <header>
+        <div class="container navbar">
+            <a href="../index.html" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
+                </svg>
+                FreeMark
+            </a>
+            
+            <nav class="nav-links">
+                <a href="jobs.html" style="color: var(--accent);">Find Jobs</a>
+                <a href="freelancers.html">Find Freelancers</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="../login.html" class="btn btn-outline">Log In</a>
+                <a href="../register.html" class="btn btn-primary">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="browse-layout">
+            <!-- Filter Sidebar -->
+            <aside class="filter-sidebar">
+                <div class="filter-header">
+                    <h3>Filters</h3>
+                    <button>Clear all</button>
+                </div>
+                
+                <div class="filter-section">
+                    <h4>Search</h4>
+                    <div style="position: relative;">
+                        <input type="text" class="filter-input" placeholder="Search for jobs...">
+                        <i data-lucide="search" style="position: absolute; right: 10px; top: 10px; width: 16px; color: var(--text-secondary);"></i>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h4>Project Type</h4>
+                    <div class="filter-group">
+                        <label class="filter-label"><input type="checkbox"> Fixed Price</label>
+                        <label class="filter-label"><input type="checkbox"> Hourly</label>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h4>Required Skill</h4>
+                    <div class="filter-group">
+                        <label class="filter-label"><input type="checkbox"> React</label>
+                        <label class="filter-label"><input type="checkbox"> Node.js</label>
+                        <label class="filter-label"><input type="checkbox"> UI/UX Design</label>
+                        <label class="filter-label"><input type="checkbox"> Python</label>
+                    </div>
+                </div>
+                
+                <div class="filter-section">
+                    <h4>Project Length</h4>
+                    <div class="filter-group">
+                        <label class="filter-label"><input type="checkbox"> Less than 1 month</label>
+                        <label class="filter-label"><input type="checkbox"> 1 to 3 months</label>
+                        <label class="filter-label"><input type="checkbox"> More than 3 months</label>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Results Area -->
+            <div class="results-area">
+                <div class="results-header">
+                    <h2>Open Jobs</h2>
+                    <div class="results-sort">
+                        <span style="color: var(--text-secondary); font-size: 0.9rem;">Sort by:</span>
+                        <select>
+                            <option>Newest</option>
+                            <option>Highest Budget</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="guest-jobs-list projects-list">
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <h3 style="color: var(--text-primary); cursor: pointer;">Senior React Developer for Fintech App</h3>
+                                <p class="project-company">FinCore Solutions</p>
+                            </div>
+                            <div class="project-price">$5,000 – $8,000</div>
+                        </div>
+                        <p class="project-desc">Build the frontend for our financial dashboard. Strong TypeScript experience required. Must have worked with real-time data.</p>
+                        <div class="tags">
+                            <span class="tag">React</span>
+                            <span class="tag">TypeScript</span>
+                        </div>
+                        <div class="project-meta" style="margin-bottom: 20px;">
+                            <span><i data-lucide="file-text" style="width: 16px;"></i> 12 proposals</span>
+                            <span><i data-lucide="clock" style="width: 16px;"></i> 2 days ago</span>
+                            <span><i data-lucide="calendar" style="width: 16px;"></i> 3 weeks</span>
+                        </div>
+                        <a href="../login.html" class="btn btn-outline">Login to Apply</a>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <h3 style="color: var(--text-primary); cursor: pointer;">Mobile App UI Design — Healthcare Platform</h3>
+                                <p class="project-company">MedPath Inc.</p>
+                            </div>
+                            <div class="project-price">$3,000 – $4,000</div>
+                        </div>
+                        <p class="project-desc">Design a clean, accessible mobile UI for a patient-facing healthcare data platform. Wireframes to high-fidelity handoff.</p>
+                        <div class="tags">
+                            <span class="tag">Figma</span>
+                            <span class="tag">Prototyping</span>
+                            <span class="tag">UI/UX</span>
+                        </div>
+                        <div class="project-meta" style="margin-bottom: 20px;">
+                            <span><i data-lucide="file-text" style="width: 16px;"></i> 8 proposals</span>
+                            <span><i data-lucide="clock" style="width: 16px;"></i> 1 days ago</span>
+                            <span><i data-lucide="calendar" style="width: 16px;"></i> 4 weeks</span>
+                        </div>
+                        <a href="../login.html" class="btn btn-outline">Login to Apply</a>
+                    </div>
+                </div>
+
+                <div class="load-more">
+                    <button class="btn btn-outline">Load More Jobs</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 FreeMark. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

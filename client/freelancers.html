@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Freelancers - FreeMark</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/client/layout.css">
+    <link rel="stylesheet" href="../css/client/components.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <aside class="client-sidebar">
+        <!-- Sidebar identical -->
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+                FreeMark
+            </a>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="dashboard.html"><i data-lucide="layout-dashboard"></i> Overview</a></li>
+                <li><a href="post-project.html"><i data-lucide="plus-circle"></i> Post Project</a></li>
+                <li><a href="freelancers.html" class="active"><i data-lucide="users"></i> Freelancers</a></li>
+                <li><a href="proposals.html"><i data-lucide="file-text"></i> Proposals</a></li>
+                <li><a href="work-approval.html"><i data-lucide="check-square"></i> Work & Ratings</a></li>
+                <li><a href="chat.html"><i data-lucide="message-square"></i> Messages</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="client-main">
+        <header class="client-header">
+            <div class="header-title">
+                <h2>Browse Freelancers</h2>
+                <p>Find top talent sorted by verified skill test scores</p>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <select style="padding: 8px 15px; border-radius: 4px; border: 1px solid var(--border-color); background: var(--bg-primary); color: white;">
+                    <option>Filter by Skill</option>
+                    <option>React</option>
+                    <option>Node.js</option>
+                    <option>UI/UX</option>
+                </select>
+            </div>
+        </header>
+
+        <div class="client-content">
+            <div class="freelancer-list">
+                <!-- Freelancer 1 -->
+                <div class="freelancer-card">
+                    <div class="freelancer-header-info">
+                        <div class="freelancer-avatar purple">MS</div>
+                        <div class="freelancer-details">
+                            <h4>Md Sami</h4>
+                            <p>Full Stack Developer</p>
+                        </div>
+                    </div>
+                    <div class="skill-score">
+                        <span>React Fundamentals Test</span>
+                        <span>Score: 98/100</span>
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 15px;">Hourly Rate: $85/hr • Rating: 4.9★</p>
+                    <div style="display: flex; gap: 10px;">
+                        <a href="../guest/freelancer-profile.html" class="btn btn-outline" style="flex: 1; padding: 8px;">View Profile</a>
+                        <a href="hire.html" class="btn btn-primary" style="flex: 1; padding: 8px;">Invite to Job</a>
+                    </div>
+                </div>
+
+                <!-- Freelancer 2 -->
+                <div class="freelancer-card">
+                    <div class="freelancer-header-info">
+                        <div class="freelancer-avatar yellow">F</div>
+                        <div class="freelancer-details">
+                            <h4>Fuad</h4>
+                            <p>UI/UX Designer</p>
+                        </div>
+                    </div>
+                    <div class="skill-score">
+                        <span>UI/UX Principles Test</span>
+                        <span>Score: 95/100</span>
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 15px;">Hourly Rate: $85/hr • Rating: 4.8★</p>
+                    <div style="display: flex; gap: 10px;">
+                        <a href="../guest/freelancer-profile.html" class="btn btn-outline" style="flex: 1; padding: 8px;">View Profile</a>
+                        <a href="hire.html" class="btn btn-primary" style="flex: 1; padding: 8px;">Invite to Job</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

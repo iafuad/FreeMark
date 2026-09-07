@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milestone Details - FreeMark</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/client/layout.css">
+    <link rel="stylesheet" href="../css/client/components.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <aside class="client-sidebar">
+        <!-- Sidebar identical -->
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+                FreeMark
+            </a>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="dashboard.html"><i data-lucide="layout-dashboard"></i> Overview</a></li>
+                <li><a href="post-project.html"><i data-lucide="plus-circle"></i> Post Project</a></li>
+                <li><a href="freelancers.html"><i data-lucide="users"></i> Freelancers</a></li>
+                <li><a href="proposals.html"><i data-lucide="file-text"></i> Proposals</a></li>
+                <li><a href="work-approval.html" class="active"><i data-lucide="check-square"></i> Work & Ratings</a></li>
+                <li><a href="chat.html"><i data-lucide="message-square"></i> Messages</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="client-main">
+        <header class="client-header">
+            <div class="header-title">
+                <h2>Review Submission</h2>
+                <p>Milestone 2: Final API Integration (React Dashboard Implementation)</p>
+            </div>
+            <a href="work-approval.html" class="btn btn-outline">Back to Contracts</a>
+        </header>
+
+        <div class="client-content">
+            <div style="display: flex; gap: 30px; align-items: flex-start;">
+                
+                <!-- Submission Details -->
+                <div class="card" style="flex-grow: 1; max-width: 800px;">
+                    <div class="card-header">
+                        <h3>Submitted Work</h3>
+                    </div>
+                    <div class="card-body">
+                        
+                        <div style="background: var(--bg-primary); padding: 25px; border-radius: 6px; border: 1px solid var(--border-color); margin-bottom: 25px;">
+                            <h4 style="margin-top: 0; color: var(--text-primary); margin-bottom: 10px;">Message from Md Sami</h4>
+                            <p style="font-size: 0.95rem; color: #cbd5e1; line-height: 1.6;">
+                                Here is the final source code for the dashboard. All requested API integrations are complete, including the real-time websocket feed for the chart data.
+                                <br><br>
+                                I have also deployed a live staging version so you can click around and verify everything is working before downloading the source. Let me know if you need any revisions!
+                            </p>
+                            
+                            <h4 style="margin: 25px 0 10px 0; color: var(--text-primary); border-top: 1px solid var(--border-color); padding-top: 15px;">Attachments & Links</h4>
+                            <div style="display: flex; flex-direction: column; gap: 15px;">
+                                <a href="#" style="display: inline-flex; align-items: center; gap: 8px; color: var(--accent); text-decoration: none; padding: 10px 15px; background: rgba(250, 204, 21, 0.05); border: 1px solid rgba(250, 204, 21, 0.2); border-radius: 4px; width: fit-content;">
+                                    <i data-lucide="download" style="width: 18px;"></i> react-dashboard-final.zip
+                                </a>
+                                <a href="#" style="display: inline-flex; align-items: center; gap: 8px; color: var(--accent); text-decoration: none; padding: 10px 15px; background: rgba(250, 204, 21, 0.05); border: 1px solid rgba(250, 204, 21, 0.2); border-radius: 4px; width: fit-content;">
+                                    <i data-lucide="external-link" style="width: 18px;"></i> https://staging.fincore-dash.com
+                                </a>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 15px; border-top: 1px solid var(--border-color); padding-top: 25px;">
+                            <button class="btn" style="background: transparent; border: 1px solid #ef4444; color: #ef4444; padding: 10px 20px;">Request Changes</button>
+                            <button class="btn" style="background: #22c55e; color: #0f172a; padding: 10px 20px; font-weight: bold;">Approve & Pay $3,500</button>
+                        </div>
+
+                        <!-- Rating Form (shown post-approval in a real app, placed here for prototype) -->
+                        <div class="rating-form" style="margin-top: 40px; border-top: 2px dashed var(--border-color); padding-top: 30px;">
+                            <h3 style="margin-top: 0; margin-bottom: 5px;">Rate this Freelancer</h3>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 20px;">Your feedback helps other clients and improves the freelancer's profile.</p>
+                            
+                            <div class="stars" style="font-size: 2rem;">
+                                <span class="active">★</span><span class="active">★</span><span class="active">★</span><span class="active">★</span><span class="active">★</span>
+                            </div>
+                            
+                            <textarea placeholder="Write a public review about your experience working with Md Sami..." style="width: 100%; min-height: 100px; padding: 15px; background: var(--bg-primary); border: 1px solid var(--border-color); color: white; border-radius: 6px; margin-bottom: 20px; font-family: inherit;"></textarea>
+                            
+                            <button class="btn btn-primary">Submit Rating & Review</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Snapshot Sidebar -->
+                <div class="card" style="width: 320px; flex-shrink: 0;">
+                    <div class="card-header">
+                        <h3>Contract Overview</h3>
+                    </div>
+                    <div class="card-body">
+                        <h4 style="margin: 0 0 5px 0;">React Dashboard Implementation</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 20px;">Fixed Price Contract</p>
+                        
+                        <div style="border-top: 1px solid var(--border-color); padding-top: 15px; margin-bottom: 15px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <span style="color: var(--text-secondary); font-size: 0.9rem;">Total Budget:</span>
+                                <strong>$5,000</strong>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <span style="color: var(--text-secondary); font-size: 0.9rem;">Paid to Date:</span>
+                                <strong>$1,500</strong>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; color: var(--accent);">
+                                <span style="font-size: 0.9rem;">This Milestone:</span>
+                                <strong>$3,500</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

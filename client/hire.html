@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hire Freelancer - FreeMark</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/client/layout.css">
+    <link rel="stylesheet" href="../css/client/components.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <aside class="client-sidebar">
+        <!-- Sidebar identical -->
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+                FreeMark
+            </a>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="dashboard.html"><i data-lucide="layout-dashboard"></i> Overview</a></li>
+                <li><a href="post-project.html"><i data-lucide="plus-circle"></i> Post Project</a></li>
+                <li><a href="freelancers.html" class="active"><i data-lucide="users"></i> Freelancers</a></li>
+                <li><a href="proposals.html"><i data-lucide="file-text"></i> Proposals</a></li>
+                <li><a href="work-approval.html"><i data-lucide="check-square"></i> Work & Ratings</a></li>
+                <li><a href="chat.html"><i data-lucide="message-square"></i> Messages</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="client-main">
+        <header class="client-header">
+            <div class="header-title">
+                <h2>Hire Freelancer</h2>
+                <p>Send an offer or invite to Md Sami</p>
+            </div>
+            <a href="freelancers.html" class="btn btn-outline">Cancel</a>
+        </header>
+
+        <div class="client-content">
+            <div style="display: flex; gap: 30px; align-items: flex-start;">
+                
+                <!-- Hire Form -->
+                <div class="card" style="flex-grow: 1; max-width: 800px;">
+                    <div class="card-header">
+                        <h3>Contract Details</h3>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label>Related Job Posting</label>
+                                <select>
+                                    <option value="new">-- Create a new direct contract --</option>
+                                    <option value="job1">Senior React Developer for Fintech App</option>
+                                    <option value="job2">Mobile App Wireframing</option>
+                                </select>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Offer Type</label>
+                                    <select>
+                                        <option value="fixed">Fixed Price Project</option>
+                                        <option value="hourly">Hourly Rate</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Offer Amount ($)</label>
+                                    <input type="number" placeholder="e.g. 6000" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Message to Freelancer</label>
+                                <textarea placeholder="Describe the terms of the offer, outline the milestones, or just say hello..." required>Hi Sami, I reviewed your profile and test scores. I think you'd be a perfect fit for our upcoming React project. Please review this offer and let me know if you are interested!</textarea>
+                            </div>
+                            
+                            <div style="margin-top: 30px; border-top: 1px solid var(--border-color); padding-top: 20px;">
+                                <button type="button" class="btn btn-primary" style="width: 100%;">Send Offer</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Freelancer Snapshot -->
+                <div class="card" style="width: 320px; flex-shrink: 0;">
+                    <div class="card-header">
+                        <h3>Freelancer Snapshot</h3>
+                    </div>
+                    <div class="card-body" style="text-align: center;">
+                        <div style="width: 80px; height: 80px; border-radius: 50%; background: #3b82f6; color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: bold; margin: 0 auto 15px;">MS</div>
+                        <h4 style="margin: 0 0 5px 0; font-size: 1.2rem;">Md Sami</h4>
+                        <p style="margin: 0 0 15px 0; color: var(--text-secondary); font-size: 0.9rem;">Full Stack Developer</p>
+                        
+                        <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border-color);">
+                            <div>
+                                <div style="font-weight: bold;">4.9★</div>
+                                <div style="font-size: 0.8rem; color: var(--text-secondary);">Rating</div>
+                            </div>
+                            <div>
+                                <div style="font-weight: bold;">$85/hr</div>
+                                <div style="font-size: 0.8rem; color: var(--text-secondary);">Rate</div>
+                            </div>
+                        </div>
+
+                        <div style="text-align: left;">
+                            <div style="font-size: 0.85rem; color: #22c55e; font-weight: bold; margin-bottom: 5px;">Verified Skills:</div>
+                            <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 5px;">• React Fundamentals (Top 5%)</div>
+                            <div style="font-size: 0.85rem; color: var(--text-secondary);">• Advanced Node.js (Top 10%)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

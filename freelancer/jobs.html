@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Jobs - FreeMark</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/freelancer/layout.css">
+    <link rel="stylesheet" href="../css/freelancer/components.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <aside class="freelancer-sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+                FreeMark
+            </a>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="dashboard.html"><i data-lucide="layout-dashboard"></i> Overview</a></li>
+                <li><a href="profile.html"><i data-lucide="user"></i> My Profile</a></li>
+                <li><a href="jobs.html" class="active"><i data-lucide="briefcase"></i> Find Jobs</a></li>
+                <li><a href="tests.html"><i data-lucide="check-square"></i> Skill Tests</a></li>
+                <li><a href="work.html"><i data-lucide="upload-cloud"></i> My Contracts</a></li>
+                <li><a href="chat.html"><i data-lucide="message-square"></i> Messages</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="freelancer-main">
+        <header class="freelancer-header">
+            <div class="header-title">
+                <h2>Find Jobs</h2>
+                <p>Browse and apply for open projects</p>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" placeholder="Search jobs..." style="padding: 8px 15px; border-radius: 4px; border: 1px solid var(--border-color); background: var(--bg-primary); color: white;">
+                <button class="btn btn-primary">Search</button>
+            </div>
+        </header>
+
+        <div class="freelancer-content">
+            <div class="job-list">
+                <!-- Job 1 -->
+                <div class="job-item">
+                    <div class="job-info">
+                        <h4>Senior React Developer for Fintech App</h4>
+                        <p>FinCore Solutions • Fixed Price</p>
+                        <div class="job-meta">
+                            <span><i data-lucide="dollar-sign" style="width: 14px;"></i> $5,000 - $8,000</span>
+                            <span><i data-lucide="clock" style="width: 14px;"></i> 3 weeks</span>
+                            <span><i data-lucide="users" style="width: 14px;"></i> 12 proposals</span>
+                        </div>
+                    </div>
+                    <a href="apply.html" class="btn btn-primary">Apply Now</a>
+                </div>
+                
+                <!-- Job 2 -->
+                <div class="job-item">
+                    <div class="job-info">
+                        <h4>Backend API Development — E-commerce</h4>
+                        <p>ShopStream Ltd. • Hourly</p>
+                        <div class="job-meta">
+                            <span><i data-lucide="dollar-sign" style="width: 14px;"></i> $40 - $60 / hr</span>
+                            <span><i data-lucide="clock" style="width: 14px;"></i> 6 weeks</span>
+                            <span><i data-lucide="users" style="width: 14px;"></i> 20 proposals</span>
+                        </div>
+                    </div>
+                    <a href="apply.html" class="btn btn-primary">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

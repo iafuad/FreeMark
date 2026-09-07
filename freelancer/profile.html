@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - FreeMark</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/freelancer/layout.css">
+    <link rel="stylesheet" href="../css/freelancer/components.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <aside class="freelancer-sidebar">
+        <!-- Sidebar identical to dashboard -->
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
+                </svg>
+                FreeMark
+            </a>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="dashboard.html"><i data-lucide="layout-dashboard"></i> Overview</a></li>
+                <li><a href="profile.html" class="active"><i data-lucide="user"></i> My Profile</a></li>
+                <li><a href="jobs.html"><i data-lucide="briefcase"></i> Find Jobs</a></li>
+                <li><a href="tests.html"><i data-lucide="check-square"></i> Skill Tests</a></li>
+                <li><a href="work.html"><i data-lucide="upload-cloud"></i> My Contracts</a></li>
+                <li><a href="chat.html"><i data-lucide="message-square"></i> Messages</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="freelancer-main">
+        <header class="freelancer-header">
+            <div class="header-title">
+                <h2>My Profile</h2>
+                <p>Manage your public profile and portfolio</p>
+            </div>
+            <button class="btn btn-primary">Save Changes</button>
+        </header>
+
+        <div class="freelancer-content">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Basic Information</h3>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" value="Md Sami">
+                            </div>
+                            <div class="form-group">
+                                <label>Professional Title</label>
+                                <input type="text" value="Full Stack Developer">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Bio / Summary</label>
+                            <textarea>Experienced full-stack developer with a passion for building scalable web applications.</textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Portfolio & Links</h3>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label>GitHub Profile Link</label>
+                            <input type="url" placeholder="https://github.com/username" value="https://github.com/mdsami">
+                        </div>
+                        <div class="form-group">
+                            <label>Personal Portfolio Website</label>
+                            <input type="url" placeholder="https://yourportfolio.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Upload Portfolio Documents (PDF)</label>
+                            <input type="file" style="color: var(--text-primary);">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Skill Categories</h3>
+                </div>
+                <div class="card-body">
+                    <p style="color: var(--text-secondary); margin-bottom: 15px;">Select the categories that best describe your expertise.</p>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <label style="background: var(--bg-secondary); padding: 8px 15px; border-radius: 20px; border: 1px solid var(--accent); color: var(--accent); cursor: pointer;">
+                            <input type="checkbox" checked style="display:none;"> ✓ React
+                        </label>
+                        <label style="background: var(--bg-secondary); padding: 8px 15px; border-radius: 20px; border: 1px solid var(--accent); color: var(--accent); cursor: pointer;">
+                            <input type="checkbox" checked style="display:none;"> ✓ TypeScript
+                        </label>
+                        <label style="background: var(--bg-secondary); padding: 8px 15px; border-radius: 20px; border: 1px solid var(--border-color); cursor: pointer;">
+                            <input type="checkbox" style="display:none;"> Node.js
+                        </label>
+                        <label style="background: var(--bg-secondary); padding: 8px 15px; border-radius: 20px; border: 1px solid var(--border-color); cursor: pointer;">
+                            <input type="checkbox" style="display:none;"> UI/UX Design
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

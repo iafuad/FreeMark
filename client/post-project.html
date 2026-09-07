@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a Project - FreeMark</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/client/layout.css">
+    <link rel="stylesheet" href="../css/client/components.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <aside class="client-sidebar">
+        <!-- Sidebar identical -->
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+                FreeMark
+            </a>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="dashboard.html"><i data-lucide="layout-dashboard"></i> Overview</a></li>
+                <li><a href="post-project.html" class="active"><i data-lucide="plus-circle"></i> Post Project</a></li>
+                <li><a href="freelancers.html"><i data-lucide="users"></i> Freelancers</a></li>
+                <li><a href="proposals.html"><i data-lucide="file-text"></i> Proposals</a></li>
+                <li><a href="work-approval.html"><i data-lucide="check-square"></i> Work & Ratings</a></li>
+                <li><a href="chat.html"><i data-lucide="message-square"></i> Messages</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="client-main">
+        <header class="client-header">
+            <div class="header-title">
+                <h2>Post a Project</h2>
+                <p>Provide details to attract the best freelancers</p>
+            </div>
+        </header>
+
+        <div class="client-content">
+            <div class="card" style="max-width: 800px;">
+                <div class="card-header">
+                    <h3>Project Details</h3>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label>Project Title</label>
+                            <input type="text" placeholder="e.g. Need a full-stack developer for an e-commerce site">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Project Description</label>
+                            <textarea placeholder="Describe the scope of work, deliverables, and any specific requirements..."></textarea>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Required Skill Category</label>
+                                <select>
+                                    <option>Select a category</option>
+                                    <option>Frontend Developer</option>
+                                    <option>Backend Developer</option>
+                                    <option>UI/UX Design</option>
+                                    <option>ML Engineer</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Estimated Duration</label>
+                                <select>
+                                    <option>Less than 1 week</option>
+                                    <option>1-4 weeks</option>
+                                    <option>1-3 months</option>
+                                    <option>More than 3 months</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Budget Type</label>
+                                <select>
+                                    <option>Fixed Price</option>
+                                    <option>Hourly Rate</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Estimated Budget ($)</label>
+                                <input type="text" placeholder="e.g. 5000">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 30px; border-top: 1px solid var(--border-color); padding-top: 20px;">
+                            <button type="button" class="btn btn-primary" style="width: 100%;">Post Project</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

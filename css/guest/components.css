@@ -1,0 +1,140 @@
+/* Guest Components Styles */
+
+/* Page Layout with Filters */
+.browse-layout {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+/* Filter Sidebar */
+.filter-sidebar {
+    width: 280px;
+    flex-shrink: 0;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+}
+
+.filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+}
+
+.filter-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.filter-header button {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.filter-header button:hover {
+    color: var(--accent);
+}
+
+.filter-section {
+    margin-bottom: 25px;
+}
+
+.filter-section h4 {
+    margin: 0 0 10px 0;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.filter-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: var(--text-primary);
+}
+
+.filter-label input[type="checkbox"] {
+    accent-color: var(--accent);
+    width: 16px;
+    height: 16px;
+}
+
+.filter-input {
+    width: 100%;
+    padding: 8px 12px;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+/* Main Results Area */
+.results-area {
+    flex-grow: 1;
+}
+
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.results-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.results-sort {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.results-sort select {
+    padding: 8px 15px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-primary);
+    outline: none;
+}
+
+/* Specific List Adjustments */
+.guest-jobs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.guest-freelancers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Empty State / Load More */
+.load-more {
+    text-align: center;
+    margin-top: 40px;
+}

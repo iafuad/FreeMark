@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management - FreeMark Admin</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin/layout.css">
+    <link rel="stylesheet" href="../css/admin/components.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <aside class="admin-sidebar">
+        <!-- Sidebar content -->
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
+                </svg>
+                FreeMark Admin
+            </a>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="dashboard.html"><i data-lucide="layout-dashboard"></i> Overview</a></li>
+                <li><a href="approvals.html"><i data-lucide="check-circle"></i> Approvals</a></li>
+                <li><a href="skills.html"><i data-lucide="award"></i> Skill Categories</a></li>
+                <li><a href="quizzes.html"><i data-lucide="help-circle"></i> Quiz Banks</a></li>
+                <li><a href="users.html" class="active"><i data-lucide="users"></i> User Management</a></li>
+                <li><a href="reports.html"><i data-lucide="file-text"></i> Reports</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="admin-main">
+        <header class="admin-header">
+            <div class="header-title">
+                <h2>User Management</h2>
+                <p>Suspend fraudulent users and manage platform access</p>
+            </div>
+            <div class="form-inline" style="padding: 0; align-items: center;">
+                <input type="text" placeholder="Search users...">
+                <button class="btn btn-primary" style="padding: 10px 15px;"><i data-lucide="search" style="width: 18px;"></i></button>
+            </div>
+        </header>
+
+        <div class="admin-content">
+            <div class="admin-card">
+                <div class="card-header">
+                    <h3>Active Users</h3>
+                </div>
+                <div class="user-list">
+                    <div class="user-list-item">
+                        <div class="user-info">
+                            <div class="avatar yellow">TC</div>
+                            <div class="user-details">
+                                <h4>Towhid Chowdhury <span class="role-badge">Freelancer</span></h4>
+                                <p>Backend Developer - Bangladesh</p>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <button class="btn-sm btn-reject">Suspend</button>
+                        </div>
+                    </div>
+                    <div class="user-list-item">
+                        <div class="user-info">
+                            <div class="avatar purple">K</div>
+                            <div class="user-details">
+                                <h4>Kokhon <span class="role-badge">Client</span></h4>
+                                <p>Tech Station - Bangladesh</p>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <button class="btn-sm btn-reject">Suspend</button>
+                        </div>
+                    </div>
+                    <div class="user-list-item">
+                        <div class="user-info">
+                            <div class="avatar yellow">TR</div>
+                            <div class="user-details">
+                                <h4>Towhid Rahman <span class="role-badge">Freelancer</span></h4>
+                                <p>UI/UX Design - Bangladesh</p>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <button class="btn-sm btn-reject">Suspend</button>
+                        </div>
+                    </div>
+                    <div class="user-list-item" style="background-color: rgba(239, 68, 68, 0.05);">
+                        <div class="user-info">
+                            <div class="avatar gray">NN</div>
+                            <div class="user-details">
+                                <h4>Nafee Nusair <span class="role-badge" style="background-color: rgba(239, 68, 68, 0.2); color: #ef4444;">Suspended</span></h4>
+                                <p>ML - Bangladesh</p>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <button class="btn-sm btn-approve">Activate</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

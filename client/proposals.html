@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Proposals - FreeMark</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/client/layout.css">
+    <link rel="stylesheet" href="../css/client/components.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <aside class="client-sidebar">
+        <!-- Sidebar identical -->
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+                FreeMark
+            </a>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="dashboard.html"><i data-lucide="layout-dashboard"></i> Overview</a></li>
+                <li><a href="post-project.html"><i data-lucide="plus-circle"></i> Post Project</a></li>
+                <li><a href="freelancers.html"><i data-lucide="users"></i> Freelancers</a></li>
+                <li><a href="proposals.html" class="active"><i data-lucide="file-text"></i> Proposals</a></li>
+                <li><a href="work-approval.html"><i data-lucide="check-square"></i> Work & Ratings</a></li>
+                <li><a href="chat.html"><i data-lucide="message-square"></i> Messages</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="client-main">
+        <header class="client-header">
+            <div class="header-title">
+                <h2>Review Proposals</h2>
+                <p>Review and hire applicants for your projects</p>
+            </div>
+            <select style="padding: 8px 15px; border-radius: 4px; border: 1px solid var(--border-color); background: var(--bg-primary); color: white;">
+                <option>Filter by Project: Mobile App UI Design</option>
+            </select>
+        </header>
+
+        <div class="client-content">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Proposals for "Mobile App UI Design"</h3>
+                    <span style="color: var(--text-secondary); font-size: 0.9rem;">8 Proposals</span>
+                </div>
+                <div class="card-body" style="padding: 0;">
+                    
+                    <!-- Proposal 1 -->
+                    <div class="proposal-item">
+                        <div style="flex-grow: 1; padding-right: 20px;">
+                            <div class="proposal-info">
+                                <h4>Fuad (UI/UX Designer)</h4>
+                            </div>
+                            <div class="proposal-meta">
+                                <span>Requested Rate: $3,500</span> • 
+                                <span>Estimated Time: 3 weeks</span> • 
+                                <span style="color: #22c55e;">Skill Test Score: 95/100</span>
+                            </div>
+                            <div class="proposal-content">
+                                Hi, I have extensive experience designing healthcare mobile applications. I've attached my portfolio with similar wireframes. I can deliver high-fidelity designs within 3 weeks.
+                            </div>
+                        </div>
+                        <div class="proposal-actions">
+                            <a href="review-proposal.html" class="btn btn-primary" style="padding: 8px; text-align: center; text-decoration: none;">Review</a>
+                            <a href="chat.html" class="btn btn-outline" style="padding: 8px; text-align: center; border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none;">Message</a>
+                        </div>
+                    </div>
+
+                    <!-- Proposal 2 -->
+                    <div class="proposal-item">
+                        <div style="flex-grow: 1; padding-right: 20px;">
+                            <div class="proposal-info">
+                                <h4>Towhid (Product Designer)</h4>
+                            </div>
+                            <div class="proposal-meta">
+                                <span>Requested Rate: $4,000</span> • 
+                                <span>Estimated Time: 4 weeks</span> • 
+                                <span style="color: #22c55e;">Skill Test Score: 90/100</span>
+                            </div>
+                            <div class="proposal-content">
+                                I specialize in patient-facing UI. My approach focuses on accessibility and clear typography. Check out my GitHub for some open-source UI components I've built.
+                            </div>
+                        </div>
+                        <div class="proposal-actions">
+                            <a href="review-proposal.html" class="btn btn-primary" style="padding: 8px; text-align: center; text-decoration: none;">Review</a>
+                            <a href="chat.html" class="btn btn-outline" style="padding: 8px; text-align: center; border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none;">Message</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - FreeMark Admin</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin/layout.css">
+    <link rel="stylesheet" href="../css/admin/components.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <aside class="admin-sidebar">
+        <!-- Sidebar content -->
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
+                </svg>
+                FreeMark Admin
+            </a>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="dashboard.html"><i data-lucide="layout-dashboard"></i> Overview</a></li>
+                <li><a href="approvals.html"><i data-lucide="check-circle"></i> Approvals</a></li>
+                <li><a href="skills.html"><i data-lucide="award"></i> Skill Categories</a></li>
+                <li><a href="quizzes.html"><i data-lucide="help-circle"></i> Quiz Banks</a></li>
+                <li><a href="users.html"><i data-lucide="users"></i> User Management</a></li>
+                <li><a href="reports.html" class="active"><i data-lucide="file-text"></i> Reports</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="admin-main">
+        <header class="admin-header">
+            <div class="header-title">
+                <h2>Reports & Analytics</h2>
+                <p>Generate PDF reports and view platform statistics</p>
+            </div>
+        </header>
+
+        <div class="admin-content">
+            <div class="reports-grid">
+                <div class="report-card">
+                    <h4><i data-lucide="users"></i> User Report</h4>
+                    <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.9rem;">Comprehensive data on registered freelancers and clients.</p>
+                    <button class="btn btn-primary">Generate PDF</button>
+                </div>
+                <div class="report-card">
+                    <h4><i data-lucide="briefcase"></i> Project Report</h4>
+                    <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.9rem;">Statistics on open, ongoing, and completed projects.</p>
+                    <button class="btn btn-primary">Generate PDF</button>
+                </div>
+                <div class="report-card">
+                    <h4><i data-lucide="trending-up"></i> Monthly Revenue Report</h4>
+                    <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.9rem;">Platform earnings and transaction volumes per month.</p>
+                    <button class="btn btn-primary">Generate PDF</button>
+                </div>
+                <div class="report-card">
+                    <h4><i data-lucide="credit-card"></i> Payment Report</h4>
+                    <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.9rem;">Detailed logs of payouts to freelancers.</p>
+                    <button class="btn btn-primary">Generate PDF</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

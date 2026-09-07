@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - FreeMark</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin/layout.css">
+    <link rel="stylesheet" href="../css/admin/components.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
+                </svg>
+                FreeMark Admin
+            </a>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="dashboard.html" class="active"><i data-lucide="layout-dashboard"></i> Overview</a></li>
+                <li><a href="approvals.html"><i data-lucide="check-circle"></i> Approvals</a></li>
+                <li><a href="skills.html"><i data-lucide="award"></i> Skill Categories</a></li>
+                <li><a href="quizzes.html"><i data-lucide="help-circle"></i> Quiz Banks</a></li>
+                <li><a href="users.html"><i data-lucide="users"></i> User Management</a></li>
+                <li><a href="reports.html"><i data-lucide="file-text"></i> Reports</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="../index.html" style="color: var(--text-secondary); text-decoration: none; display: flex; align-items: center; gap: 10px;">
+                <i data-lucide="log-out"></i> Logout
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+        <header class="admin-header">
+            <div class="header-title">
+                <h2>Admin Dashboard</h2>
+                <p>Platform management & analytics</p>
+            </div>
+            <a href="../index.html" class="btn btn-primary" style="display: flex; align-items: center; gap: 8px;">
+                <i data-lucide="home" style="width: 18px;"></i> Back to Home
+            </a>
+        </header>
+
+        <div class="admin-content">
+            <!-- Sleek Stats Grid -->
+            <div class="sleek-stats-grid">
+                <div class="sleek-stat-card">
+                    <div class="sleek-stat-header">
+                        <span class="sleek-stat-title">Total Users</span>
+                        <div class="sleek-stat-icon icon-blue"><i data-lucide="users"></i></div>
+                    </div>
+                    <div class="sleek-stat-value">4,000</div>
+                    <div class="sleek-stat-trend trend-up"><i data-lucide="trending-up"></i> +5% this week</div>
+                </div>
+                
+                <div class="sleek-stat-card">
+                    <div class="sleek-stat-header">
+                        <span class="sleek-stat-title">Active Projects</span>
+                        <div class="sleek-stat-icon icon-purple"><i data-lucide="briefcase"></i></div>
+                    </div>
+                    <div class="sleek-stat-value">5,600</div>
+                    <div class="sleek-stat-trend trend-up"><i data-lucide="trending-up"></i> +12% this week</div>
+                </div>
+                
+                <div class="sleek-stat-card">
+                    <div class="sleek-stat-header">
+                        <span class="sleek-stat-title">Total Revenue</span>
+                        <div class="sleek-stat-icon icon-yellow"><i data-lucide="dollar-sign"></i></div>
+                    </div>
+                    <div class="sleek-stat-value">$400K</div>
+                    <div class="sleek-stat-trend trend-up"><i data-lucide="trending-up"></i> +8% this month</div>
+                </div>
+
+                <div class="sleek-stat-card">
+                    <div class="sleek-stat-header">
+                        <span class="sleek-stat-title">Completed Jobs</span>
+                        <div class="sleek-stat-icon icon-green"><i data-lucide="check-circle"></i></div>
+                    </div>
+                    <div class="sleek-stat-value">3,000</div>
+                    <div class="sleek-stat-trend trend-neutral"><i data-lucide="minus"></i> Steady</div>
+                </div>
+            </div>
+
+            <!-- Recent Approvals Snapshot -->
+            <div class="admin-card">
+                <div class="card-header">
+                    <h3>Recent Pending Approvals</h3>
+                    <a href="approvals.html">View all &rightarrow;</a>
+                </div>
+                <div class="user-list">
+                    <div class="user-list-item">
+                        <div class="user-info">
+                            <div class="avatar yellow">TC</div>
+                            <div class="user-details">
+                                <h4>Towhid Chowdhury <span class="role-badge">Freelancer</span></h4>
+                                <p>Backend Developer - Bangladesh - 2 hours ago</p>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <button class="btn-sm btn-approve">Approve</button>
+                            <button class="btn-sm btn-reject">Reject</button>
+                        </div>
+                    </div>
+                    <div class="user-list-item">
+                        <div class="user-info">
+                            <div class="avatar purple">K</div>
+                            <div class="user-details">
+                                <h4>Kokhon <span class="role-badge">Client</span></h4>
+                                <p>Tech Station - Bangladesh - 4 hours ago</p>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <button class="btn-sm btn-approve">Approve</button>
+                            <button class="btn-sm btn-reject">Reject</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

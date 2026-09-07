@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreeMark - Freelance Marketplace</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Load Lucide Icons for simple SVGs -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
+                </svg>
+                FreeMark
+            </a>
+            
+            <nav class="nav-links">
+                <a href="guest/jobs.html">Guest</a>
+                <a href="freelancer/dashboard.html">Freelancer</a>
+                <a href="client/dashboard.html">Client</a>
+                <a href="admin/dashboard.html">Admin</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="login.html?role=freelancer" class="btn btn-outline">Login/Sign up as Freelancer</a>
+                <a href="login.html?role=client" class="btn btn-primary">Login/Sign up as Client</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero container">
+            <h1>Hire the best.<br><span class="highlight">Verified by skill.</span></h1>
+            
+            <div class="search-bar">
+                <i data-lucide="search"></i>
+                <input type="text" placeholder="Search Full stack developers, UI/UX designers, ML Engineers.....">
+                <button class="btn btn-primary">Search</button>
+            </div>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <h3>8,400+</h3>
+                    <p>Freelancers</p>
+                </div>
+                <div class="stat-item">
+                    <h3>5,600+</h3>
+                    <p>Projects completed</p>
+                </div>
+                <div class="stat-item">
+                    <h3>$2.8M+</h3>
+                    <p>Paid out</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4.8★</h3>
+                    <p>Avg. rating</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <h2 class="section-title">Open Projects</h2>
+            <div class="projects-list">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3>Senior React Developer for Fintech App</h3>
+                            <p class="project-company">FinCore Solutions</p>
+                        </div>
+                        <div class="project-price">$5,000 – $8,000</div>
+                    </div>
+                    <p class="project-desc">Build the frontend for our financial dashboard. Strong TypeScript experience required. Must have worked with real-time data.</p>
+                    <div class="tags">
+                        <span class="tag">React</span>
+                        <span class="tag">TypeScript</span>
+                    </div>
+                    <div class="project-meta">
+                        <span><i data-lucide="file-text" style="width: 16px;"></i> 12 proposals</span>
+                        <span><i data-lucide="clock" style="width: 16px;"></i> 2 days ago</span>
+                        <span><i data-lucide="calendar" style="width: 16px;"></i> 3 weeks</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3>Mobile App UI Design — Healthcare Platform</h3>
+                            <p class="project-company">MedPath Inc.</p>
+                        </div>
+                        <div class="project-price">$3,000 – $4,000</div>
+                    </div>
+                    <p class="project-desc">Design a clean, accessible mobile UI for a patient-facing healthcare data platform. Wireframes to high-fidelity handoff.</p>
+                    <div class="tags">
+                        <span class="tag">Figma</span>
+                        <span class="tag">Prototyping</span>
+                        <span class="tag">UI/UX</span>
+                    </div>
+                    <div class="project-meta">
+                        <span><i data-lucide="file-text" style="width: 16px;"></i> 8 proposals</span>
+                        <span><i data-lucide="clock" style="width: 16px;"></i> 1 days ago</span>
+                        <span><i data-lucide="calendar" style="width: 16px;"></i> 4 weeks</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3>Backend API Development — E-commerce</h3>
+                            <p class="project-company">ShopStream Ltd.</p>
+                        </div>
+                        <div class="project-price">$5,000 – $6,000</div>
+                    </div>
+                    <p class="project-desc">Scalable REST API for a next-gen e-commerce platform. Payments, inventory, and order management endpoints.</p>
+                    <div class="tags">
+                        <span class="tag">Node.js</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">REST</span>
+                    </div>
+                    <div class="project-meta">
+                        <span><i data-lucide="file-text" style="width: 16px;"></i> 20 proposals</span>
+                        <span><i data-lucide="clock" style="width: 16px;"></i> 3 days ago</span>
+                        <span><i data-lucide="calendar" style="width: 16px;"></i> 6 weeks</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <h2 class="section-title">Top Freelancers</h2>
+            <div class="freelancers-grid">
+                <!-- Freelancer 1 -->
+                <div class="freelancer-card">
+                    <div class="freelancer-top">
+                        <div class="freelancer-info">
+                            <div class="avatar">MS</div>
+                            <div>
+                                <div class="freelancer-name">Md Sami</div>
+                                <div class="freelancer-title">Full Stack Developer<br>📍 Bangladesh</div>
+                            </div>
+                        </div>
+                        <div class="rank">#1</div>
+                    </div>
+                    <div class="freelancer-stats">
+                        <div class="rating">
+                            <span>🏅 97</span>
+                            <span>★ 4.9</span>
+                        </div>
+                        <div class="rate">$85/hr</div>
+                    </div>
+                    <div class="tags" style="margin-bottom: 25px;">
+                        <span class="tag">React</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">PostgreSQL</span>
+                    </div>
+                    <a href="freelancer/profile.html" class="btn btn-outline">View Profile</a>
+                </div>
+
+                <!-- Freelancer 2 -->
+                <div class="freelancer-card">
+                    <div class="freelancer-top">
+                        <div class="freelancer-info">
+                            <div class="avatar purple">F</div>
+                            <div>
+                                <div class="freelancer-name">Fuad</div>
+                                <div class="freelancer-title">Figma Design<br>📍 Bangladesh</div>
+                            </div>
+                        </div>
+                        <div class="rank">#2</div>
+                    </div>
+                    <div class="freelancer-stats">
+                        <div class="rating">
+                            <span>🏅 95</span>
+                            <span>★ 4.8</span>
+                        </div>
+                        <div class="rate">$85/hr</div>
+                    </div>
+                    <div class="tags" style="margin-bottom: 25px;">
+                        <span class="tag">Figma</span>
+                        <span class="tag">UI/UX</span>
+                        <span class="tag">HTML/CSS</span>
+                    </div>
+                    <a href="freelancer/profile.html" class="btn btn-outline">View Profile</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 FreeMark. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

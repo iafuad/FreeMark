@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Editor - FreeMark Admin</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin/layout.css">
+    <link rel="stylesheet" href="../css/admin/components.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .question-block {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+        .question-header h4 { margin: 0; color: var(--accent); }
+        .options-list { margin-top: 15px; }
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .option-item input[type="radio"] {
+            accent-color: var(--accent);
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .form-group input[type="text"], .form-group textarea, .form-group select, .option-item input[type="text"] {
+            width: 100%;
+            padding: 10px 15px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            border-radius: 4px;
+        }
+        .option-item input[type="text"]:focus, .form-group input[type="text"]:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <aside class="admin-sidebar">
+        <!-- Sidebar content -->
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
+                </svg>
+                FreeMark Admin
+            </a>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="dashboard.html"><i data-lucide="layout-dashboard"></i> Overview</a></li>
+                <li><a href="approvals.html"><i data-lucide="check-circle"></i> Approvals</a></li>
+                <li><a href="skills.html"><i data-lucide="award"></i> Skill Categories</a></li>
+                <li><a href="quizzes.html" class="active"><i data-lucide="help-circle"></i> Quiz Banks</a></li>
+                <li><a href="users.html"><i data-lucide="users"></i> User Management</a></li>
+                <li><a href="reports.html"><i data-lucide="file-text"></i> Reports</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="admin-main">
+        <header class="admin-header">
+            <div class="header-title">
+                <h2>Editing Quiz: UI/UX Design</h2>
+                <p>Add, edit, or remove questions from this test bank</p>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <a href="quizzes.html" class="btn btn-outline" style="text-decoration: none;">Cancel</a>
+                <button class="btn btn-primary">Save Changes</button>
+            </div>
+        </header>
+
+        <div class="admin-content">
+            <div class="admin-card">
+                <div class="card-header">
+                    <h3>Quiz Settings</h3>
+                </div>
+                <div style="padding: 20px;">
+                    <div style="display: flex; gap: 20px; margin-bottom: 20px;">
+                        <div class="form-group" style="flex: 2;">
+                            <label>Quiz Title</label>
+                            <input type="text" value="UI/UX Design">
+                        </div>
+                        <div class="form-group" style="flex: 1;">
+                            <label>Passing Score (%)</label>
+                            <input type="text" value="70">
+                        </div>
+                        <div class="form-group" style="flex: 1;">
+                            <label>Time Limit (minutes)</label>
+                            <input type="text" value="45">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-card">
+                <div class="card-header">
+                    <h3>Questions (20)</h3>
+                    <button class="btn-sm btn-outline">+ Add Question</button>
+                </div>
+                <div style="padding: 20px;">
+                    
+                    <!-- Question 1 -->
+                    <div class="question-block">
+                        <div class="question-header">
+                            <h4>Question 1</h4>
+                            <div>
+                                <button class="btn-sm" style="color: #60a5fa; border: none; background: none; cursor: pointer;"><i data-lucide="copy" style="width: 16px;"></i></button>
+                                <button class="btn-sm" style="color: #ef4444; border: none; background: none; cursor: pointer;"><i data-lucide="trash-2" style="width: 16px;"></i></button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="2">What is the primary purpose of a wireframe in the UX design process?</textarea>
+                        </div>
+                        <div class="options-list">
+                            <div class="option-item">
+                                <input type="radio" name="q1" checked>
+                                <input type="text" value="To establish the structure and layout of information without visual design details.">
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" name="q1">
+                                <input type="text" value="To show the client exactly how the final product will look with colors and typography.">
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" name="q1">
+                                <input type="text" value="To write the underlying HTML and CSS structure for the developers.">
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" name="q1">
+                                <input type="text" value="To map out the database schema for the backend team.">
+                            </div>
+                        </div>
+                        <button class="btn-sm btn-outline" style="margin-top: 10px;">+ Add Option</button>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="question-block">
+                        <div class="question-header">
+                            <h4>Question 2</h4>
+                            <div>
+                                <button class="btn-sm" style="color: #60a5fa; border: none; background: none; cursor: pointer;"><i data-lucide="copy" style="width: 16px;"></i></button>
+                                <button class="btn-sm" style="color: #ef4444; border: none; background: none; cursor: pointer;"><i data-lucide="trash-2" style="width: 16px;"></i></button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="2">Which of the following is NOT a fundamental principle of Gestalt psychology as applied to UI design?</textarea>
+                        </div>
+                        <div class="options-list">
+                            <div class="option-item">
+                                <input type="radio" name="q2">
+                                <input type="text" value="Proximity">
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" name="q2">
+                                <input type="text" value="Similarity">
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" name="q2" checked>
+                                <input type="text" value="Saturation">
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" name="q2">
+                                <input type="text" value="Continuity">
+                            </div>
+                        </div>
+                        <button class="btn-sm btn-outline" style="margin-top: 10px;">+ Add Option</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>lucide.createIcons();</script>
+</body>
+</html>
