@@ -20,7 +20,7 @@
             
             <nav class="nav-links">
                 <a href="jobs.html">Find Jobs</a>
-                <a href="freelancers.html" style="color: var(--accent);">Find Freelancers</a>
+                <a href="freelancers.html" class="nav-active">Find Freelancers</a>
             </nav>
 
             <div class="nav-actions">
@@ -32,7 +32,6 @@
 
     <main class="container">
         <div class="browse-layout">
-            <!-- Filter Sidebar -->
             <aside class="filter-sidebar">
                 <div class="filter-header">
                     <h3>Filters</h3>
@@ -41,9 +40,9 @@
                 
                 <div class="filter-section">
                     <h4>Search</h4>
-                    <div style="position: relative;">
+                    <div class="search-input-wrapper">
                         <input type="text" class="filter-input" placeholder="Search by name or keyword...">
-                        <i data-lucide="search" style="position: absolute; right: 10px; top: 10px; width: 16px; color: var(--text-secondary);"></i>
+                        <i data-lucide="search" class="search-icon"></i>
                     </div>
                 </div>
 
@@ -77,12 +76,11 @@
                 </div>
             </aside>
 
-            <!-- Results Area -->
             <div class="results-area">
                 <div class="results-header">
                     <h2>Talent matching your criteria</h2>
                     <div class="results-sort">
-                        <span style="color: var(--text-secondary); font-size: 0.9rem;">Sort by:</span>
+                        <span class="sort-label">Sort by:</span>
                         <select>
                             <option>Highest Rated</option>
                             <option>Most Projects Completed</option>
@@ -92,7 +90,6 @@
                 </div>
 
                 <div class="guest-freelancers-grid freelancers-grid">
-                    <!-- Freelancer 1 -->
                     <div class="freelancer-card">
                         <div class="freelancer-top">
                             <div class="freelancer-info">
@@ -110,18 +107,17 @@
                             </div>
                             <div class="rate">$85/hr</div>
                         </div>
-                        <div class="tags" style="margin-bottom: 25px;">
+                        <div class="tags card-tags">
                             <span class="tag">React</span>
                             <span class="tag">TypeScript</span>
                             <span class="tag">Node.js</span>
                         </div>
-                        <div style="display: flex; gap: 10px;">
-                            <a href="freelancer-profile.html" class="btn btn-outline" style="flex: 1; text-align: center;">View Profile</a>
-                            <a href="../login.html" class="btn btn-primary" style="flex: 1; text-align: center;">Hire</a>
+                        <div class="card-actions">
+                            <a href="freelancer-profile.html" class="btn btn-outline btn-full">View Profile</a>
+                            <a href="../login.html" class="btn btn-primary btn-full">Hire</a>
                         </div>
                     </div>
 
-                    <!-- Freelancer 2 -->
                     <div class="freelancer-card">
                         <div class="freelancer-top">
                             <div class="freelancer-info">
@@ -139,14 +135,14 @@
                             </div>
                             <div class="rate">$85/hr</div>
                         </div>
-                        <div class="tags" style="margin-bottom: 25px;">
+                        <div class="tags card-tags">
                             <span class="tag">Figma</span>
                             <span class="tag">UI/UX</span>
                             <span class="tag">HTML/CSS</span>
                         </div>
-                        <div style="display: flex; gap: 10px;">
-                            <a href="../login.html" class="btn btn-outline" style="flex: 1; text-align: center;">View Profile</a>
-                            <a href="../login.html" class="btn btn-primary" style="flex: 1; text-align: center;">Hire</a>
+                        <div class="card-actions">
+                            <a href="../login.html" class="btn btn-outline btn-full">View Profile</a>
+                            <a href="../login.html" class="btn btn-primary btn-full">Hire</a>
                         </div>
                     </div>
                 </div>

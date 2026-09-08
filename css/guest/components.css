@@ -1,6 +1,3 @@
-/* Guest Components Styles */
-
-/* Page Layout with Filters */
 .browse-layout {
     display: flex;
     gap: 30px;
@@ -8,7 +5,22 @@
     margin-bottom: 60px;
 }
 
-/* Filter Sidebar */
+.job-detail-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 30px;
+    margin: 40px 0 60px;
+    align-items: flex-start;
+}
+
+.back-navigation-wrapper {
+    margin-top: 30px;
+}
+
+.nav-links a.nav-active {
+    color: var(--accent);
+}
+
 .filter-sidebar {
     width: 280px;
     flex-shrink: 0;
@@ -78,6 +90,10 @@
     height: 16px;
 }
 
+.search-input-wrapper {
+    position: relative;
+}
+
 .filter-input {
     width: 100%;
     padding: 8px 12px;
@@ -88,7 +104,14 @@
     margin-bottom: 10px;
 }
 
-/* Main Results Area */
+.search-icon {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 16px;
+    color: var(--text-secondary);
+}
+
 .results-area {
     flex-grow: 1;
 }
@@ -111,6 +134,11 @@
     gap: 10px;
 }
 
+.sort-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
 .results-sort select {
     padding: 8px 15px;
     background-color: var(--bg-card);
@@ -120,11 +148,33 @@
     outline: none;
 }
 
-/* Specific List Adjustments */
 .guest-jobs-list {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+.project-title-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.project-meta {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 15px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.card-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-full {
+    flex: 1;
+    text-align: center;
 }
 
 .guest-freelancers-grid {
@@ -133,7 +183,247 @@
     gap: 20px;
 }
 
-/* Empty State / Load More */
+.job-detail-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 35px;
+}
+
+.job-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.job-header-top h1 {
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.job-client-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.job-budget-box {
+    text-align: right;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.job-budget-box .amount {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.job-budget-box .type {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.job-meta-pills {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.meta-pill-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: #cbd5e1;
+}
+
+.meta-pill-item i {
+    color: var(--accent);
+    width: 20px;
+    height: 20px;
+}
+
+.meta-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.job-section-title {
+    font-size: 1.15rem;
+    color: var(--text-primary);
+    margin: 25px 0 12px 0;
+}
+
+.job-body-text {
+    color: #cbd5e1;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.job-responsibilities-list {
+    padding-left: 20px;
+    list-style: disc;
+    margin-bottom: 25px;
+}
+
+.job-action-footer {
+    padding-top: 25px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.job-sidebar-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.sidebar-client-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.client-name {
+    margin: 0 0 4px 0;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.client-category {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.client-avatar-sq {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    background: rgba(250, 204, 21, 0.15);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border: 1px solid rgba(250, 204, 21, 0.3);
+}
+
+.client-stats-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    margin-bottom: 20px;
+}
+
+.client-stat-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card-guarantee {
+    border-color: rgba(250, 204, 21, 0.3);
+    background: rgba(250, 204, 21, 0.03);
+}
+
+.guarantee-title {
+    margin: 0 0 10px 0;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.guarantee-text {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.icon-sm {
+    width: 14px;
+}
+
+.icon-inline {
+    width: 16px;
+    display: inline;
+    vertical-align: middle;
+}
+
+.icon-success {
+    width: 16px;
+    color: #22c55e;
+}
+
+.icon-star {
+    width: 16px;
+    color: var(--accent);
+    fill: var(--accent);
+}
+
+.icon-secondary {
+    width: 16px;
+    color: var(--text-secondary);
+}
+
+.icon-shield {
+    width: 18px;
+}
+
+.text-success {
+    color: #22c55e;
+}
+
+.btn-back {
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-apply {
+    padding: 12px 30px;
+    font-size: 1rem;
+}
+
+.btn-save {
+    padding: 12px 20px;
+}
+
+.btn-full-width {
+    width: 100%;
+    text-align: center;
+}
+
+.card-tags {
+    margin-bottom: 35px;
+}
+
 .load-more {
     text-align: center;
     margin-top: 40px;

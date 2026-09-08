@@ -28,7 +28,6 @@
 
     <main class="container">
         <div class="profile-layout">
-            <!-- Sidebar -->
             <aside class="profile-sidebar">
                 <div class="profile-card">
                     <div class="profile-avatar-large purple">FC</div>
@@ -52,24 +51,23 @@
 
                     <div class="profile-details-list">
                         <div class="detail-item">
-                            <i data-lucide="map-pin" style="width: 18px;"></i>
+                            <i data-lucide="map-pin" class="detail-icon"></i>
                             <span>New York, USA</span>
                         </div>
                         <div class="detail-item">
-                            <i data-lucide="calendar" style="width: 18px;"></i>
+                            <i data-lucide="calendar" class="detail-icon"></i>
                             <span>Member since 2023</span>
                         </div>
                         <div class="detail-item">
-                            <i data-lucide="dollar-sign" style="width: 18px;"></i>
+                            <i data-lucide="dollar-sign" class="detail-icon"></i>
                             <span>$150k+ Total Spent</span>
                         </div>
                     </div>
 
-                    <button class="btn btn-primary" style="width: 100%; margin-bottom: 10px;">View Open Jobs</button>
+                    <button class="btn btn-primary sidebar-action-btn">View Open Jobs</button>
                 </div>
             </aside>
 
-            <!-- Main Content -->
             <div class="profile-main">
                 <div class="section-card">
                     <h3>About the Company</h3>
@@ -84,12 +82,12 @@
                     <div class="history-list">
                         <div class="history-item">
                             <div class="history-header">
-                                <h4 style="color: var(--text-primary); cursor: pointer;">Senior React Developer for Fintech App</h4>
-                                <div style="color: var(--text-secondary); font-size: 0.9rem;">$5,000 – $8,000</div>
+                                <h4 class="item-title item-title--clickable">Senior React Developer for Fintech App</h4>
+                                <div class="job-budget">$5,000 – $8,000</div>
                             </div>
-                            <div style="margin-top: 10px; display: flex; gap: 10px;">
-                                <span style="background-color: var(--bg-secondary); padding: 5px 12px; border-radius: 4px; font-size: 0.8rem; color: var(--text-secondary);">React</span>
-                                <span style="background-color: var(--bg-secondary); padding: 5px 12px; border-radius: 4px; font-size: 0.8rem; color: var(--text-secondary);">TypeScript</span>
+                            <div class="job-tags">
+                                <span class="job-tag">React</span>
+                                <span class="job-tag">TypeScript</span>
                             </div>
                         </div>
                     </div>
@@ -100,18 +98,18 @@
                     <div class="history-list">
                         <div class="history-item">
                             <div class="history-header">
-                                <h4 style="color: var(--text-primary);">Financial Dashboard UI React Components</h4>
+                                <h4 class="item-title">Financial Dashboard UI React Components</h4>
                                 <div class="review-stars">★★★★★ 5.0</div>
                             </div>
-                            <div style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 10px;">Completed: Nov 2025</div>
+                            <div class="review-date">Completed: Nov 2025</div>
                             <div class="review-text">"Excellent client to work for. Very clear requirements, fast communication, and prompt payment. Would love to work with FinCore again!" - Md Sami</div>
                         </div>
                         <div class="history-item">
                             <div class="history-header">
-                                <h4 style="color: var(--text-primary);">Mobile App Wireframes</h4>
+                                <h4 class="item-title">Mobile App Wireframes</h4>
                                 <div class="review-stars">★★★★☆ 4.0</div>
                             </div>
-                            <div style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 10px;">Completed: Aug 2025</div>
+                            <div class="review-date">Completed: Aug 2025</div>
                             <div class="review-text">"Good experience overall. The project scope shifted slightly midway, but they were very fair in compensating for the extra hours." - Sarah J.</div>
                         </div>
                     </div>
