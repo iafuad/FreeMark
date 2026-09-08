@@ -410,3 +410,106 @@
     gap: 10px;
     flex-shrink: 0;
 }
+
+/* Smart Job Recommendations */
+.smart-banner {
+    background: linear-gradient(90deg, rgba(250, 204, 21, 0.1) 0%, rgba(30, 41, 59, 0.7) 100%);
+    border: 1px solid rgba(250, 204, 21, 0.25);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.smart-banner-text h4 {
+    margin: 0 0 4px 0;
+    color: var(--accent);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.smart-banner-text p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #cbd5e1;
+}
+
+.smart-filter-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.smart-tab {
+    padding: 8px 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.smart-tab:hover {
+    border-color: var(--accent);
+    color: var(--text-primary);
+}
+
+.smart-tab.active {
+    background: rgba(250, 204, 21, 0.12);
+    border-color: var(--accent);
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.match-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.match-reason {
+    background: rgba(250, 204, 21, 0.08);
+    border: 1px dashed rgba(250, 204, 21, 0.25);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin: 12px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    line-height: 1.4;
+}
+
+.job-card-rich {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 22px;
+    margin-bottom: 20px;
+    transition: border-color 0.2s ease;
+}
+
+.job-card-rich:hover {
+    border-color: var(--accent);
+}

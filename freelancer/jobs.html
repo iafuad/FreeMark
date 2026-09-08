@@ -32,43 +32,200 @@
     <main class="freelancer-main">
         <header class="freelancer-header">
             <div class="header-title">
-                <h2>Find Jobs</h2>
-                <p>Browse and apply for open projects</p>
+                <h2>Recommended Jobs for You</h2>
+                <p>Personalized job suggestions matched to your verified skills (React 98%, UI/UX 95%) and project history</p>
             </div>
-            <div style="display: flex; gap: 10px;">
-                <input type="text" placeholder="Search jobs..." style="padding: 8px 15px; border-radius: 4px; border: 1px solid var(--border-color); background: var(--bg-primary); color: white;">
-                <button class="btn btn-primary">Search</button>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <div style="position: relative;">
+                    <input type="text" placeholder="Search matches..." style="padding: 8px 15px 8px 32px; border-radius: 4px; border: 1px solid var(--border-color); background: var(--bg-primary); color: white; font-size: 0.9rem;">
+                    <i data-lucide="search" style="position: absolute; left: 10px; top: 10px; width: 14px; color: var(--text-secondary);"></i>
+                </div>
             </div>
         </header>
 
         <div class="freelancer-content">
-            <div class="job-list">
-                <!-- Job 1 -->
-                <div class="job-item">
-                    <div class="job-info">
-                        <h4>Senior React Developer for Fintech App</h4>
-                        <p>FinCore Solutions • Fixed Price</p>
-                        <div class="job-meta">
-                            <span><i data-lucide="dollar-sign" style="width: 14px;"></i> $5,000 - $8,000</span>
-                            <span><i data-lucide="clock" style="width: 14px;"></i> 3 weeks</span>
-                            <span><i data-lucide="users" style="width: 14px;"></i> 12 proposals</span>
-                        </div>
-                    </div>
-                    <a href="apply.html" class="btn btn-primary">Apply Now</a>
+            <!-- Smart Filter Tabs -->
+            <div class="smart-filter-bar">
+                <a href="#" class="smart-tab active">
+                    <i data-lucide="sparkles" style="width: 16px;"></i> Best Matches (Top Skills)
+                </a>
+                <a href="#" class="smart-tab">
+                    <i data-lucide="award" style="width: 16px;"></i> Matched to React Test (98/100)
+                </a>
+                <a href="#" class="smart-tab">
+                    <i data-lucide="layout" style="width: 16px;"></i> UI/UX Design Matches
+                </a>
+                <a href="#" class="smart-tab">
+                    <i data-lucide="clock" style="width: 16px;"></i> Most Recent
+                </a>
+            </div>
+
+            <!-- Smart Matching Context Banner -->
+            <div class="smart-banner">
+                <div class="smart-banner-text">
+                    <h4><i data-lucide="sparkles" style="width: 18px;"></i> Smart Job Engine Active</h4>
+                    <p>Curated feed matching your <strong>Top 5% React badge</strong>, <strong>UI/UX verification</strong>, and preferred contract rates ($70–$90/hr). Clients are actively prioritizing verified applicants.</p>
                 </div>
-                
-                <!-- Job 2 -->
-                <div class="job-item">
-                    <div class="job-info">
-                        <h4>Backend API Development — E-commerce</h4>
-                        <p>ShopStream Ltd. • Hourly</p>
-                        <div class="job-meta">
-                            <span><i data-lucide="dollar-sign" style="width: 14px;"></i> $40 - $60 / hr</span>
-                            <span><i data-lucide="clock" style="width: 14px;"></i> 6 weeks</span>
-                            <span><i data-lucide="users" style="width: 14px;"></i> 20 proposals</span>
+                <div style="font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">
+                    Match Accuracy: <strong style="color: #22c55e;">98% High</strong>
+                </div>
+            </div>
+
+            <!-- Recommended Jobs List -->
+            <div>
+                <!-- Recommended Job 1 -->
+                <div class="job-card-rich">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+                                <h3 style="margin: 0; font-size: 1.25rem;">
+                                    <a href="../guest/job-details.html" style="color: var(--text-primary); text-decoration: none;">Senior React Developer for Fintech App</a>
+                                </h3>
+                                <span class="match-badge"><i data-lucide="sparkles" style="width: 12px;"></i> 99% Best Match</span>
+                            </div>
+                            <div style="font-size: 0.85rem; color: var(--text-secondary); display: flex; align-items: center; gap: 12px;">
+                                <span>FinCore Solutions</span>
+                                <span>•</span>
+                                <span><i data-lucide="star" style="width: 13px; color: var(--accent); fill: var(--accent); display: inline;"></i> 4.9 (24 reviews)</span>
+                                <span>•</span>
+                                <span style="color: #22c55e;"><i data-lucide="shield-check" style="width: 13px; display: inline;"></i> Payment Verified</span>
+                                <span>•</span>
+                                <span>London, UK (Remote)</span>
+                            </div>
+                        </div>
+                        <div style="text-align: right; white-space: nowrap;">
+                            <div style="color: var(--accent); font-size: 1.3rem; font-weight: 700;">$5,000 – $8,000</div>
+                            <div style="font-size: 0.8rem; color: var(--text-secondary);">Fixed-Price Escrow</div>
                         </div>
                     </div>
-                    <a href="apply.html" class="btn btn-primary">Apply Now</a>
+
+                    <!-- Match Explanation Callout -->
+                    <div class="match-reason">
+                        <i data-lucide="check-circle-2" style="width: 15px; flex-shrink: 0; margin-top: 2px; color: #22c55e;"></i>
+                        <span><strong>Why it's recommended:</strong> The client explicitly seeks talent with verified score &ge; 90. Your score: <strong>98/100 (Top 5% in React Fundamentals)</strong>. Budget and 3-week timeline align with your completed dashboard contracts.</span>
+                    </div>
+
+                    <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.5; margin-bottom: 15px;">
+                        Build the frontend for our real-time financial intelligence dashboard. Strong TypeScript experience required. Must have experience with high-frequency WebSocket data streams and interactive charts.
+                    </p>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 15px; border-top: 1px solid var(--border-color);">
+                        <div class="tags" style="margin-bottom: 0;">
+                            <span class="tag" style="border: 1px solid rgba(250, 204, 21, 0.4); color: var(--accent); background: rgba(250, 204, 21, 0.08);">React (Verified Match)</span>
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">WebSockets</span>
+                            <span class="tag">Next.js</span>
+                        </div>
+
+                        <div style="display: flex; gap: 10px; align-items: center;">
+                            <span style="font-size: 0.8rem; color: var(--text-secondary); margin-right: 10px;">12 proposals • 2 days ago</span>
+                            <a href="../guest/job-details.html" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.85rem; text-decoration: none;">View Details</a>
+                            <a href="apply.html" class="btn btn-primary" style="padding: 6px 16px; font-size: 0.85rem; text-decoration: none;">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommended Job 2 -->
+                <div class="job-card-rich">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+                                <h3 style="margin: 0; font-size: 1.25rem;">
+                                    <a href="../guest/job-details.html" style="color: var(--text-primary); text-decoration: none;">Mobile App UI Design — Healthcare Platform</a>
+                                </h3>
+                                <span class="match-badge"><i data-lucide="sparkles" style="width: 12px;"></i> 95% Match</span>
+                            </div>
+                            <div style="font-size: 0.85rem; color: var(--text-secondary); display: flex; align-items: center; gap: 12px;">
+                                <span>MedPath Inc.</span>
+                                <span>•</span>
+                                <span><i data-lucide="star" style="width: 13px; color: var(--accent); fill: var(--accent); display: inline;"></i> 4.8 (15 reviews)</span>
+                                <span>•</span>
+                                <span style="color: #22c55e;"><i data-lucide="shield-check" style="width: 13px; display: inline;"></i> Payment Verified</span>
+                                <span>•</span>
+                                <span>San Francisco, USA (Remote)</span>
+                            </div>
+                        </div>
+                        <div style="text-align: right; white-space: nowrap;">
+                            <div style="color: var(--accent); font-size: 1.3rem; font-weight: 700;">$3,000 – $4,000</div>
+                            <div style="font-size: 0.8rem; color: var(--text-secondary);">Fixed-Price Escrow</div>
+                        </div>
+                    </div>
+
+                    <!-- Match Explanation Callout -->
+                    <div class="match-reason">
+                        <i data-lucide="check-circle-2" style="width: 15px; flex-shrink: 0; margin-top: 2px; color: #22c55e;"></i>
+                        <span><strong>Why it's recommended:</strong> Matches your verified <strong>UI/UX Principles Test (Score: 95/100)</strong> and Figma design credentials. Client frequently awards contracts to candidates with healthcare design case studies.</span>
+                    </div>
+
+                    <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.5; margin-bottom: 15px;">
+                        Design a clean, accessible mobile UI for a patient-facing healthcare data platform. Wireframes to high-fidelity handoff in Figma with clear design system component hierarchy.
+                    </p>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 15px; border-top: 1px solid var(--border-color);">
+                        <div class="tags" style="margin-bottom: 0;">
+                            <span class="tag" style="border: 1px solid rgba(250, 204, 21, 0.4); color: var(--accent); background: rgba(250, 204, 21, 0.08);">UI/UX (Verified Match)</span>
+                            <span class="tag">Figma</span>
+                            <span class="tag">Prototyping</span>
+                        </div>
+
+                        <div style="display: flex; gap: 10px; align-items: center;">
+                            <span style="font-size: 0.8rem; color: var(--text-secondary); margin-right: 10px;">8 proposals • 1 day ago</span>
+                            <a href="../guest/job-details.html" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.85rem; text-decoration: none;">View Details</a>
+                            <a href="apply.html" class="btn btn-primary" style="padding: 6px 16px; font-size: 0.85rem; text-decoration: none;">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommended Job 3 -->
+                <div class="job-card-rich">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+                                <h3 style="margin: 0; font-size: 1.25rem;">
+                                    <a href="../guest/job-details.html" style="color: var(--text-primary); text-decoration: none;">Backend API Development — E-commerce & Payments</a>
+                                </h3>
+                                <span class="match-badge"><i data-lucide="sparkles" style="width: 12px;"></i> 91% Match</span>
+                            </div>
+                            <div style="font-size: 0.85rem; color: var(--text-secondary); display: flex; align-items: center; gap: 12px;">
+                                <span>ShopStream Ltd.</span>
+                                <span>•</span>
+                                <span><i data-lucide="star" style="width: 13px; color: var(--accent); fill: var(--accent); display: inline;"></i> 4.7 (32 reviews)</span>
+                                <span>•</span>
+                                <span style="color: #22c55e;"><i data-lucide="shield-check" style="width: 13px; display: inline;"></i> Payment Verified</span>
+                                <span>•</span>
+                                <span>Austin, USA (Remote)</span>
+                            </div>
+                        </div>
+                        <div style="text-align: right; white-space: nowrap;">
+                            <div style="color: var(--accent); font-size: 1.3rem; font-weight: 700;">$40 – $60 / hr</div>
+                            <div style="font-size: 0.8rem; color: var(--text-secondary);">Hourly Contract</div>
+                        </div>
+                    </div>
+
+                    <!-- Match Explanation Callout -->
+                    <div class="match-reason">
+                        <i data-lucide="check-circle-2" style="width: 15px; flex-shrink: 0; margin-top: 2px; color: #22c55e;"></i>
+                        <span><strong>Why it's recommended:</strong> Stack alignment with your Node.js experience and ongoing contract history with ShopStream Ltd. Payment integration milestone matches your technical background.</span>
+                    </div>
+
+                    <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.5; margin-bottom: 15px;">
+                        Scalable REST API for our e-commerce platform. Stripe payments, webhooks, inventory caching with Redis, and order management endpoints.
+                    </p>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 15px; border-top: 1px solid var(--border-color);">
+                        <div class="tags" style="margin-bottom: 0;">
+                            <span class="tag" style="border: 1px solid rgba(250, 204, 21, 0.4); color: var(--accent); background: rgba(250, 204, 21, 0.08);">Node.js (Stack Match)</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">Stripe</span>
+                            <span class="tag">Redis</span>
+                        </div>
+
+                        <div style="display: flex; gap: 10px; align-items: center;">
+                            <span style="font-size: 0.8rem; color: var(--text-secondary); margin-right: 10px;">20 proposals • 3 days ago</span>
+                            <a href="../guest/job-details.html" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.85rem; text-decoration: none;">View Details</a>
+                            <a href="apply.html" class="btn btn-primary" style="padding: 6px 16px; font-size: 0.85rem; text-decoration: none;">Apply Now</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
