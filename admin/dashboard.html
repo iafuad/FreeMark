@@ -89,37 +89,86 @@
                 </div>
             </div>
 
-            <!-- Recent Approvals Snapshot -->
-            <div class="admin-card">
-                <div class="card-header">
-                    <h3>Recent Pending Approvals</h3>
-                    <a href="approvals.html">View all &rightarrow;</a>
+            <!-- Admin Action Center & Alerts -->
+            <div class="admin-card" style="padding: 0; overflow: hidden;">
+                <div class="card-header" style="padding: 15px 20px;">
+                    <div style="display: flex; align-items: center;">
+                        <h3>Security Alerts & Account Approvals</h3>
+                        <span class="notif-badge">3 Pending</span>
+                    </div>
+                    <div class="notif-header-actions">
+                        <div class="notif-filter-pills">
+                            <a href="#" class="notif-pill active">All (3)</a>
+                            <a href="#" class="notif-pill">Fraud & Security (2)</a>
+                            <a href="#" class="notif-pill">Approvals (1)</a>
+                        </div>
+                        <a href="#" style="color: var(--text-secondary); font-size: 0.8rem; text-decoration: none;">Mark all reviewed</a>
+                    </div>
                 </div>
-                <div class="user-list">
-                    <div class="user-list-item">
-                        <div class="user-info">
-                            <div class="avatar yellow">TC</div>
-                            <div class="user-details">
-                                <h4>Towhid Chowdhury <span class="role-badge">Freelancer</span></h4>
-                                <p>Backend Developer - Bangladesh - 2 hours ago</p>
+                <div class="notif-list">
+                    <!-- Notification 1: Suspicious / Fraudulent Activity (Payment Disputed) -->
+                    <div class="notif-item unread alert-danger">
+                        <div class="notif-main">
+                            <div class="notif-icon-box icon-red">
+                                <i data-lucide="alert-triangle" style="width: 20px;"></i>
+                            </div>
+                            <div class="notif-content">
+                                <div class="notif-top">
+                                    <span class="notif-tag tag-fraud">Fraud Alert</span>
+                                    <h4 class="notif-title">Suspicious Activity: Unauthorized Escrow Chargeback Attempt</h4>
+                                </div>
+                                <p class="notif-desc">Client <strong>Apex Global Ltd</strong> initiated an unverified dispute on Milestone 2 ($4,200). Account flagged for suspicious activity.</p>
+                                <div class="notif-meta">
+                                    <i data-lucide="clock" style="width: 12px;"></i> 25 mins ago • <span style="color: #ef4444; font-weight: 600;">High Severity</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="actions">
-                            <button class="btn-sm btn-approve">Approve</button>
-                            <button class="btn-sm btn-reject">Reject</button>
+                        <div class="notif-actions">
+                            <a href="reports.html" class="btn btn-outline" style="border-color: #ef4444; color: #ef4444; padding: 6px 14px; font-size: 0.85rem; text-decoration: none;">Investigate</a>
                         </div>
                     </div>
-                    <div class="user-list-item">
-                        <div class="user-info">
-                            <div class="avatar purple">K</div>
-                            <div class="user-details">
-                                <h4>Kokhon <span class="role-badge">Client</span></h4>
-                                <p>Tech Station - Bangladesh - 4 hours ago</p>
+
+                    <!-- Notification 2: Suspicious Activity (Duplicate Account / IP Mismatch) -->
+                    <div class="notif-item unread alert-danger">
+                        <div class="notif-main">
+                            <div class="notif-icon-box icon-red">
+                                <i data-lucide="shield-alert" style="width: 20px;"></i>
+                            </div>
+                            <div class="notif-content">
+                                <div class="notif-top">
+                                    <span class="notif-tag tag-fraud">Suspicious Activity</span>
+                                    <h4 class="notif-title">Risk Detection: Multi-Account Fraud Flag</h4>
+                                </div>
+                                <p class="notif-desc">User <strong>dev_pro_99</strong> flagged: registered IP and device fingerprint match previously banned fraudulent user account.</p>
+                                <div class="notif-meta">
+                                    <i data-lucide="clock" style="width: 12px;"></i> 2 hours ago • Automated Fraud Filter
+                                </div>
                             </div>
                         </div>
-                        <div class="actions">
-                            <button class="btn-sm btn-approve">Approve</button>
-                            <button class="btn-sm btn-reject">Reject</button>
+                        <div class="notif-actions">
+                            <a href="reports.html" class="btn btn-outline" style="border-color: #ef4444; color: #ef4444; padding: 6px 14px; font-size: 0.85rem; text-decoration: none;">Review Report</a>
+                        </div>
+                    </div>
+
+                    <!-- Notification 3: New Account Approval -->
+                    <div class="notif-item unread">
+                        <div class="notif-main">
+                            <div class="notif-icon-box icon-yellow">
+                                <i data-lucide="user-check" style="width: 20px;"></i>
+                            </div>
+                            <div class="notif-content">
+                                <div class="notif-top">
+                                    <span class="notif-tag tag-approvals">Account Approval</span>
+                                    <h4 class="notif-title">New Account Application: Towhid Chowdhury</h4>
+                                </div>
+                                <p class="notif-desc">Applied as <strong>Freelancer (Backend Developer)</strong> with National ID document uploaded. Awaiting administrator review.</p>
+                                <div class="notif-meta">
+                                    <i data-lucide="clock" style="width: 12px;"></i> 3 hours ago • Verification Queue
+                                </div>
+                            </div>
+                        </div>
+                        <div class="notif-actions">
+                            <a href="approvals.html" class="btn btn-primary" style="padding: 6px 14px; font-size: 0.85rem; text-decoration: none;">Review & Approve</a>
                         </div>
                     </div>
                 </div>

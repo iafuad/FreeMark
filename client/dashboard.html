@@ -78,25 +78,112 @@
                 </div>
             </div>
 
+            <!-- Quick Notifications & Action Center Panel -->
             <div class="card">
                 <div class="card-header">
-                    <h3>Your Active Projects</h3>
-                    <a href="#" style="color: var(--accent); font-size: 0.9rem;">View all</a>
-                </div>
-                <div class="card-body">
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid var(--border-color);">
-                        <div>
-                            <h4 style="margin: 0 0 5px 0; color: var(--accent);">React Dashboard Implementation</h4>
-                            <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">Hired: Md Sami • In Progress</p>
-                        </div>
-                        <a href="work-approval.html" class="btn btn-outline" style="padding: 5px 15px; font-size: 0.85rem;">Review Work</a>
+                    <div style="display: flex; align-items: center;">
+                        <h3>Action Center & Notifications</h3>
+                        <span class="notif-badge">3 New</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px;">
-                        <div>
-                            <h4 style="margin: 0 0 5px 0; color: var(--text-primary);">Mobile App UI Design</h4>
-                            <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">8 New Proposals • Open</p>
+                    <div class="notif-header-actions">
+                        <div class="notif-filter-pills">
+                            <a href="#" class="notif-pill active">All (4)</a>
+                            <a href="#" class="notif-pill">Milestones (1)</a>
+                            <a href="#" class="notif-pill">Proposals (1)</a>
+                            <a href="#" class="notif-pill">Messages (1)</a>
                         </div>
-                        <a href="proposals.html" class="btn btn-outline" style="padding: 5px 15px; font-size: 0.85rem;">View Proposals</a>
+                        <a href="#" style="color: var(--text-secondary); font-size: 0.8rem; text-decoration: none;">Mark all read</a>
+                    </div>
+                </div>
+                <div class="card-body" style="padding: 0;">
+                    <div class="notif-list">
+                        <!-- Notification 1: Milestone Submission (Work Approval) -->
+                        <div class="notif-item unread">
+                            <div class="notif-main">
+                                <div class="notif-icon-box icon-yellow">
+                                    <i data-lucide="check-square" style="width: 20px;"></i>
+                                </div>
+                                <div class="notif-content">
+                                    <div class="notif-top">
+                                        <span class="notif-tag tag-work">Work Approval</span>
+                                        <h4 class="notif-title">Milestone Submitted: React Dashboard Implementation</h4>
+                                    </div>
+                                    <p class="notif-desc"><strong>Md Sami</strong> submitted Milestone 2: <em>"Final API Integration"</em> ($3,500) for review.</p>
+                                    <div class="notif-meta">
+                                        <i data-lucide="clock" style="width: 12px;"></i> 2 hours ago • <span style="color: var(--accent); font-weight: 500;">Action Required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="notif-actions">
+                                <a href="milestone-details.html" class="btn btn-primary" style="padding: 6px 14px; font-size: 0.85rem; text-decoration: none;">Review Work</a>
+                            </div>
+                        </div>
+
+                        <!-- Notification 2: Proposal Received -->
+                        <div class="notif-item unread">
+                            <div class="notif-main">
+                                <div class="notif-icon-box icon-blue">
+                                    <i data-lucide="file-text" style="width: 20px;"></i>
+                                </div>
+                                <div class="notif-content">
+                                    <div class="notif-top">
+                                        <span class="notif-tag tag-proposals">Proposals</span>
+                                        <h4 class="notif-title">New Proposal: Mobile App UI Design</h4>
+                                    </div>
+                                    <p class="notif-desc"><strong>Fuad (UI/UX Designer)</strong> submitted a proposal for $3,500 (3 weeks) with a skill test score of 95/100.</p>
+                                    <div class="notif-meta">
+                                        <i data-lucide="clock" style="width: 12px;"></i> 4 hours ago
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="notif-actions">
+                                <a href="review-proposal.html" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.85rem; text-decoration: none;">Review Proposal</a>
+                            </div>
+                        </div>
+
+                        <!-- Notification 3: Unread Message -->
+                        <div class="notif-item unread">
+                            <div class="notif-main">
+                                <div class="notif-icon-box icon-purple">
+                                    <i data-lucide="message-square" style="width: 20px;"></i>
+                                </div>
+                                <div class="notif-content">
+                                    <div class="notif-top">
+                                        <span class="notif-tag tag-messages">Messages</span>
+                                        <h4 class="notif-title">New Message from Alex J.</h4>
+                                    </div>
+                                    <p class="notif-desc"><em>"I've deployed the authentication schema changes to the test staging server for you to test."</em></p>
+                                    <div class="notif-meta">
+                                        <i data-lucide="clock" style="width: 12px;"></i> Yesterday at 5:30 PM
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="notif-actions">
+                                <a href="chat.html" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.85rem; text-decoration: none;">Open Chat</a>
+                            </div>
+                        </div>
+
+                        <!-- Notification 4: Milestone Paid -->
+                        <div class="notif-item">
+                            <div class="notif-main">
+                                <div class="notif-icon-box icon-green">
+                                    <i data-lucide="dollar-sign" style="width: 20px;"></i>
+                                </div>
+                                <div class="notif-content">
+                                    <div class="notif-top">
+                                        <span class="notif-tag tag-contracts">Contracts</span>
+                                        <h4 class="notif-title">Payment Released: Milestone 1</h4>
+                                    </div>
+                                    <p class="notif-desc">$1,500 was successfully released to <strong>Md Sami</strong> for Milestone 1: UI Components & Layout.</p>
+                                    <div class="notif-meta">
+                                        <i data-lucide="calendar" style="width: 12px;"></i> Oct 1, 2026 • Completed
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="notif-actions">
+                                <a href="work-approval.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; display: flex; align-items: center; gap: 4px;">Details <i data-lucide="chevron-right" style="width: 14px;"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

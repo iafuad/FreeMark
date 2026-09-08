@@ -96,23 +96,111 @@
                 <p>Your profile is 80% complete. Add your GitHub link to stand out to more clients!</p>
             </div>
 
+            <!-- Quick Notifications & Action Center Panel -->
             <div class="card">
                 <div class="card-header">
-                    <h3>Recent Job Invitations</h3>
-                    <a href="jobs.html" style="color: var(--accent); font-size: 0.9rem;">View all</a>
+                    <div style="display: flex; align-items: center;">
+                        <h3>Action Center & Notifications</h3>
+                        <span class="notif-badge">3 New</span>
+                    </div>
+                    <div class="notif-header-actions">
+                        <div class="notif-filter-pills">
+                            <a href="#" class="notif-pill active">All (4)</a>
+                            <a href="#" class="notif-pill">Invitations (1)</a>
+                            <a href="#" class="notif-pill">Contracts (1)</a>
+                            <a href="#" class="notif-pill">Tests (1)</a>
+                        </div>
+                        <a href="#" style="color: var(--text-secondary); font-size: 0.8rem; text-decoration: none;">Mark all read</a>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <div class="job-list">
-                        <div class="job-item">
-                            <div class="job-info">
-                                <h4>Full Stack Developer Needed for MVP</h4>
-                                <p>TechNova Inc. • Fixed Price</p>
-                                <div class="job-meta">
-                                    <span><i data-lucide="dollar-sign" style="width: 14px;"></i> $3,000</span>
-                                    <span><i data-lucide="clock" style="width: 14px;"></i> Est. 4 weeks</span>
+                <div class="card-body" style="padding: 0;">
+                    <div class="notif-list">
+                        <!-- Notification 1: Job Invitation -->
+                        <div class="notif-item unread">
+                            <div class="notif-main">
+                                <div class="notif-icon-box icon-yellow">
+                                    <i data-lucide="mail" style="width: 20px;"></i>
+                                </div>
+                                <div class="notif-content">
+                                    <div class="notif-top">
+                                        <span class="notif-tag tag-invitations">Invitation</span>
+                                        <h4 class="notif-title">New Project Offer: TechNova Inc.</h4>
+                                    </div>
+                                    <p class="notif-desc"><strong>TechNova Inc.</strong> invited you to work on <em>"Full Stack Developer Needed for MVP"</em> ($3,000 fixed price, 4 weeks).</p>
+                                    <div class="notif-meta">
+                                        <i data-lucide="clock" style="width: 12px;"></i> 1 hour ago • <span style="color: var(--accent); font-weight: 500;">Action Required</span>
+                                    </div>
                                 </div>
                             </div>
-                            <a href="invitation.html" class="btn btn-primary" style="text-decoration: none;">Review Invitation</a>
+                            <div class="notif-actions">
+                                <a href="invitation.html" class="btn btn-primary" style="padding: 6px 14px; font-size: 0.85rem; text-decoration: none;">Review Invitation</a>
+                            </div>
+                        </div>
+
+                        <!-- Notification 2: Milestone Submission Due -->
+                        <div class="notif-item unread">
+                            <div class="notif-main">
+                                <div class="notif-icon-box icon-blue">
+                                    <i data-lucide="upload-cloud" style="width: 20px;"></i>
+                                </div>
+                                <div class="notif-content">
+                                    <div class="notif-top">
+                                        <span class="notif-tag tag-contracts">Contracts</span>
+                                        <h4 class="notif-title">Milestone Due Soon: E-commerce Checkout Optimization</h4>
+                                    </div>
+                                    <p class="notif-desc">Milestone 1: <em>"Stripe Integration & Cart State"</em> ($2,000) is scheduled for delivery in 3 days for <strong>ShopStream Ltd.</strong></p>
+                                    <div class="notif-meta">
+                                        <i data-lucide="clock" style="width: 12px;"></i> Due in 3 days • In Progress
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="notif-actions">
+                                <a href="submit-milestone.html" class="btn btn-primary" style="padding: 6px 14px; font-size: 0.85rem; text-decoration: none;">Submit Work</a>
+                            </div>
+                        </div>
+
+                        <!-- Notification 3: Skill Test Recommendation -->
+                        <div class="notif-item unread">
+                            <div class="notif-main">
+                                <div class="notif-icon-box icon-purple">
+                                    <i data-lucide="award" style="width: 20px;"></i>
+                                </div>
+                                <div class="notif-content">
+                                    <div class="notif-top">
+                                        <span class="notif-tag tag-messages">Skill Boost</span>
+                                        <h4 class="notif-title">Skill Verification: UI/UX Principles Test</h4>
+                                    </div>
+                                    <p class="notif-desc">Complete the UI/UX Principles verification quiz to showcase verified badge credentials on your public profile.</p>
+                                    <div class="notif-meta">
+                                        <i data-lucide="clock" style="width: 12px;"></i> Est. 45 mins • 20 Questions
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="notif-actions">
+                                <a href="take-quiz.html" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.85rem; text-decoration: none;">Take Test</a>
+                            </div>
+                        </div>
+
+                        <!-- Notification 4: Payment Cleared -->
+                        <div class="notif-item">
+                            <div class="notif-main">
+                                <div class="notif-icon-box icon-green">
+                                    <i data-lucide="dollar-sign" style="width: 20px;"></i>
+                                </div>
+                                <div class="notif-content">
+                                    <div class="notif-top">
+                                        <span class="notif-tag tag-tests">Earnings</span>
+                                        <h4 class="notif-title">Payment Cleared: $1,500 Added to Balance</h4>
+                                    </div>
+                                    <p class="notif-desc"><strong>FinCore Solutions</strong> approved Milestone 1 for <em>"React Dashboard Implementation"</em>. Funds are ready to withdraw.</p>
+                                    <div class="notif-meta">
+                                        <i data-lucide="calendar" style="width: 12px;"></i> Oct 1, 2026 • Completed
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="notif-actions">
+                                <a href="work.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; display: flex; align-items: center; gap: 4px;">Details <i data-lucide="chevron-right" style="width: 14px;"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
