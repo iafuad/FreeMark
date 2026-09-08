@@ -52,16 +52,16 @@
                         <form>
                             <div class="form-group">
                                 <label>Message to Client</label>
-                                <textarea placeholder="Describe the work you've completed, how to test it, and any notes for the client..." style="min-height: 120px;" required></textarea>
+                                <textarea placeholder="Describe the work you've completed, how to test it, and any notes for the client..." class="form-textarea" required></textarea>
                             </div>
                             
                             <div class="form-group">
                                 <label>Upload Files / Source Code (.zip, .pdf, etc.)</label>
                                 <div class="upload-zone-large">
-                                    <i data-lucide="upload-cloud" style="color: var(--text-secondary); width: 32px; height: 32px; margin-bottom: 10px;"></i>
-                                    <p style="margin: 0 0 5px 0; font-size: 1rem; color: var(--text-primary);">Drag and drop files here</p>
-                                    <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">or click to browse from your computer (Max 50MB)</p>
-                                    <input type="file" style="display: none;">
+                                    <i data-lucide="upload-cloud" class="icon-lg-mb text-secondary"></i>
+                                    <p class="m-0 mb-5 text-primary text-base">Drag and drop files here</p>
+                                    <p class="m-0 text-secondary text-sm">or click to browse from your computer (Max 50MB)</p>
+                                    <input type="file" class="d-none">
                                 </div>
                             </div>
                             
@@ -69,12 +69,12 @@
                                 <label>External Links (Staging Environment, GitHub PR, Figma Link)</label>
                                 <div style="display: flex; gap: 10px; margin-bottom: 10px;">
                                     <input type="text" placeholder="https://" style="flex-grow: 1;">
-                                    <button type="button" class="btn btn-outline" style="padding: 10px 15px;"><i data-lucide="plus" style="width: 18px;"></i></button>
+                                    <button type="button" class="btn btn-outline btn-sm-outline-px"><i data-lucide="plus" class="icon-base"></i></button>
                                 </div>
                             </div>
                             
-                            <div style="margin-top: 30px; border-top: 1px solid var(--border-color); padding-top: 20px;">
-                                <button type="button" class="btn btn-primary" style="width: 100%;">Submit for Approval</button>
+                            <div class="form-separator">
+                                <button type="button" class="btn btn-primary btn-full">Submit for Approval</button>
                             </div>
                         </form>
                     </div>
@@ -86,10 +86,10 @@
                         <h3>Contract Overview</h3>
                     </div>
                     <div class="card-body">
-                        <h4 style="margin: 0 0 5px 0;">E-commerce Checkout Optimization</h4>
-                        <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 20px;">Client: ShopStream Ltd.</p>
+                                <h4 class="m-0 mb-5 text-accent">E-commerce Checkout Optimization</h4>
+                        <p class="text-secondary text-sm mb-20">Client: ShopStream Ltd.</p>
                         
-                        <div style="border-top: 1px solid var(--border-color); padding-top: 15px; margin-bottom: 15px;">
+                        <div class="stats-details">
                             <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                                 <span style="color: var(--text-secondary); font-size: 0.9rem;">Total Budget:</span>
                                 <strong>$4,500</strong>
@@ -104,7 +104,7 @@
                             </div>
                         </div>
 
-                        <div style="background: var(--bg-primary); padding: 15px; border-radius: 6px; font-size: 0.85rem; color: var(--text-secondary);">
+                        <div class="info-box">
                             <i data-lucide="info" style="width: 16px; margin-bottom: 5px;"></i><br>
                             Once you submit, the client will have up to 14 days to review and approve the work or request changes before the funds are automatically released.
                         </div>

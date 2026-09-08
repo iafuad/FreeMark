@@ -75,14 +75,14 @@
                         </div>
 
                         <div style="display: flex; gap: 15px;">
-                            <a href="work.html" class="btn btn-primary" style="padding: 10px 25px;">Accept Offer</a>
+                            <a href="work.html" class="btn btn-primary btn-md">Accept Offer</a>
                             <button type="button" class="btn btn-outline" style="border-color: #ef4444; color: #ef4444;" onclick="document.getElementById('decline-section').style.display='block'">Decline Offer</button>
                         </div>
 
                         <!-- Decline Section (Hidden by default, shown when decline is clicked) -->
-                        <div id="decline-section" style="display: none; margin-top: 30px; border-top: 2px dashed var(--border-color); padding-top: 25px;">
-                            <h4 style="margin-top: 0; color: var(--text-primary); margin-bottom: 10px;">Reason for Declining</h4>
-                            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 15px;">Let the client know why you cannot accept the offer at this time.</p>
+                        <div class="decline-section" id="decline-section">
+                            <h4 class="mt-0 mb-10 text-primary">Reason for Declining</h4>
+                            <p class="text-sm text-secondary mb-15">Let the client know why you cannot accept the offer at this time.</p>
                             
                             <form>
                                 <div class="form-group" style="margin-bottom: 15px;">
@@ -112,10 +112,10 @@
                     <div class="card-header">
                         <h3>About the Client</h3>
                     </div>
-                    <div class="card-body" style="text-align: center;">
-                        <div style="width: 70px; height: 70px; border-radius: 50%; background: #ca8a04; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; margin: 0 auto 15px;">TN</div>
-                        <h4 style="margin: 0 0 5px 0; font-size: 1.1rem;">TechNova Inc.</h4>
-                        <p style="margin: 0 0 15px 0; color: var(--text-secondary); font-size: 0.85rem;">San Francisco, USA</p>
+                    <div class="card-body text-center">
+                        <div class="avatar-medium avatar-bg-yellow">TN</div>
+                        <h4 class="m-0 mb-5 text-lg">TechNova Inc.</h4>
+                        <p class="m-0 mb-15 text-secondary text-sm">San Francisco, USA</p>
                         
                         <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border-color);">
                             <div>
