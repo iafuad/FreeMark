@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/freelancer/layout.css">
     <link rel="stylesheet" href="../css/freelancer/components.css">
+    <link rel="stylesheet" href="../css/freelancer/inline-helpers.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
@@ -40,10 +41,10 @@
         </header>
 
         <div class="freelancer-content">
-            <div style="display: flex; gap: 30px; align-items: flex-start;">
+            <div class="form-two-column">
                 
                 <!-- Submission Form -->
-                <div class="card" style="flex-grow: 1; max-width: 800px;">
+                <div class="card form-main-section">
                     <div class="card-header">
                         <h3>Submission Details</h3>
                     </div>
@@ -56,7 +57,7 @@
                             
                             <div class="form-group">
                                 <label>Upload Files / Source Code (.zip, .pdf, etc.)</label>
-                                <div style="border: 2px dashed var(--border-color); padding: 30px; text-align: center; border-radius: 6px; background: var(--bg-primary); cursor: pointer; transition: border-color 0.2s;">
+                                <div class="upload-zone-large">
                                     <i data-lucide="upload-cloud" style="color: var(--text-secondary); width: 32px; height: 32px; margin-bottom: 10px;"></i>
                                     <p style="margin: 0 0 5px 0; font-size: 1rem; color: var(--text-primary);">Drag and drop files here</p>
                                     <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">or click to browse from your computer (Max 50MB)</p>
@@ -80,7 +81,7 @@
                 </div>
 
                 <!-- Snapshot Sidebar -->
-                <div class="card" style="width: 320px; flex-shrink: 0;">
+                <div class="card form-sidebar-section">
                     <div class="card-header">
                         <h3>Contract Overview</h3>
                     </div>

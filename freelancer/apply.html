@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/freelancer/layout.css">
     <link rel="stylesheet" href="../css/freelancer/components.css">
+    <link rel="stylesheet" href="../css/freelancer/inline-helpers.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
@@ -39,9 +40,9 @@
         </header>
 
         <div class="freelancer-content">
-            <div style="display: flex; gap: 30px; align-items: flex-start;">
+            <div class="form-two-column">
                 <!-- Application Form -->
-                <div class="card" style="flex-grow: 1; max-width: 800px;">
+                <div class="card form-main-section">
                     <div class="card-header">
                         <h3>Proposal Details</h3>
                     </div>
@@ -71,7 +72,7 @@
                             
                             <div class="form-group">
                                 <label>Relevant Attachments (Optional)</label>
-                                <div style="border: 1px dashed var(--border-color); padding: 20px; text-align: center; border-radius: 4px; background: var(--bg-primary);">
+                                <div class="upload-zone">
                                     <i data-lucide="upload" style="color: var(--text-secondary); margin-bottom: 10px;"></i>
                                     <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Drag and drop files here, or click to select files</p>
                                     <input type="file" style="display: none;">
@@ -86,7 +87,7 @@
                 </div>
 
                 <!-- Job Summary Sidebar -->
-                <div class="card" style="width: 320px; flex-shrink: 0;">
+                <div class="card form-sidebar-section">
                     <div class="card-header">
                         <h3>Job Summary</h3>
                     </div>

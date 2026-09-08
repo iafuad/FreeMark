@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/freelancer/layout.css">
     <link rel="stylesheet" href="../css/freelancer/components.css">
+    <link rel="stylesheet" href="../css/freelancer/inline-helpers.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
@@ -40,17 +41,17 @@
         </header>
 
         <div class="freelancer-content">
-            <div style="display: flex; gap: 30px; align-items: flex-start;">
+            <div class="form-two-column">
                 
-                <div class="card" style="flex-grow: 1; max-width: 800px;">
+                <div class="card form-main-section">
                     <div class="card-header">
                         <h3>Offer Details: Full Stack Developer Needed for MVP</h3>
                     </div>
                     <div class="card-body">
                         
-                        <div style="background: var(--bg-primary); padding: 25px; border-radius: 6px; border: 1px solid var(--border-color); margin-bottom: 25px;">
-                            <h4 style="margin-top: 0; color: var(--text-primary); margin-bottom: 10px;">Message from Client (TechNova Inc.)</h4>
-                            <p style="font-size: 0.95rem; color: #cbd5e1; line-height: 1.6;">
+                        <div class="client-message-box">
+                            <h4>Message from Client (TechNova Inc.)</h4>
+                            <p>
                                 Hi there! We were really impressed by your profile and your verified skill score in Advanced Node.js. 
                                 We are looking for a reliable Full Stack developer to build out the MVP of our new internal tool over the next 4 weeks. 
                                 <br><br>
@@ -58,18 +59,18 @@
                             </p>
                         </div>
 
-                        <div style="display: flex; gap: 20px; margin-bottom: 30px; border-bottom: 1px solid var(--border-color); padding-bottom: 20px;">
-                            <div>
-                                <h4 style="margin: 0 0 5px 0; color: var(--text-secondary); font-size: 0.9rem;">Offer Type</h4>
-                                <p style="margin: 0; font-size: 1.1rem; color: var(--text-primary);">Fixed Price</p>
+                        <div class="info-row">
+                            <div class="info-item">
+                                <h4>Offer Type</h4>
+                                <p>Fixed Price</p>
                             </div>
-                            <div>
-                                <h4 style="margin: 0 0 5px 0; color: var(--text-secondary); font-size: 0.9rem;">Total Amount</h4>
-                                <p style="margin: 0; font-size: 1.1rem; color: var(--accent); font-weight: bold;">$3,000</p>
+                            <div class="info-item">
+                                <h4>Total Amount</h4>
+                                <p class="accent">$3,000</p>
                             </div>
-                            <div>
-                                <h4 style="margin: 0 0 5px 0; color: var(--text-secondary); font-size: 0.9rem;">Estimated Timeline</h4>
-                                <p style="margin: 0; font-size: 1.1rem; color: var(--text-primary);">4 Weeks</p>
+                            <div class="info-item">
+                                <h4>Estimated Timeline</h4>
+                                <p>4 Weeks</p>
                             </div>
                         </div>
 
@@ -107,7 +108,7 @@
                 </div>
 
                 <!-- Client Snapshot -->
-                <div class="card" style="width: 320px; flex-shrink: 0;">
+                <div class="card form-sidebar-section">
                     <div class="card-header">
                         <h3>About the Client</h3>
                     </div>

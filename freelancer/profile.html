@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/freelancer/layout.css">
     <link rel="stylesheet" href="../css/freelancer/components.css">
+    <link rel="stylesheet" href="../css/freelancer/inline-helpers.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
@@ -94,17 +95,17 @@
                 </div>
                 <div class="card-body">
                     <p style="color: var(--text-secondary); margin-bottom: 15px;">Select the categories that best describe your expertise.</p>
-                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                        <label style="background: var(--bg-secondary); padding: 8px 15px; border-radius: 20px; border: 1px solid var(--accent); color: var(--accent); cursor: pointer;">
+                    <div class="skill-tags">
+                        <label class="skill-tag selected">
                             <input type="checkbox" checked style="display:none;"> ✓ React
                         </label>
-                        <label style="background: var(--bg-secondary); padding: 8px 15px; border-radius: 20px; border: 1px solid var(--accent); color: var(--accent); cursor: pointer;">
+                        <label class="skill-tag selected">
                             <input type="checkbox" checked style="display:none;"> ✓ TypeScript
                         </label>
-                        <label style="background: var(--bg-secondary); padding: 8px 15px; border-radius: 20px; border: 1px solid var(--border-color); cursor: pointer;">
+                        <label class="skill-tag">
                             <input type="checkbox" style="display:none;"> Node.js
                         </label>
-                        <label style="background: var(--bg-secondary); padding: 8px 15px; border-radius: 20px; border: 1px solid var(--border-color); cursor: pointer;">
+                        <label class="skill-tag">
                             <input type="checkbox" style="display:none;"> UI/UX Design
                         </label>
                     </div>

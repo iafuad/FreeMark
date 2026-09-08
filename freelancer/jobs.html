@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/freelancer/layout.css">
     <link rel="stylesheet" href="../css/freelancer/components.css">
+    <link rel="stylesheet" href="../css/freelancer/inline-helpers.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
@@ -33,12 +34,12 @@
         <header class="freelancer-header">
             <div class="header-title">
                 <h2>Recommended Jobs for You</h2>
-                <p>Personalized job suggestions matched to your verified skills (React 98%, UI/UX 95%) and project history</p>
+                <p>Personalized job suggestions matched to your verified skills and project history</p>
             </div>
-            <div style="display: flex; gap: 10px; align-items: center;">
-                <div style="position: relative;">
-                    <input type="text" placeholder="Search matches..." style="padding: 8px 15px 8px 32px; border-radius: 4px; border: 1px solid var(--border-color); background: var(--bg-primary); color: white; font-size: 0.9rem;">
-                    <i data-lucide="search" style="position: absolute; left: 10px; top: 10px; width: 14px; color: var(--text-secondary);"></i>
+            <div class="header-actions">
+                <div class="search-input-wrapper">
+                    <input type="text" placeholder="Search matches...">
+                    <i data-lucide="search"></i>
                 </div>
             </div>
         </header>

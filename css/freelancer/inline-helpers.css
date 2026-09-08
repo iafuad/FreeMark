@@ -1,0 +1,326 @@
+/* Freelancer Layout & Utility Styles */
+
+/* Flex Utilities */
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex-start {
+    display: flex;
+    align-items: flex-start;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Common Gap Utilities */
+.gap-10 { gap: 10px; }
+.gap-15 { gap: 15px; }
+.gap-20 { gap: 20px; }
+.gap-30 { gap: 30px; }
+
+/* Layout Containers */
+.form-two-column {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.form-main-section {
+    flex-grow: 1;
+    max-width: 800px;
+}
+
+.form-sidebar-section {
+    width: 320px;
+    flex-shrink: 0;
+}
+
+/* Message/Quote Boxes */
+.client-message-box {
+    background: var(--bg-primary);
+    padding: 25px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 25px;
+}
+
+.client-message-box h4 {
+    margin-top: 0;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.client-message-box p {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+/* Info/Detail Sections */
+.info-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+}
+
+.info-item h4 {
+    margin: 0 0 5px 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.info-item p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.info-item p.accent {
+    color: var(--accent);
+    font-weight: bold;
+}
+
+/* Upload/Drop Zones */
+.upload-zone {
+    border: 1px dashed var(--border-color);
+    padding: 20px;
+    text-align: center;
+    border-radius: 4px;
+    background: var(--bg-primary);
+}
+
+.upload-zone-large {
+    border: 2px dashed var(--border-color);
+    padding: 30px;
+    text-align: center;
+    border-radius: 6px;
+    background: var(--bg-primary);
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.upload-zone-large:hover {
+    border-color: var(--accent);
+}
+
+.upload-zone i {
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+}
+
+.upload-zone p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.upload-zone-large i {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.upload-zone-large p {
+    margin: 0 0 5px 0;
+}
+
+/* Links & Buttons */
+.link-unstyled {
+    color: var(--text-secondary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.link-unstyled:hover {
+    color: var(--text-primary);
+}
+
+/* Margin Utilities */
+.mt-0 { margin-top: 0; }
+.mt-20 { margin-top: 20px; }
+.mt-30 { margin-top: 30px; }
+.mb-0 { margin-bottom: 0; }
+.mb-10 { margin-bottom: 10px; }
+.mb-15 { margin-bottom: 15px; }
+.mb-20 { margin-bottom: 20px; }
+
+/* Padding Utilities */
+.pt-20 { padding-top: 20px; }
+
+/* Text Utilities */
+.text-secondary { color: var(--text-secondary); }
+.text-primary { color: var(--text-primary); }
+.text-accent { color: var(--accent); }
+.text-small { font-size: 0.8rem; }
+.text-right { text-align: right; }
+
+/* Search Input */
+.search-input-wrapper {
+    position: relative;
+}
+
+.search-input-wrapper input {
+    padding: 8px 15px 8px 32px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-primary);
+    color: white;
+    font-size: 0.9rem;
+}
+
+.search-input-wrapper i {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 14px;
+    color: var(--text-secondary);
+}
+
+/* Header Actions */
+.header-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Profile & Info Display */
+.profile-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto 15px;
+}
+
+.skill-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.skill-tag {
+    background: var(--bg-secondary);
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.skill-tag.selected {
+    border: 1px solid var(--accent);
+    color: var(--accent);
+}
+
+/* Form Elements */
+.form-separator {
+    margin-top: 30px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+}
+
+/* Avatar Container */
+.avatar-medium {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+}
+
+/* Status Indicators */
+.status-text {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem;
+}
+
+/* Rating Display */
+.rating-display {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* Divider */
+.divider-section {
+    border-top: 1px solid var(--border-color);
+    padding-top: 15px;
+    margin-bottom: 15px;
+}
+
+/* Icon Sizing */
+.icon-sm { width: 14px; height: 14px; }
+.icon-base { width: 18px; height: 18px; }
+.icon-md { width: 20px; height: 20px; }
+.icon-lg { width: 32px; height: 32px; }
+
+/* Color Utilities */
+.text-warning { color: #ef4444; }
+.text-success { color: #22c55e; }
+.text-info { color: #60a5fa; }
+
+/* Spacing Helpers */
+.p-20 { padding: 20px; }
+.p-25 { padding: 25px; }
+.p-30 { padding: 30px; }
+
+.px-20 { padding-left: 20px; padding-right: 20px; }
+.py-15 { padding-top: 15px; padding-bottom: 15px; }
+
+/* Text Display */
+.text-nowrap { white-space: nowrap; }
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+/* Inline Badges */
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.badge-success {
+    background-color: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.badge-warning {
+    background-color: rgba(250, 204, 21, 0.1);
+    color: var(--accent);
+    border: 1px solid rgba(250, 204, 21, 0.3);
+}
+
+.badge-info {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
