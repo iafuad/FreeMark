@@ -28,7 +28,6 @@
 
     <main class="container">
         <div class="profile-layout">
-            <!-- Sidebar -->
             <aside class="profile-sidebar">
                 <div class="profile-card">
                     <div class="profile-avatar-large">MS</div>
@@ -52,25 +51,24 @@
 
                     <div class="profile-details-list">
                         <div class="detail-item">
-                            <i data-lucide="map-pin" style="width: 18px;"></i>
+                            <i data-lucide="map-pin" class="detail-icon"></i>
                             <span>Dhaka, Bangladesh</span>
                         </div>
                         <div class="detail-item">
-                            <i data-lucide="award" style="width: 18px; color: #22c55e;"></i>
+                            <i data-lucide="award" class="detail-icon detail-icon--success"></i>
                             <span>Top Rated Freelancer</span>
                         </div>
                         <div class="detail-item">
-                            <i data-lucide="briefcase" style="width: 18px;"></i>
+                            <i data-lucide="briefcase" class="detail-icon"></i>
                             <span>$40k+ Total Earned</span>
                         </div>
                     </div>
 
-                    <button class="btn btn-primary" style="width: 100%; margin-bottom: 10px;">Hire Md Sami</button>
-                    <button class="btn btn-outline" style="width: 100%;">Send Message</button>
+                    <button class="btn btn-primary sidebar-btn sidebar-btn--spaced">Hire Md Sami</button>
+                    <button class="btn btn-outline sidebar-btn">Send Message</button>
                 </div>
             </aside>
 
-            <!-- Main Content -->
             <div class="profile-main">
                 <div class="section-card">
                     <h3>About Me</h3>
@@ -83,20 +81,20 @@
                 <div class="section-card">
                     <h3>Verified Skills & Tests</h3>
                     <div class="skill-grid">
-                        <div class="skill-test-item" style="border-color: #22c55e;">
-                            <h4 style="color: #22c55e;">React Fundamentals</h4>
-                            <div style="font-size: 1.2rem; font-weight: bold;">98 / 100</div>
-                            <div style="font-size: 0.8rem; color: var(--text-secondary);">Top 5%</div>
+                        <div class="skill-test-item skill-test-item--verified">
+                            <h4 class="skill-title--verified">React Fundamentals</h4>
+                            <div class="skill-score">98 / 100</div>
+                            <div class="skill-percentile">Top 5%</div>
                         </div>
                         <div class="skill-test-item">
                             <h4>Advanced Node.js</h4>
-                            <div style="font-size: 1.2rem; font-weight: bold;">92 / 100</div>
-                            <div style="font-size: 0.8rem; color: var(--text-secondary);">Top 10%</div>
+                            <div class="skill-score">92 / 100</div>
+                            <div class="skill-percentile">Top 10%</div>
                         </div>
                         <div class="skill-test-item">
                             <h4>TypeScript</h4>
-                            <div style="font-size: 1.2rem; font-weight: bold;">88 / 100</div>
-                            <div style="font-size: 0.8rem; color: var(--text-secondary);">Top 15%</div>
+                            <div class="skill-score">88 / 100</div>
+                            <div class="skill-percentile">Top 15%</div>
                         </div>
                     </div>
                 </div>
@@ -124,7 +122,7 @@
                                 <h4>E-commerce Backend Migration</h4>
                                 <div class="review-stars">★★★★★ 5.0</div>
                             </div>
-                            <div style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 10px;">Fixed Price: $6,000 • Completed: Jan 2026</div>
+                            <div class="review-date">Fixed Price: $6,000 • Completed: Jan 2026</div>
                             <div class="review-text">"Sami was exceptional. He migrated our entire monolithic backend to microservices using Node.js without any downtime. Highly communicative and professional." - ShopStream Ltd.</div>
                         </div>
                         <div class="history-item">
@@ -132,7 +130,7 @@
                                 <h4>Financial Dashboard UI React Components</h4>
                                 <div class="review-stars">★★★★★ 5.0</div>
                             </div>
-                            <div style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 10px;">Hourly: 50 hrs @ $85/hr • Completed: Nov 2025</div>
+                            <div class="review-date">Hourly: 50 hrs @ $85/hr • Completed: Nov 2025</div>
                             <div class="review-text">"Delivered flawless React components perfectly matching the Figma designs. His TypeScript knowledge really helped our team." - FinCore Solutions</div>
                         </div>
                     </div>
