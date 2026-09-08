@@ -8,39 +8,6 @@
     <link rel="stylesheet" href="../css/client/layout.css">
     <link rel="stylesheet" href="../css/client/components.css">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        .contract-block {
-            margin-bottom: 40px;
-        }
-        .contract-title {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            color: var(--text-primary);
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 10px;
-        }
-        .milestone-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px;
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            margin-bottom: 10px;
-        }
-        .milestone-info h4 { margin: 0 0 5px 0; }
-        .milestone-meta { font-size: 0.85rem; color: var(--text-secondary); }
-        .status-badge {
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        .status-pending { background-color: rgba(250, 204, 21, 0.1); color: var(--accent); border: 1px solid var(--accent); }
-        .status-completed { background-color: rgba(34, 197, 94, 0.1); color: #22c55e; border: 1px solid #22c55e; }
-        .status-progress { background-color: rgba(59, 130, 246, 0.1); color: #60a5fa; border: 1px solid #60a5fa; }
-    </style>
 </head>
 <body>
     <aside class="client-sidebar">
@@ -81,51 +48,51 @@
                     
                     <div class="contract-block">
                         <div class="contract-title">
-                            React Dashboard Implementation <span style="font-size: 0.9rem; font-weight: normal; color: var(--text-secondary);">• Freelancer: Md Sami</span>
+                            React Dashboard Implementation <span class="contract-freelancer">• Freelancer: Md Sami</span>
                         </div>
                         
                         <div class="milestone-item">
                             <div class="milestone-info">
-                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
-                                    <h4 style="margin: 0;">Milestone 1: UI Components & Layout</h4>
+                                <div class="milestone-heading">
+                                    <h4>Milestone 1: UI Components & Layout</h4>
                                     <span class="status-badge status-completed">Completed</span>
                                 </div>
                                 <div class="milestone-meta">Amount: $1,500 • Paid on Oct 1, 2026</div>
                             </div>
                             <div>
-                                <button style="background: none; border: none; color: var(--text-secondary); cursor: not-allowed; display: flex; align-items: center; gap: 5px; font-size: 0.9rem;">View Details <i data-lucide="chevron-right" style="width: 16px;"></i></button>
+                                <button class="milestone-details-button">View Details <i data-lucide="chevron-right" class="icon-md"></i></button>
                             </div>
                         </div>
 
-                        <div class="milestone-item" style="border-color: var(--accent);">
+                        <div class="milestone-item milestone-item-pending">
                             <div class="milestone-info">
-                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
-                                    <h4 style="margin: 0; color: var(--accent);">Milestone 2: Final API Integration</h4>
+                                <div class="milestone-heading milestone-heading-active">
+                                    <h4>Milestone 2: Final API Integration</h4>
                                     <span class="status-badge status-pending">Pending Approval</span>
                                 </div>
                                 <div class="milestone-meta">Amount: $3,500 • Submitted 2 hours ago</div>
                             </div>
                             <div>
-                                <a href="milestone-details.html" class="btn btn-primary" style="text-decoration: none; padding: 6px 15px; font-size: 0.85rem;">Review Work</a>
+                                <a href="milestone-details.html" class="btn btn-primary milestone-review-link">Review Work</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="contract-block">
                         <div class="contract-title">
-                            Backend API Development <span style="font-size: 0.9rem; font-weight: normal; color: var(--text-secondary);">• Freelancer: Alex J.</span>
+                            Backend API Development <span class="contract-freelancer">• Freelancer: Alex J.</span>
                         </div>
                         
                         <div class="milestone-item">
                             <div class="milestone-info">
-                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
-                                    <h4 style="margin: 0;">Milestone 1: Database Schema & Auth</h4>
+                                <div class="milestone-heading">
+                                    <h4>Milestone 1: Database Schema & Auth</h4>
                                     <span class="status-badge status-progress">In Progress</span>
                                 </div>
                                 <div class="milestone-meta">Amount: $2,000 • Due in 4 days</div>
                             </div>
                             <div>
-                                <button style="background: none; border: none; color: var(--text-secondary); cursor: not-allowed; display: flex; align-items: center; gap: 5px; font-size: 0.9rem;">View Details <i data-lucide="chevron-right" style="width: 16px;"></i></button>
+                                <button class="milestone-details-button">View Details <i data-lucide="chevron-right" class="icon-md"></i></button>
                             </div>
                         </div>
                     </div>

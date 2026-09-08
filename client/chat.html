@@ -39,38 +39,38 @@
         </header>
 
         <div class="client-content">
-            <div style="display: flex; height: 600px; border: 1px solid var(--border-color); border-radius: 8px; background-color: var(--bg-card); overflow: hidden;">
-                <div style="width: 250px; border-right: 1px solid var(--border-color); overflow-y: auto;">
-                    <div style="padding: 15px; border-bottom: 1px solid var(--border-color); cursor: pointer; display: flex; align-items: center; gap: 10px; background-color: var(--bg-secondary);">
-                        <div style="width: 40px; height: 40px; border-radius: 50%; background: #ca8a04; display: flex; align-items: center; justify-content: center; font-weight: bold;">MS</div>
+            <div class="chat-layout">
+                <div class="chat-sidebar">
+                    <div class="chat-contact">
+                        <div class="chat-avatar">MS</div>
                         <div>
-                            <h4 style="margin: 0; font-size: 0.95rem;">Md Sami</h4>
-                            <p style="margin: 0; font-size: 0.8rem; color: var(--text-secondary);">Sounds great, thanks!</p>
+                            <h4>Md Sami</h4>
+                            <p>Sounds great, thanks!</p>
                         </div>
                     </div>
                 </div>
                 
-                <div style="flex-grow: 1; display: flex; flex-direction: column;">
-                    <div style="padding: 15px; border-bottom: 1px solid var(--border-color); font-weight: 600;">
+                <div class="chat-main">
+                    <div class="chat-header">
                         Md Sami
                     </div>
-                    <div style="flex-grow: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px;">
-                        <div style="max-width: 70%; padding: 10px 15px; border-radius: 8px; font-size: 0.95rem; background-color: rgba(250, 204, 21, 0.15); color: var(--text-primary); border: 1px solid rgba(250, 204, 21, 0.3); align-self: flex-end;">
+                    <div class="chat-messages">
+                        <div class="chat-bubble chat-bubble-sent">
                             Hi! We reviewed your proposal for the React Dashboard project. Do you have time for a quick call tomorrow?
                         </div>
-                        <div style="max-width: 70%; padding: 10px 15px; border-radius: 8px; font-size: 0.95rem; background-color: var(--bg-secondary); align-self: flex-start;">
+                        <div class="chat-bubble chat-bubble-received">
                             Hello! Yes, I am available tomorrow between 2 PM and 5 PM EST. Does that work for you?
                         </div>
-                        <div style="max-width: 70%; padding: 10px 15px; border-radius: 8px; font-size: 0.95rem; background-color: rgba(250, 204, 21, 0.15); color: var(--text-primary); border: 1px solid rgba(250, 204, 21, 0.3); align-self: flex-end;">
+                        <div class="chat-bubble chat-bubble-sent">
                             Perfect. Let's aim for 3 PM EST. I will send you the meeting link.
                         </div>
-                        <div style="max-width: 70%; padding: 10px 15px; border-radius: 8px; font-size: 0.95rem; background-color: var(--bg-secondary); align-self: flex-start;">
+                        <div class="chat-bubble chat-bubble-received">
                             Sounds great, thanks! Looking forward to it.
                         </div>
                     </div>
-                    <div style="padding: 15px; border-top: 1px solid var(--border-color); display: flex; gap: 10px;">
-                        <input type="text" placeholder="Type your message here..." style="flex-grow: 1; padding: 10px; background-color: var(--bg-primary); border: 1px solid var(--border-color); color: white; border-radius: 4px;">
-                        <button class="btn btn-primary"><i data-lucide="send" style="width: 18px;"></i></button>
+                    <div class="chat-composer">
+                        <input type="text" placeholder="Type your message here...">
+                        <button class="btn btn-primary"><i data-lucide="send" class="icon-lg"></i></button>
                     </div>
                 </div>
             </div>

@@ -549,3 +549,158 @@ footer {
 .trend-up { color: #22c55e; }
 .trend-down { color: #ef4444; }
 .trend-neutral { color: var(--text-secondary); }
+
+
+
+/*login.html*/
+
+/* Authentication Card Adjustments */
+.auth-card-wide {
+    padding: 40px;
+    max-width: 700px;
+}
+
+.auth-card-wide h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.auth-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+/* Role Selection Grid */
+.role-selection {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.role-card {
+    flex: 1;
+    padding: 30px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+    background-color: var(--bg-card);
+}
+
+.role-card:hover {
+    border-color: var(--accent);
+    background-color: var(--bg-secondary);
+    transform: translateY(-2px);
+}
+
+.role-card i {
+    color: var(--accent);
+    width: 48px;
+    height: 48px;
+    margin-bottom: 15px;
+}
+
+.role-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+}
+
+/* Auxiliary Navigation */
+.admin-access {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.admin-access a {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+.admin-access a:hover {
+    text-decoration: underline;
+}
+
+.auth-links {
+    margin-top: 30px;
+    text-align: center;
+}
+
+/*register.html*/
+
+
+/* Role Selection */
+.role-selection {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.role-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+    background-color: var(--bg-card);
+}
+
+.role-card:hover {
+    border-color: var(--accent);
+    background-color: var(--bg-secondary);
+    transform: translateY(-2px);
+}
+
+.role-card i,
+.role-card svg {
+    color: var(--accent);
+    width: 48px;
+    height: 48px;
+    margin-bottom: 15px;
+}
+
+.role-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+}
+
+.role-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Auth Card Container & Content Alignments */
+.auth-card-wide {
+    padding: 40px !important;
+    max-width: 700px !important;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.auth-title {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.auth-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.auth-links {
+    margin-top: 30px;
+    text-align: center;
+}

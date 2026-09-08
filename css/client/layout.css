@@ -115,3 +115,10 @@ body {
     background-color: var(--bg-primary);
     flex-grow: 1;
 }
+
+.client-split-layout { display: flex; gap: 30px; align-items: flex-start; }
+.client-split-main { flex-grow: 1; max-width: 800px; }
+.client-split-sidebar { width: 320px; flex-shrink: 0; }
+.client-form-card { width: 100%; max-width: none; }
+.sidebar-footer-link { color: var(--text-secondary); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+.client-header-actions { display: flex; gap: 10px; }
