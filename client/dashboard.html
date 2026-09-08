@@ -30,7 +30,7 @@
             </ul>
         </nav>
         <div class="sidebar-footer">
-            <a href="../index.html" style="color: var(--text-secondary); text-decoration: none; display: flex; align-items: center; gap: 10px;">
+            <a href="../index.html" class="sidebar-footer-link">
                 <i data-lucide="log-out"></i> Logout
             </a>
         </div>
@@ -81,7 +81,7 @@
             <!-- Quick Notifications & Action Center Panel -->
             <div class="card">
                 <div class="card-header">
-                    <div style="display: flex; align-items: center;">
+                    <div class="header-title-row">
                         <h3>Action Center & Notifications</h3>
                         <span class="notif-badge">3 New</span>
                     </div>
@@ -92,16 +92,16 @@
                             <a href="#" class="notif-pill">Proposals (1)</a>
                             <a href="#" class="notif-pill">Messages (1)</a>
                         </div>
-                        <a href="#" style="color: var(--text-secondary); font-size: 0.8rem; text-decoration: none;">Mark all read</a>
+                        <a href="#" class="text-muted-sm">Mark all read</a>
                     </div>
                 </div>
-                <div class="card-body" style="padding: 0;">
+                <div class="card-body card-body-flush">
                     <div class="notif-list">
                         <!-- Notification 1: Milestone Submission (Work Approval) -->
                         <div class="notif-item unread">
                             <div class="notif-main">
                                 <div class="notif-icon-box icon-yellow">
-                                    <i data-lucide="check-square" style="width: 20px;"></i>
+                                    <i data-lucide="check-square" class="icon-xl"></i>
                                 </div>
                                 <div class="notif-content">
                                     <div class="notif-top">
@@ -110,12 +110,12 @@
                                     </div>
                                     <p class="notif-desc"><strong>Md Sami</strong> submitted Milestone 2: <em>"Final API Integration"</em> ($3,500) for review.</p>
                                     <div class="notif-meta">
-                                        <i data-lucide="clock" style="width: 12px;"></i> 2 hours ago • <span style="color: var(--accent); font-weight: 500;">Action Required</span>
+                                        <i data-lucide="clock" class="icon-xs"></i> 2 hours ago • <span class="text-accent">Action Required</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="notif-actions">
-                                <a href="milestone-details.html" class="btn btn-primary" style="padding: 6px 14px; font-size: 0.85rem; text-decoration: none;">Review Work</a>
+                                <a href="milestone-details.html" class="btn btn-primary btn-compact">Review Work</a>
                             </div>
                         </div>
 
@@ -123,7 +123,7 @@
                         <div class="notif-item unread">
                             <div class="notif-main">
                                 <div class="notif-icon-box icon-blue">
-                                    <i data-lucide="file-text" style="width: 20px;"></i>
+                                    <i data-lucide="file-text" class="icon-xl"></i>
                                 </div>
                                 <div class="notif-content">
                                     <div class="notif-top">
@@ -132,12 +132,12 @@
                                     </div>
                                     <p class="notif-desc"><strong>Fuad (UI/UX Designer)</strong> submitted a proposal for $3,500 (3 weeks) with a skill test score of 95/100.</p>
                                     <div class="notif-meta">
-                                        <i data-lucide="clock" style="width: 12px;"></i> 4 hours ago
+                                        <i data-lucide="clock" class="icon-xs"></i> 4 hours ago
                                     </div>
                                 </div>
                             </div>
                             <div class="notif-actions">
-                                <a href="review-proposal.html" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.85rem; text-decoration: none;">Review Proposal</a>
+                                <a href="review-proposal.html" class="btn btn-outline btn-compact">Review Proposal</a>
                             </div>
                         </div>
 
@@ -145,7 +145,7 @@
                         <div class="notif-item unread">
                             <div class="notif-main">
                                 <div class="notif-icon-box icon-purple">
-                                    <i data-lucide="message-square" style="width: 20px;"></i>
+                                    <i data-lucide="message-square" class="icon-xl"></i>
                                 </div>
                                 <div class="notif-content">
                                     <div class="notif-top">
@@ -154,12 +154,12 @@
                                     </div>
                                     <p class="notif-desc"><em>"I've deployed the authentication schema changes to the test staging server for you to test."</em></p>
                                     <div class="notif-meta">
-                                        <i data-lucide="clock" style="width: 12px;"></i> Yesterday at 5:30 PM
+                                        <i data-lucide="clock" class="icon-xs"></i> Yesterday at 5:30 PM
                                     </div>
                                 </div>
                             </div>
                             <div class="notif-actions">
-                                <a href="chat.html" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.85rem; text-decoration: none;">Open Chat</a>
+                                <a href="chat.html" class="btn btn-outline btn-compact">Open Chat</a>
                             </div>
                         </div>
 
@@ -167,7 +167,7 @@
                         <div class="notif-item">
                             <div class="notif-main">
                                 <div class="notif-icon-box icon-green">
-                                    <i data-lucide="dollar-sign" style="width: 20px;"></i>
+                                    <i data-lucide="dollar-sign" class="icon-xl"></i>
                                 </div>
                                 <div class="notif-content">
                                     <div class="notif-top">
@@ -176,12 +176,12 @@
                                     </div>
                                     <p class="notif-desc">$1,500 was successfully released to <strong>Md Sami</strong> for Milestone 1: UI Components & Layout.</p>
                                     <div class="notif-meta">
-                                        <i data-lucide="calendar" style="width: 12px;"></i> Oct 1, 2026 • Completed
+                                        <i data-lucide="calendar" class="icon-xs"></i> Oct 1, 2026 • Completed
                                     </div>
                                 </div>
                             </div>
                             <div class="notif-actions">
-                                <a href="work-approval.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; display: flex; align-items: center; gap: 4px;">Details <i data-lucide="chevron-right" style="width: 14px;"></i></a>
+                                <a href="work-approval.html" class="details-link">Details <i data-lucide="chevron-right" class="icon-sm"></i></a>
                             </div>
                         </div>
                     </div>

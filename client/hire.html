@@ -40,10 +40,10 @@
         </header>
 
         <div class="client-content">
-            <div style="display: flex; gap: 30px; align-items: flex-start;">
+            <div class="client-split-layout">
                 
                 <!-- Hire Form -->
-                <div class="card" style="flex-grow: 1; max-width: 800px;">
+                <div class="card client-split-main">
                     <div class="card-header">
                         <h3>Contract Details</h3>
                     </div>
@@ -77,38 +77,38 @@
                                 <textarea placeholder="Describe the terms of the offer, outline the milestones, or just say hello..." required>Hi Sami, I reviewed your profile and test scores. I think you'd be a perfect fit for our upcoming React project. Please review this offer and let me know if you are interested!</textarea>
                             </div>
                             
-                            <div style="margin-top: 30px; border-top: 1px solid var(--border-color); padding-top: 20px;">
-                                <button type="button" class="btn btn-primary" style="width: 100%;">Send Offer</button>
+                            <div class="form-actions-divider">
+                                <button type="button" class="btn btn-primary btn-block">Send Offer</button>
                             </div>
                         </form>
                     </div>
                 </div>
 
                 <!-- Freelancer Snapshot -->
-                <div class="card" style="width: 320px; flex-shrink: 0;">
+                <div class="card client-split-sidebar">
                     <div class="card-header">
                         <h3>Freelancer Snapshot</h3>
                     </div>
-                    <div class="card-body" style="text-align: center;">
-                        <div style="width: 80px; height: 80px; border-radius: 50%; background: #3b82f6; color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: bold; margin: 0 auto 15px;">MS</div>
-                        <h4 style="margin: 0 0 5px 0; font-size: 1.2rem;">Md Sami</h4>
-                        <p style="margin: 0 0 15px 0; color: var(--text-secondary); font-size: 0.9rem;">Full Stack Developer</p>
+                    <div class="card-body profile-snapshot-body">
+                        <div class="profile-avatar-lg profile-avatar-blue">MS</div>
+                        <h4 class="profile-name">Md Sami</h4>
+                        <p class="profile-role">Full Stack Developer</p>
                         
-                        <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border-color);">
+                        <div class="profile-stats">
                             <div>
-                                <div style="font-weight: bold;">4.9★</div>
-                                <div style="font-size: 0.8rem; color: var(--text-secondary);">Rating</div>
+                                <div class="profile-stat-value">4.9★</div>
+                                <div class="profile-stat-label">Rating</div>
                             </div>
                             <div>
-                                <div style="font-weight: bold;">$85/hr</div>
-                                <div style="font-size: 0.8rem; color: var(--text-secondary);">Rate</div>
+                                <div class="profile-stat-value">$85/hr</div>
+                                <div class="profile-stat-label">Rate</div>
                             </div>
                         </div>
 
-                        <div style="text-align: left;">
-                            <div style="font-size: 0.85rem; color: #22c55e; font-weight: bold; margin-bottom: 5px;">Verified Skills:</div>
-                            <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 5px;">• React Fundamentals (Top 5%)</div>
-                            <div style="font-size: 0.85rem; color: var(--text-secondary);">• Advanced Node.js (Top 10%)</div>
+                        <div class="verified-skills">
+                            <div class="verified-label">Verified Skills:</div>
+                            <div class="verified-skill">• React Fundamentals (Top 5%)</div>
+                            <div class="verified-skill">• Advanced Node.js (Top 10%)</div>
                         </div>
                     </div>
                 </div>
