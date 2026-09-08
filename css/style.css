@@ -259,16 +259,30 @@ header {
 
 .tags {
     display: flex;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 8px;
     margin-bottom: 20px;
 }
 
 .tag {
-    background-color: var(--bg-secondary);
-    padding: 5px 12px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    color: var(--text-secondary);
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: #cbd5e1;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    letter-spacing: 0.2px;
+    transition: all 0.2s ease;
+}
+
+.tag:hover {
+    border-color: rgba(250, 204, 21, 0.4);
+    color: var(--accent);
+    background: rgba(250, 204, 21, 0.06);
 }
 
 .project-meta {
