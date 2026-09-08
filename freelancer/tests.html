@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/freelancer/layout.css">
     <link rel="stylesheet" href="../css/freelancer/components.css">
+    <link rel="stylesheet" href="../css/freelancer/inline-helpers.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
@@ -42,11 +43,11 @@
 
         <div class="freelancer-content">
             <div class="suggestion-alert">
-                <h4><i data-lucide="lightbulb" style="width: 18px; margin-right: 5px;"></i> Skill Improvement Suggestion</h4>
+                <h4><i data-lucide="lightbulb" class="icon-base" style="margin-right: 5px;"></i> Skill Improvement Suggestion</h4>
                 <p>Based on your recent React test, we suggest brushing up on <strong>React Hooks (useMemo, useCallback)</strong>. Taking the advanced React test will boost your profile visibility by 15%.</p>
             </div>
 
-            <h3 style="margin-bottom: 20px;">Available Tests</h3>
+            <h3 class="mb-20">Available Tests</h3>
             <div class="test-grid">
                 <div class="test-card">
                     <h4>Frontend Development Basics</h4>
@@ -65,7 +66,7 @@
                 </div>
             </div>
 
-            <h3 style="margin: 40px 0 20px;">Completed Tests</h3>
+            <h3 class="mt-30 mb-20">Completed Tests</h3>
             <div class="test-grid">
                 <div class="test-card" style="border-color: #22c55e;">
                     <div style="display: flex; justify-content: space-between; align-items: flex-start;">
@@ -73,7 +74,7 @@
                         <span class="score-badge">Top 5%</span>
                     </div>
                     <p>Score: 97/100</p>
-                    <button class="btn btn-outline" disabled style="width: 100%; opacity: 0.5; border-color: var(--border-color); color: var(--text-secondary);">Completed</button>
+                    <button class="btn btn-outline btn-full" disabled>Completed</button>
                 </div>
             </div>
         </div>

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/freelancer/layout.css">
     <link rel="stylesheet" href="../css/freelancer/components.css">
+    <link rel="stylesheet" href="../css/freelancer/inline-helpers.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
@@ -33,12 +34,12 @@
         <header class="freelancer-header">
             <div class="header-title">
                 <h2>Recommended Jobs for You</h2>
-                <p>Personalized job suggestions matched to your verified skills (React 98%, UI/UX 95%) and project history</p>
+                <p>Personalized job suggestions matched to your verified skills and project history</p>
             </div>
-            <div style="display: flex; gap: 10px; align-items: center;">
-                <div style="position: relative;">
-                    <input type="text" placeholder="Search matches..." style="padding: 8px 15px 8px 32px; border-radius: 4px; border: 1px solid var(--border-color); background: var(--bg-primary); color: white; font-size: 0.9rem;">
-                    <i data-lucide="search" style="position: absolute; left: 10px; top: 10px; width: 14px; color: var(--text-secondary);"></i>
+            <div class="header-actions">
+                <div class="search-input-wrapper">
+                    <input type="text" placeholder="Search matches...">
+                    <i data-lucide="search"></i>
                 </div>
             </div>
         </header>
@@ -47,23 +48,23 @@
             <!-- Smart Filter Tabs -->
             <div class="smart-filter-bar">
                 <a href="#" class="smart-tab active">
-                    <i data-lucide="sparkles" style="width: 16px;"></i> Best Matches (Top Skills)
+                    <i data-lucide="sparkles" class="icon-md" style="display: inline;"></i> Best Matches (Top Skills)
                 </a>
                 <a href="#" class="smart-tab">
-                    <i data-lucide="award" style="width: 16px;"></i> Matched to React Test (98/100)
+                    <i data-lucide="award" class="icon-md" style="display: inline;"></i> Matched to React Test (98/100)
                 </a>
                 <a href="#" class="smart-tab">
-                    <i data-lucide="layout" style="width: 16px;"></i> UI/UX Design Matches
+                    <i data-lucide="layout" class="icon-md" style="display: inline;"></i> UI/UX Design Matches
                 </a>
                 <a href="#" class="smart-tab">
-                    <i data-lucide="clock" style="width: 16px;"></i> Most Recent
+                    <i data-lucide="clock" class="icon-md" style="display: inline;"></i> Most Recent
                 </a>
             </div>
 
             <!-- Smart Matching Context Banner -->
             <div class="smart-banner">
                 <div class="smart-banner-text">
-                    <h4><i data-lucide="sparkles" style="width: 18px;"></i> Smart Job Engine Active</h4>
+                    <h4><i data-lucide="sparkles" class="icon-base" style="display: inline;"></i> Smart Job Engine Active</h4>
                     <p>Curated feed matching your <strong>Top 5% React badge</strong>, <strong>UI/UX verification</strong>, and preferred contract rates ($70–$90/hr). Clients are actively prioritizing verified applicants.</p>
                 </div>
                 <div style="font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">
@@ -75,27 +76,27 @@
             <div>
                 <!-- Recommended Job 1 -->
                 <div class="job-card-rich">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+                    <div class="job-header">
                         <div>
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
-                                <h3 style="margin: 0; font-size: 1.25rem;">
-                                    <a href="../guest/job-details.html" style="color: var(--text-primary); text-decoration: none;">Senior React Developer for Fintech App</a>
+                            <div class="job-title-wrapper">
+                                <h3 class="job-title">
+                                    <a href="../guest/job-details.html">Senior React Developer for Fintech App</a>
                                 </h3>
                                 <span class="match-badge"><i data-lucide="sparkles" style="width: 12px;"></i> 99% Best Match</span>
                             </div>
-                            <div style="font-size: 0.85rem; color: var(--text-secondary); display: flex; align-items: center; gap: 12px;">
+                            <div class="job-meta-row">
                                 <span>FinCore Solutions</span>
                                 <span>•</span>
-                                <span><i data-lucide="star" style="width: 13px; color: var(--accent); fill: var(--accent); display: inline;"></i> 4.9 (24 reviews)</span>
+                                <span><i data-lucide="star" class="icon-xs" style="color: var(--accent); fill: var(--accent); display: inline;"></i> 4.9 (24 reviews)</span>
                                 <span>•</span>
-                                <span style="color: #22c55e;"><i data-lucide="shield-check" style="width: 13px; display: inline;"></i> Payment Verified</span>
+                                <span class="text-success"><i data-lucide="shield-check" class="icon-xs" style="display: inline;"></i> Payment Verified</span>
                                 <span>•</span>
                                 <span>London, UK (Remote)</span>
                             </div>
                         </div>
-                        <div style="text-align: right; white-space: nowrap;">
-                            <div style="color: var(--accent); font-size: 1.3rem; font-weight: 700;">$5,000 – $8,000</div>
-                            <div style="font-size: 0.8rem; color: var(--text-secondary);">Fixed-Price Escrow</div>
+                        <div class="job-budget-section">
+                            <div class="job-budget-amount">$5,000 – $8,000</div>
+                            <div class="job-budget-type">Fixed-Price Escrow</div>
                         </div>
                     </div>
 
@@ -117,10 +118,10 @@
                             <span class="tag">Next.js</span>
                         </div>
 
-                        <div style="display: flex; gap: 10px; align-items: center;">
-                            <span style="font-size: 0.8rem; color: var(--text-secondary); margin-right: 10px;">12 proposals • 2 days ago</span>
-                            <a href="../guest/job-details.html" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.85rem; text-decoration: none;">View Details</a>
-                            <a href="apply.html" class="btn btn-primary" style="padding: 6px 16px; font-size: 0.85rem; text-decoration: none;">Apply Now</a>
+                        <div class="job-footer-right">
+                            <span class="job-proposals-meta">12 proposals • 2 days ago</span>
+                            <a href="../guest/job-details.html" class="btn btn-outline btn-sm">View Details</a>
+                            <a href="apply.html" class="btn btn-primary btn-sm-px">Apply Now</a>
                         </div>
                     </div>
                 </div>

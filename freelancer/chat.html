@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/freelancer/layout.css">
     <link rel="stylesheet" href="../css/freelancer/components.css">
+    <link rel="stylesheet" href="../css/freelancer/inline-helpers.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
@@ -42,17 +43,17 @@
             <div class="chat-container">
                 <div class="chat-sidebar">
                     <div class="chat-contact active">
-                        <div style="width: 40px; height: 40px; border-radius: 50%; background: #3b82f6; display: flex; align-items: center; justify-content: center; font-weight: bold;">FC</div>
+                        <div class="avatar-small avatar-bg-blue">FC</div>
                         <div>
-                            <h4 style="margin: 0; font-size: 0.95rem;">FinCore Solutions</h4>
-                            <p style="margin: 0; font-size: 0.8rem; color: var(--text-secondary);">Sounds great, thanks!</p>
+                            <h4 class="m-0 text-base">FinCore Solutions</h4>
+                            <p class="m-0 text-small text-secondary">Sounds great, thanks!</p>
                         </div>
                     </div>
                     <div class="chat-contact">
-                        <div style="width: 40px; height: 40px; border-radius: 50%; background: #10b981; display: flex; align-items: center; justify-content: center; font-weight: bold;">MP</div>
+                        <div class="avatar-small avatar-bg-green">MP</div>
                         <div>
-                            <h4 style="margin: 0; font-size: 0.95rem;">MedPath Inc.</h4>
-                            <p style="margin: 0; font-size: 0.8rem; color: var(--text-secondary);">When can we start?</p>
+                            <h4 class="m-0 text-base">MedPath Inc.</h4>
+                            <p class="m-0 text-small text-secondary">When can we start?</p>
                         </div>
                     </div>
                 </div>
@@ -77,7 +78,7 @@
                     </div>
                     <div class="chat-input">
                         <input type="text" placeholder="Type your message here...">
-                        <button class="btn btn-primary"><i data-lucide="send" style="width: 18px;"></i></button>
+                        <button class="btn btn-primary"><i data-lucide="send" class="icon-send"></i></button>
                     </div>
                 </div>
             </div>

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/freelancer/layout.css">
     <link rel="stylesheet" href="../css/freelancer/components.css">
+    <link rel="stylesheet" href="../css/freelancer/inline-helpers.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
@@ -30,7 +31,7 @@
             </ul>
         </nav>
         <div class="sidebar-footer">
-            <a href="../index.html" style="color: var(--text-secondary); text-decoration: none; display: flex; align-items: center; gap: 10px;">
+            <a href="../index.html" class="link-unstyled">
                 <i data-lucide="log-out"></i> Logout
             </a>
         </div>
@@ -43,9 +44,9 @@
                 <p>Here is what's happening with your projects today.</p>
             </div>
             <div class="header-actions">
-                <div style="text-align: right;">
+                    <div style="text-align: right;">
                     <strong>Available Balance</strong>
-                    <div style="color: var(--accent); font-size: 1.2rem; font-weight: bold;">$1,250.00</div>
+                    <div class="text-accent text-2xl font-bold">$1,250.00</div>
                 </div>
             </div>
         </header>
@@ -57,42 +58,42 @@
                 <div class="sleek-stat-card">
                     <div class="sleek-stat-header">
                         <span class="sleek-stat-title">Total Earnings</span>
-                        <div class="sleek-stat-icon icon-yellow"><i data-lucide="dollar-sign" style="width: 18px;"></i></div>
+                        <div class="sleek-stat-icon icon-yellow"><i data-lucide="dollar-sign" class="icon-base"></i></div>
                     </div>
                     <div class="sleek-stat-value">$14,500</div>
-                    <div class="sleek-stat-trend trend-up"><i data-lucide="trending-up" style="width: 14px;"></i> +12% this month</div>
+                    <div class="sleek-stat-trend trend-up"><i data-lucide="trending-up" class="icon-sm"></i> +12% this month</div>
                 </div>
                 
                 <div class="sleek-stat-card">
                     <div class="sleek-stat-header">
                         <span class="sleek-stat-title">Active Contracts</span>
-                        <div class="sleek-stat-icon icon-blue"><i data-lucide="briefcase" style="width: 18px;"></i></div>
+                        <div class="sleek-stat-icon icon-blue"><i data-lucide="briefcase" class="icon-base"></i></div>
                     </div>
                     <div class="sleek-stat-value">3</div>
-                    <div class="sleek-stat-trend trend-neutral"><i data-lucide="minus" style="width: 14px;"></i> Same as last month</div>
+                    <div class="sleek-stat-trend trend-neutral"><i data-lucide="minus" class="icon-sm"></i> Same as last month</div>
                 </div>
                 
                 <div class="sleek-stat-card">
                     <div class="sleek-stat-header">
                         <span class="sleek-stat-title">Job Success Score</span>
-                        <div class="sleek-stat-icon icon-green"><i data-lucide="check-circle" style="width: 18px;"></i></div>
+                        <div class="sleek-stat-icon icon-green"><i data-lucide="check-circle" class="icon-base"></i></div>
                     </div>
                     <div class="sleek-stat-value">98%</div>
-                    <div class="sleek-stat-trend trend-up"><i data-lucide="trending-up" style="width: 14px;"></i> Top Rated</div>
+                    <div class="sleek-stat-trend trend-up"><i data-lucide="trending-up" class="icon-sm"></i> Top Rated</div>
                 </div>
 
                 <div class="sleek-stat-card">
                     <div class="sleek-stat-header">
                         <span class="sleek-stat-title">Profile Views</span>
-                        <div class="sleek-stat-icon icon-purple"><i data-lucide="eye" style="width: 18px;"></i></div>
+                        <div class="sleek-stat-icon icon-purple"><i data-lucide="eye" class="icon-base"></i></div>
                     </div>
                     <div class="sleek-stat-value">124</div>
-                    <div class="sleek-stat-trend trend-up"><i data-lucide="arrow-up-right" style="width: 14px;"></i> +34 this week</div>
+                    <div class="sleek-stat-trend trend-up"><i data-lucide="arrow-up-right" class="icon-sm"></i> +34 this week</div>
                 </div>
             </div>
 
             <div class="suggestion-alert">
-                <h4><i data-lucide="trending-up" style="width: 18px; margin-right: 5px;"></i> Profile Tip</h4>
+                <h4><i data-lucide="trending-up" class="icon-base mr-5"></i> Profile Tip</h4>
                 <p>Your profile is 80% complete. Add your GitHub link to stand out to more clients!</p>
             </div>
 
@@ -133,7 +134,7 @@
                                 </div>
                             </div>
                             <div class="notif-actions">
-                                <a href="invitation.html" class="btn btn-primary" style="padding: 6px 14px; font-size: 0.85rem; text-decoration: none;">Review Invitation</a>
+                                <a href="invitation.html" class="btn btn-primary btn-sm">Review Invitation</a>
                             </div>
                         </div>
 
@@ -155,7 +156,7 @@
                                 </div>
                             </div>
                             <div class="notif-actions">
-                                <a href="submit-milestone.html" class="btn btn-primary" style="padding: 6px 14px; font-size: 0.85rem; text-decoration: none;">Submit Work</a>
+                                <a href="submit-milestone.html" class="btn btn-primary btn-sm">Submit Work</a>
                             </div>
                         </div>
 
@@ -177,7 +178,7 @@
                                 </div>
                             </div>
                             <div class="notif-actions">
-                                <a href="take-quiz.html" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.85rem; text-decoration: none;">Take Test</a>
+                                <a href="take-quiz.html" class="btn btn-outline btn-sm">Take Test</a>
                             </div>
                         </div>
 
