@@ -203,8 +203,8 @@ header {
 
 /* Open Projects List */
 .projects-list {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     margin-bottom: 60px;
 }
@@ -215,6 +215,8 @@ header {
     border-radius: 10px;
     padding: 25px;
     transition: border-color 0.3s;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-card:hover {
@@ -225,18 +227,22 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    gap: 15px;
     margin-bottom: 10px;
 }
 
 .project-header h3 {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     margin-bottom: 5px;
+    line-height: 1.3;
 }
 
 .project-price {
     color: var(--accent);
     font-weight: 700;
     font-size: 1.1rem;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .project-company {
@@ -277,6 +283,11 @@ header {
     display: flex;
     align-items: center;
     gap: 5px;
+}
+
+.project-card .btn {
+    width: 100%;
+    margin-top: 18px;
 }
 
 /* Top Freelancers */
