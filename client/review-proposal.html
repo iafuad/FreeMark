@@ -40,29 +40,29 @@
         </header>
 
         <div class="client-content">
-            <div style="display: flex; gap: 30px; align-items: flex-start;">
+            <div class="client-split-layout">
                 
-                <div class="card" style="flex-grow: 1; max-width: 800px;">
+                <div class="card client-split-main">
                     <div class="card-header">
                         <h3>Proposal Details</h3>
                     </div>
                     <div class="card-body">
                         
-                        <div style="display: flex; gap: 20px; margin-bottom: 25px; border-bottom: 1px solid var(--border-color); padding-bottom: 20px;">
-                            <div>
-                                <h4 style="margin: 0 0 5px 0; color: var(--text-secondary); font-size: 0.9rem;">Proposed Rate</h4>
-                                <p style="margin: 0; font-size: 1.1rem; color: var(--accent); font-weight: bold;">$3,500</p>
+                        <div class="proposal-summary">
+                            <div class="proposal-summary-item">
+                                <h4>Proposed Rate</h4>
+                                <p class="rate">$3,500</p>
                             </div>
                             <div>
-                                <h4 style="margin: 0 0 5px 0; color: var(--text-secondary); font-size: 0.9rem;">Estimated Timeline</h4>
-                                <p style="margin: 0; font-size: 1.1rem; color: var(--text-primary);">3 Weeks</p>
+                                <h4>Estimated Timeline</h4>
+                                <p class="timeline">3 Weeks</p>
                             </div>
                         </div>
 
-                        <div style="margin-bottom: 25px;">
-                            <h4 style="margin-top: 0; color: var(--text-primary); margin-bottom: 10px;">Cover Letter</h4>
-                            <div style="background: var(--bg-primary); padding: 25px; border-radius: 6px; border: 1px solid var(--border-color);">
-                                <p style="font-size: 0.95rem; color: #cbd5e1; line-height: 1.6; margin: 0;">
+                        <div class="cover-letter-section">
+                            <h4>Cover Letter</h4>
+                            <div class="cover-letter">
+                                <p>
                                     Hi there,
                                     <br><br>
                                     I have extensive experience designing healthcare mobile applications and am very familiar with the accessibility standards required for patient-facing UIs. 
@@ -73,54 +73,54 @@
                             </div>
                         </div>
 
-                        <div style="margin-bottom: 30px;">
-                            <h4 style="margin-top: 0; color: var(--text-primary); margin-bottom: 10px;">Attachments & Portfolio</h4>
-                            <div style="display: flex; gap: 15px;">
-                                <a href="#" style="display: inline-flex; align-items: center; gap: 8px; color: var(--text-primary); text-decoration: none; padding: 10px 15px; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 4px;">
-                                    <i data-lucide="figma" style="width: 18px; color: #a259ff;"></i> previous_healthcare_app.fig
+                        <div class="attachments-section">
+                            <h4>Attachments & Portfolio</h4>
+                            <div class="attachment-list">
+                                <a href="#" class="attachment-link neutral">
+                                    <i data-lucide="figma" class="icon-lg attachment-icon-figma"></i> previous_healthcare_app.fig
                                 </a>
-                                <a href="#" style="display: inline-flex; align-items: center; gap: 8px; color: var(--text-primary); text-decoration: none; padding: 10px 15px; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 4px;">
-                                    <i data-lucide="file-text" style="width: 18px; color: #ef4444;"></i> fuad_portfolio_2026.pdf
+                                <a href="#" class="attachment-link neutral">
+                                    <i data-lucide="file-text" class="icon-lg attachment-icon-pdf"></i> fuad_portfolio_2026.pdf
                                 </a>
                             </div>
                         </div>
 
-                        <div style="display: flex; gap: 15px;">
-                            <button class="btn btn-primary" style="padding: 10px 25px;">Accept & Hire</button>
-                            <a href="chat.html" class="btn btn-outline" style="padding: 10px 25px;">Message</a>
-                            <button class="btn btn-outline" style="border-color: #ef4444; color: #ef4444; padding: 10px 25px; margin-left: auto;">Decline</button>
+                        <div class="review-actions">
+                            <button class="btn btn-primary">Accept & Hire</button>
+                            <a href="chat.html" class="btn btn-outline">Message</a>
+                            <button class="btn btn-outline decline">Decline</button>
                         </div>
 
                     </div>
                 </div>
 
                 <!-- Freelancer Snapshot -->
-                <div class="card" style="width: 320px; flex-shrink: 0;">
+                <div class="card client-split-sidebar">
                     <div class="card-header">
                         <h3>Applicant Snapshot</h3>
                     </div>
-                    <div class="card-body" style="text-align: center;">
-                        <div style="width: 80px; height: 80px; border-radius: 50%; background: #8b5cf6; color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: bold; margin: 0 auto 15px;">F</div>
-                        <h4 style="margin: 0 0 5px 0; font-size: 1.2rem;">Fuad</h4>
-                        <p style="margin: 0 0 15px 0; color: var(--text-secondary); font-size: 0.9rem;">UI/UX Designer</p>
+                    <div class="card-body profile-snapshot-body">
+                        <div class="profile-avatar-lg profile-avatar-purple">F</div>
+                        <h4 class="profile-name">Fuad</h4>
+                        <p class="profile-role">UI/UX Designer</p>
                         
-                        <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border-color);">
+                        <div class="profile-stats">
                             <div>
-                                <div style="font-weight: bold;">4.8★</div>
-                                <div style="font-size: 0.8rem; color: var(--text-secondary);">Rating</div>
+                                <div class="profile-stat-value">4.8★</div>
+                                <div class="profile-stat-label">Rating</div>
                             </div>
                             <div>
-                                <div style="font-weight: bold;">$85/hr</div>
-                                <div style="font-size: 0.8rem; color: var(--text-secondary);">Rate</div>
+                                <div class="profile-stat-value">$85/hr</div>
+                                <div class="profile-stat-label">Rate</div>
                             </div>
                         </div>
 
-                        <div style="text-align: left;">
-                            <div style="font-size: 0.85rem; color: #22c55e; font-weight: bold; margin-bottom: 5px;">Verified Skills:</div>
-                            <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 5px;">• UI/UX Principles (Score: 95/100)</div>
+                        <div class="verified-skills">
+                            <div class="verified-label">Verified Skills:</div>
+                            <div class="verified-skill">• UI/UX Principles (Score: 95/100)</div>
                         </div>
                         
-                        <a href="../guest/freelancer-profile.html" class="btn btn-outline" style="width: 100%; margin-top: 20px; padding: 8px;">View Full Profile</a>
+                        <a href="../guest/freelancer-profile.html" class="btn btn-outline profile-full-link">View Full Profile</a>
                     </div>
                 </div>
 

@@ -35,8 +35,8 @@
                 <h2>Freelancer Recommendations</h2>
                 <p>Curated freelancer suggestions matched to your active projects and hiring requirements</p>
             </div>
-            <div style="display: flex; gap: 10px;">
-                <a href="post-project.html" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.9rem; text-decoration: none;">+ Post New Project</a>
+            <div class="client-header-actions">
+                <a href="post-project.html" class="btn btn-primary btn-header-action">+ Post New Project</a>
             </div>
         </header>
 
@@ -44,26 +44,26 @@
             <!-- Smart Matching Filter Tabs -->
             <div class="smart-filter-bar">
                 <a href="#" class="smart-tab active">
-                    <i data-lucide="sparkles" style="width: 16px;"></i> Matched to: Mobile App UI Design
+                    <i data-lucide="sparkles" class="smart-icon"></i> Matched to: Mobile App UI Design
                 </a>
                 <a href="#" class="smart-tab">
-                    <i data-lucide="briefcase" style="width: 16px;"></i> Matched to: React Dashboard
+                    <i data-lucide="briefcase" class="smart-icon"></i> Matched to: React Dashboard
                 </a>
                 <a href="#" class="smart-tab">
-                    <i data-lucide="history" style="width: 16px;"></i> Past Collaborators (2)
+                    <i data-lucide="history" class="smart-icon"></i> Past Collaborators (2)
                 </a>
                 <a href="#" class="smart-tab">
-                    <i data-lucide="award" style="width: 16px;"></i> Top Verified Score (95+)
+                    <i data-lucide="award" class="smart-icon"></i> Top Verified Score (95+)
                 </a>
             </div>
 
             <!-- Smart Matching Context Banner -->
             <div class="smart-banner">
                 <div class="smart-banner-text">
-                    <h4><i data-lucide="sparkles" style="width: 18px;"></i> Smart Match Engine Active</h4>
+                    <h4><i data-lucide="sparkles" class="icon-lg"></i> Smart Match Engine Active</h4>
                     <p>Showing talent candidates matching requirements for <strong>"Mobile App UI Design"</strong> (UI/UX Principles score &ge; 90, Figma mastery, and patient/healthcare platform experience).</p>
                 </div>
-                <div style="font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">
+                <div class="smart-banner-sort">
                     Sorted by: <strong>Match Score</strong>
                 </div>
             </div>
@@ -72,9 +72,9 @@
             <div class="freelancer-list">
                 <!-- Freelancer 1 (Top Match for UI Design) -->
                 <div class="freelancer-card">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-                        <span class="match-badge"><i data-lucide="sparkles" style="width: 12px;"></i> 98% Match</span>
-                        <span style="font-size: 0.8rem; color: #22c55e; font-weight: 600;">Available Now</span>
+                    <div class="freelancer-card-header">
+                        <span class="match-badge"><i data-lucide="sparkles" class="icon-xs"></i> 98% Match</span>
+                        <span class="freelancer-status text-success">Available Now</span>
                     </div>
 
                     <div class="freelancer-header-info">
@@ -87,7 +87,7 @@
 
                     <!-- Match Explanation Callout -->
                     <div class="match-reason">
-                        <i data-lucide="check-circle" style="width: 14px; flex-shrink: 0; margin-top: 2px;"></i>
+                        <i data-lucide="check-circle" class="icon-sm"></i>
                         <span>Matches your required skill: <strong>UI/UX Principles (Score: 95/100)</strong> with extensive healthcare mobile app case studies in portfolio.</span>
                     </div>
 
@@ -96,30 +96,30 @@
                         <span>Verified: 95/100</span>
                     </div>
 
-                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 15px;">
-                        <span>Rate: <strong style="color: var(--text-primary);">$85/hr</strong></span>
-                        <span>Rating: <strong style="color: var(--accent);">4.8★</strong> (18 jobs)</span>
-                        <span>Success: <strong style="color: #22c55e;">100%</strong></span>
+                    <div class="freelancer-metrics">
+                        <span>Rate: <strong>$85/hr</strong></span>
+                        <span>Rating: <strong class="rating">4.8★</strong> (18 jobs)</span>
+                        <span>Success: <strong class="success">100%</strong></span>
                     </div>
 
-                    <div class="tags" style="margin-bottom: 20px;">
+                    <div class="tags tags-spaced">
                         <span class="tag">Figma</span>
                         <span class="tag">UI/UX</span>
                         <span class="tag">Wireframing</span>
                         <span class="tag">Design Systems</span>
                     </div>
 
-                    <div style="display: flex; gap: 10px; margin-top: auto;">
-                        <a href="../guest/freelancer-profile.html" class="btn btn-outline" style="flex: 1; padding: 8px; text-align: center; text-decoration: none;">View Profile</a>
-                        <a href="hire.html" class="btn btn-primary" style="flex: 1; padding: 8px; text-align: center; text-decoration: none;">Invite to Job</a>
+                    <div class="freelancer-actions">
+                        <a href="../guest/freelancer-profile.html" class="btn btn-outline freelancer-action">View Profile</a>
+                        <a href="hire.html" class="btn btn-primary freelancer-action">Invite to Job</a>
                     </div>
                 </div>
 
                 <!-- Freelancer 2 (Previous Collaborator & React Expert) -->
                 <div class="freelancer-card">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-                        <span class="match-badge"><i data-lucide="history" style="width: 12px;"></i> 95% Match • Past Collaborator</span>
-                        <span style="font-size: 0.8rem; color: #60a5fa; font-weight: 600;">Active Contract</span>
+                    <div class="freelancer-card-header">
+                        <span class="match-badge"><i data-lucide="history" class="icon-xs"></i> 95% Match • Past Collaborator</span>
+                        <span class="freelancer-status text-info">Active Contract</span>
                     </div>
 
                     <div class="freelancer-header-info">
@@ -132,7 +132,7 @@
 
                     <!-- Match Explanation Callout -->
                     <div class="match-reason">
-                        <i data-lucide="check-circle" style="width: 14px; flex-shrink: 0; margin-top: 2px;"></i>
+                        <i data-lucide="check-circle" class="icon-sm"></i>
                         <span>Completed Milestone 1 on your React Dashboard project with a <strong>5.0★ rating</strong>. Top 5% verified test score in React Fundamentals.</span>
                     </div>
 
@@ -141,34 +141,34 @@
                         <span>Verified: 98/100 (Top 5%)</span>
                     </div>
 
-                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 15px;">
-                        <span>Rate: <strong style="color: var(--text-primary);">$85/hr</strong></span>
-                        <span>Rating: <strong style="color: var(--accent);">4.9★</strong> (24 jobs)</span>
-                        <span>Success: <strong style="color: #22c55e;">98%</strong></span>
+                    <div class="freelancer-metrics">
+                        <span>Rate: <strong>$85/hr</strong></span>
+                        <span>Rating: <strong class="rating">4.9★</strong> (24 jobs)</span>
+                        <span>Success: <strong class="success">98%</strong></span>
                     </div>
 
-                    <div class="tags" style="margin-bottom: 20px;">
+                    <div class="tags tags-spaced">
                         <span class="tag">React</span>
                         <span class="tag">TypeScript</span>
                         <span class="tag">Node.js</span>
                         <span class="tag">WebSocket</span>
                     </div>
 
-                    <div style="display: flex; gap: 10px; margin-top: auto;">
-                        <a href="../guest/freelancer-profile.html" class="btn btn-outline" style="flex: 1; padding: 8px; text-align: center; text-decoration: none;">View Profile</a>
-                        <a href="hire.html" class="btn btn-primary" style="flex: 1; padding: 8px; text-align: center; text-decoration: none;">Invite to Job</a>
+                    <div class="freelancer-actions">
+                        <a href="../guest/freelancer-profile.html" class="btn btn-outline freelancer-action">View Profile</a>
+                        <a href="hire.html" class="btn btn-primary freelancer-action">Invite to Job</a>
                     </div>
                 </div>
 
                 <!-- Freelancer 3 (Matched to Backend Needs) -->
                 <div class="freelancer-card">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-                        <span class="match-badge"><i data-lucide="sparkles" style="width: 12px;"></i> 92% Match</span>
-                        <span style="font-size: 0.8rem; color: #22c55e; font-weight: 600;">Available Now</span>
+                    <div class="freelancer-card-header">
+                        <span class="match-badge"><i data-lucide="sparkles" class="icon-xs"></i> 92% Match</span>
+                        <span class="freelancer-status text-success">Available Now</span>
                     </div>
 
                     <div class="freelancer-header-info">
-                        <div class="freelancer-avatar" style="background-color: #0284c7;">TC</div>
+                        <div class="freelancer-avatar blue">TC</div>
                         <div class="freelancer-details">
                             <h4>Towhid Chowdhury</h4>
                             <p>Backend & Cloud Architect</p>
@@ -177,7 +177,7 @@
 
                     <!-- Match Explanation Callout -->
                     <div class="match-reason">
-                        <i data-lucide="check-circle" style="width: 14px; flex-shrink: 0; margin-top: 2px;"></i>
+                        <i data-lucide="check-circle" class="icon-sm"></i>
                         <span>High affinity for your platform stack: Verified <strong>92/100 in Advanced Node.js</strong> with experience building fintech REST APIs.</span>
                     </div>
 
@@ -186,22 +186,22 @@
                         <span>Verified: 92/100</span>
                     </div>
 
-                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 15px;">
-                        <span>Rate: <strong style="color: var(--text-primary);">$75/hr</strong></span>
-                        <span>Rating: <strong style="color: var(--accent);">4.9★</strong> (16 jobs)</span>
-                        <span>Success: <strong style="color: #22c55e;">100%</strong></span>
+                    <div class="freelancer-metrics">
+                        <span>Rate: <strong>$75/hr</strong></span>
+                        <span>Rating: <strong class="rating">4.9★</strong> (16 jobs)</span>
+                        <span>Success: <strong class="success">100%</strong></span>
                     </div>
 
-                    <div class="tags" style="margin-bottom: 20px;">
+                    <div class="tags tags-spaced">
                         <span class="tag">Node.js</span>
                         <span class="tag">PostgreSQL</span>
                         <span class="tag">Docker</span>
                         <span class="tag">API Security</span>
                     </div>
 
-                    <div style="display: flex; gap: 10px; margin-top: auto;">
-                        <a href="../guest/freelancer-profile.html" class="btn btn-outline" style="flex: 1; padding: 8px; text-align: center; text-decoration: none;">View Profile</a>
-                        <a href="hire.html" class="btn btn-primary" style="flex: 1; padding: 8px; text-align: center; text-decoration: none;">Invite to Job</a>
+                    <div class="freelancer-actions">
+                        <a href="../guest/freelancer-profile.html" class="btn btn-outline freelancer-action">View Profile</a>
+                        <a href="hire.html" class="btn btn-primary freelancer-action">Invite to Job</a>
                     </div>
                 </div>
             </div>
