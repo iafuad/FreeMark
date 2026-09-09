@@ -171,23 +171,44 @@
 /* Search Input */
 .search-input-wrapper {
     position: relative;
+    display: inline-flex;
+    align-items: center;
 }
 
 .search-input-wrapper input {
-    padding: 8px 15px 8px 32px;
-    border-radius: 4px;
+    padding: 8px 14px 8px 36px;
+    border-radius: 6px;
     border: 1px solid var(--border-color);
     background: var(--bg-primary);
-    color: white;
+    color: var(--text-primary);
     font-size: 0.9rem;
+    width: 260px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.search-input-wrapper i {
+.search-input-wrapper input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.search-input-wrapper i,
+.search-input-wrapper svg,
+.search-input-wrapper .search-icon {
     position: absolute;
-    left: 10px;
-    top: 10px;
-    width: 14px;
+    left: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
     color: var(--text-secondary);
+    pointer-events: none;
+    transition: color 0.2s;
+}
+
+.search-input-wrapper:focus-within svg,
+.search-input-wrapper:focus-within i {
+    color: var(--accent);
 }
 
 /* Header Actions */
