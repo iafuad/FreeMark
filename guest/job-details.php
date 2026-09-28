@@ -119,9 +119,9 @@ $initials = strtoupper(substr($client_display_name, 0, 2));
                         </div>
                         <div class="job-client-subtitle">
                             <span>Posted by <a href="client-profile.php?id=<?= $job['client_id'] ?>" style="color: var(--accent); text-decoration: none; font-weight: 600;"><?= htmlspecialchars($client_display_name) ?></a></span>
-                            <span>•</span>
+                            <span class="meta-dot">•</span>
                             <span><i data-lucide="clock" class="icon-inline"></i> <?= date('M d, Y', strtotime($job['created_at'])) ?></span>
-                            <span>•</span>
+                            <span class="meta-dot">•</span>
                             <span><i data-lucide="map-pin" class="icon-inline"></i> Worldwide (Remote)</span>
                         </div>
                     </div>
@@ -165,9 +165,7 @@ $initials = strtoupper(substr($client_display_name, 0, 2));
                 </div>
 
                 <h3 class="job-section-title">Project Overview</h3>
-                <div class="job-body-text" style="white-space: pre-wrap; margin-bottom: 25px;">
-                    <?= htmlspecialchars($job['description']) ?>
-                </div>
+                <div class="job-body-text"><?= htmlspecialchars(trim($job['description'])) ?></div>
 
                 <h3 class="job-section-title">Required Category & Skills</h3>
                 <div class="tags card-tags">

@@ -151,9 +151,7 @@ if (!$invitation) {
                         <div class="card-body">
                             <div class="client-message-box" style="padding: 20px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 6px; margin-bottom: 20px;">
                                 <h4 style="margin: 0 0 10px 0;">Message from <?= htmlspecialchars($invitation['company_name'] ?: $invitation['client_name']) ?></h4>
-                                <p style="line-height: 1.5; color: var(--text-secondary); margin: 0; white-space: pre-wrap;">
-                                    <?= htmlspecialchars($invitation['message']) ?>
-                                </p>
+                                <p style="line-height: 1.5; color: var(--text-secondary); margin: 0; white-space: pre-wrap;"><?= htmlspecialchars(trim($invitation['message'])) ?></p>
                             </div>
 
                             <div class="info-row" style="display: flex; gap: 30px; margin-bottom: 25px;">

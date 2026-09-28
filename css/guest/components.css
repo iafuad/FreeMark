@@ -205,6 +205,11 @@
     border-bottom: 1px solid var(--border-color);
 }
 
+.job-header-top > div:first-child {
+    flex: 1;
+    min-width: 0;
+}
+
 .job-header-top h1 {
     font-size: 1.8rem;
     color: var(--text-primary);
@@ -214,10 +219,25 @@
 
 .job-client-subtitle {
     color: var(--text-secondary);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     display: flex;
     align-items: center;
-    gap: 15px;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+}
+
+.job-client-subtitle span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.job-client-subtitle .meta-dot {
+    color: var(--text-secondary);
+    opacity: 0.5;
+    font-size: 0.85rem;
+    user-select: none;
 }
 
 .job-budget-box {
@@ -241,7 +261,8 @@
 
 .job-meta-pills {
     display: flex;
-    gap: 25px;
+    flex-wrap: wrap;
+    gap: 20px 25px;
     margin-bottom: 30px;
     padding-bottom: 25px;
     border-bottom: 1px solid var(--border-color);
@@ -253,6 +274,7 @@
     gap: 10px;
     font-size: 0.95rem;
     color: #cbd5e1;
+    white-space: nowrap;
 }
 
 .meta-pill-item i {
@@ -276,6 +298,8 @@
     color: #cbd5e1;
     line-height: 1.7;
     font-size: 0.95rem;
+    white-space: pre-wrap;
+    margin-bottom: 25px;
 }
 
 .job-responsibilities-list {
