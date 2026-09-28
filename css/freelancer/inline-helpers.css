@@ -376,7 +376,7 @@
 .btn-sm-outline-px { padding: 10px 15px; }
 
 /* Full Width Button */
-.btn-full { width: 100%; }
+.btn-full { width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; }
 
 /* Text Styles */
 .text-secondary { color: var(--text-secondary); }
