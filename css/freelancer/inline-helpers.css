@@ -552,7 +552,39 @@
     color: var(--text-secondary);
     display: flex;
     align-items: center;
-    gap: 12px;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    line-height: 1;
+}
+
+.job-meta-row > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    line-height: 1;
+}
+
+.job-meta-row svg,
+.job-meta-row i {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    vertical-align: middle;
+}
+
+.job-meta-row .icon-star {
+    color: var(--accent);
+    fill: var(--accent);
+}
+
+.job-meta-row .meta-dot {
+    opacity: 0.45;
+    font-size: 0.75rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
 }
 
 .job-budget-section {
