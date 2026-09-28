@@ -167,9 +167,7 @@ $projects = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
                             </div>
                         </div>
 
-                        <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5; margin: 15px 0;">
-                            <?= nl2br(htmlspecialchars(substr($job['description'], 0, 200))) ?><?= strlen($job['description']) > 200 ? '...' : '' ?>
-                        </p>
+                        <p class="job-card-desc"><?= nl2br(htmlspecialchars($job['description'])) ?></p>
 
                         <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 15px; border-top: 1px solid var(--border-color);">
                             <div class="tags" style="margin-bottom: 0;">

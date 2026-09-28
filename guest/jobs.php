@@ -309,7 +309,7 @@ if ($min_budget > 0 || $max_budget > 0) {
                                     </div>
                                     <div class="project-price"><?= format_currency($job['budget_max']) ?> <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-secondary);">(<?= ucfirst($job['budget_type']) ?>)</span></div>
                                 </div>
-                                <p class="project-desc"><?= htmlspecialchars(substr($job['description'], 0, 160)) ?><?= strlen($job['description']) > 160 ? '...' : '' ?></p>
+                                <p class="project-desc"><?= nl2br(htmlspecialchars($job['description'])) ?></p>
                                 <div class="tags" style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 15px;">
                                     <?php if ($job['skill_name']): ?>
                                         <a href="jobs.php?category[]=<?= $job['skill_category_id'] ?>" class="tag" style="text-decoration: none;"><?= htmlspecialchars($job['skill_name']) ?></a>

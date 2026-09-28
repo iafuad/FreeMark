@@ -191,3 +191,30 @@ function render_pagination($pagination, $base_url = '') {
     <?php
     return ob_get_clean();
 }
+
+/**
+ * Renders text with an interactive "See more / See less" toggle if it exceeds the threshold.
+ *
+ * @param string $text The full text content.
+ * @param int $threshold The character threshold to trigger clamping (default: 180).
+ * @param int $clamp_lines Number of lines to visually clamp to (2, 3, or 4; default: 3).
+ * @param string $extra_classes Optional CSS classes to attach to the container/paragraph.
+ * @return string Rendered HTML.
+ */
+function render_expandable_text($text, $threshold = 180, $clamp_lines = 3, $extra_classes = '') {
+    $trimmed = trim((string)$text);
+    if ($trimmed === '') return '';
+
+    $safe_html = nl2br(htmlspecialchars($trimmed));
+    $cls_attr = !empty($extra_classes) ? ' class="' . htmlspecialchars($extra_classes) . '"' : '';
+
+    if (mb_strlen($trimmed) <= $threshold) {
+        return '<p' . $cls_attr . '>' . $safe_html . '</p>';
+    }
+
+    $clamp_class = ($clamp_lines === 4) ? 'clamped-4' : (($clamp_lines === 2) ? 'clamped-2' : 'clamped-3');
+    $content_classes = 'expandable-content ' . $clamp_class . (!empty($extra_classes) ? ' ' . htmlspecialchars($extra_classes) : '');
+
+    return '<div class="expandable-text"><div class="' . $content_classes . '">' . $safe_html . '</div><button type="button" class="see-more-btn" aria-expanded="false">See more <i data-lucide="chevron-down" class="icon-inline"></i></button></div>';
+}
+

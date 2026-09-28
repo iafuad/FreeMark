@@ -6,6 +6,7 @@ body {
     font-family: 'Inter', sans-serif;
     display: flex;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 /* Sidebar */
@@ -19,6 +20,7 @@ body {
     height: 100vh;
     left: 0;
     top: 0;
+    z-index: 100;
 }
 
 .sidebar-header {
@@ -79,6 +81,10 @@ body {
     margin-left: 250px;
     display: flex;
     flex-direction: column;
+    min-width: 0;
+    width: calc(100% - 250px);
+    max-width: calc(100% - 250px);
+    box-sizing: border-box;
 }
 
 .freelancer-header {
@@ -114,4 +120,7 @@ body {
     padding: 30px;
     background-color: var(--bg-primary);
     flex-grow: 1;
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
 }

@@ -220,8 +220,9 @@
 .chat-bubble { max-width: 70%; padding: 10px 15px; border-radius: 8px; font-size: 0.95rem; }
 .chat-bubble-sent { background-color: rgba(250, 204, 21, 0.15); color: var(--text-primary); border: 1px solid rgba(250, 204, 21, 0.3); align-self: flex-end; }
 .chat-bubble-received { background-color: var(--bg-secondary); align-self: flex-start; }
-.chat-composer { padding: 15px; border-top: 1px solid var(--border-color); display: flex; gap: 10px; }
-.chat-composer input { flex-grow: 1; padding: 10px; background-color: var(--bg-primary); border: 1px solid var(--border-color); color: white; border-radius: 4px; }
+.chat-composer { padding: 14px 20px; border-top: 1px solid var(--border-color); display: block; width: 100%; box-sizing: border-box; }
+.chat-composer form { display: flex; gap: 10px; align-items: center; width: 100%; }
+.chat-composer input { flex: 1 1 auto; width: 100%; min-width: 0; padding: 10px; background-color: var(--bg-primary); border: 1px solid var(--border-color); color: white; border-radius: 4px; box-sizing: border-box; }
 
 .card {
     background-color: var(--bg-card);

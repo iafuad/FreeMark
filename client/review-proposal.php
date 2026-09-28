@@ -147,7 +147,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
                         <div class="cover-letter-section">
                             <h4>Cover Letter</h4>
                             <div class="cover-letter">
-                                <p><?= nl2br(htmlspecialchars($proposal['cover_letter'])) ?></p>
+                                <?= render_expandable_text($proposal['cover_letter'], 240, 4) ?>
                             </div>
                         </div>
 
@@ -202,6 +202,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
             </div>
         </div>
     </main>
+    <script src="../js/expandable.js"></script>
     <script>lucide.createIcons();</script>
 </body>
 </html>

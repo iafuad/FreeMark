@@ -146,7 +146,11 @@ $open_jobs = $p_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
                     <h3 class="section-title">
                         <i data-lucide="building-2"></i> About Company
                     </h3>
-                    <p class="bio-paragraph"><?= htmlspecialchars($client['bio'] ?: 'No company overview provided yet.') ?></p>
+                    <?php if (!empty($client['bio'])): ?>
+                        <?= render_expandable_text($client['bio'], 260, 4, 'bio-paragraph') ?>
+                    <?php else: ?>
+                        <p class="bio-paragraph">No company overview provided yet.</p>
+                    <?php endif; ?>
                 </div>
 
                 <!-- Company Snapshot Metrics -->
@@ -220,6 +224,7 @@ $open_jobs = $p_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
             <p>&copy; 2026 FreeMark. All rights reserved.</p>
         </div>
     </footer>
+    <script src="../js/expandable.js"></script>
     <script>lucide.createIcons();</script>
 </body>
 </html>

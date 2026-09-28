@@ -180,7 +180,11 @@ $skills = array_column($sk_stmt->get_result()->fetch_all(MYSQLI_ASSOC), 'name');
                     <h3 class="section-title">
                         <i data-lucide="user"></i> Professional Overview
                     </h3>
-                    <p class="bio-paragraph"><?= htmlspecialchars($freelancer['bio'] ?: 'No professional bio provided yet.') ?></p>
+                    <?php if (!empty($freelancer['bio'])): ?>
+                        <?= render_expandable_text($freelancer['bio'], 260, 4, 'bio-paragraph') ?>
+                    <?php else: ?>
+                        <p class="bio-paragraph">No professional bio provided yet.</p>
+                    <?php endif; ?>
                 </div>
 
                 <!-- Verified Skills -->
@@ -245,9 +249,9 @@ $skills = array_column($sk_stmt->get_result()->fetch_all(MYSQLI_ASSOC), 'name');
                                             <?= str_repeat('★', (int)$rev['stars']) ?>
                                         </div>
                                     </div>
-                                    <p class="review-quote">
-                                        "<?= nl2br(htmlspecialchars($rev['comment'])) ?>"
-                                    </p>
+                                    <div class="review-quote">
+                                        <?= render_expandable_text('"' . $rev['comment'] . '"', 160, 3) ?>
+                                    </div>
                                     <div class="review-timestamp">
                                         <?= date('M j, Y', strtotime($rev['created_at'])) ?>
                                     </div>
@@ -265,6 +269,7 @@ $skills = array_column($sk_stmt->get_result()->fetch_all(MYSQLI_ASSOC), 'name');
             <p>&copy; 2026 FreeMark. All rights reserved.</p>
         </div>
     </footer>
+    <script src="../js/expandable.js"></script>
     <script>lucide.createIcons();</script>
 </body>
 </html>

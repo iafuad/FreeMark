@@ -8,28 +8,44 @@ $user_id = current_user_id();
 $profile_id = get_profile_id($conn, $user_id, 'freelancer');
 
 // Handle Sending Message
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
     $receiver_id = (int)($_POST['receiver_id'] ?? 0);
     $content = trim($_POST['content'] ?? '');
+    $msg_id = 0;
 
     if ($receiver_id > 0 && !empty($content)) {
         $stmt = $conn->prepare("INSERT INTO messages (sender_id, receiver_id, content) VALUES (?, ?, ?)");
         $stmt->bind_param("iis", $user_id, $receiver_id, $content);
         $stmt->execute();
+        $msg_id = (int)$stmt->insert_id;
     }
+
+    if (isset($_POST['ajax']) || (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest')) {
+        header('Content-Type: application/json');
+        echo json_encode([
+            'status' => $msg_id > 0 ? 'success' : 'error',
+            'message_id' => $msg_id,
+            'content' => $content,
+            'time' => date('g:i A')
+        ]);
+        exit;
+    }
+
     header("Location: chat.php?with=" . $receiver_id);
     exit;
 }
 
 // Find conversation contacts (clients from contracts, proposals, invitations, or past messages)
 $contacts_query = "
-    SELECT DISTINCT u.id as user_id, u.full_name, cp.company_name,
+    SELECT DISTINCT u.id as user_id, u.full_name, cp.id as profile_id, cp.company_name,
         (SELECT content FROM messages 
          WHERE (sender_id = u.id AND receiver_id = ?) OR (sender_id = ? AND receiver_id = u.id) 
          ORDER BY created_at DESC LIMIT 1) as last_message,
         (SELECT created_at FROM messages 
          WHERE (sender_id = u.id AND receiver_id = ?) OR (sender_id = ? AND receiver_id = u.id) 
-         ORDER BY created_at DESC LIMIT 1) as last_time
+         ORDER BY created_at DESC LIMIT 1) as last_time,
+        (SELECT COUNT(*) FROM messages 
+         WHERE sender_id = u.id AND receiver_id = ? AND is_read = 0) as unread_count
     FROM users u
     JOIN client_profiles cp ON u.id = cp.user_id
     WHERE u.id IN (
@@ -43,9 +59,10 @@ $contacts_query = "
         UNION
         SELECT receiver_id FROM messages WHERE sender_id = ?
     )
+    ORDER BY (last_time IS NULL) ASC, last_time DESC
 ";
 $c_stmt = $conn->prepare($contacts_query);
-$c_stmt->bind_param("iiiiiiiii", $user_id, $user_id, $user_id, $user_id, $profile_id, $profile_id, $profile_id, $user_id, $user_id);
+$c_stmt->bind_param("iiiiiiiiii", $user_id, $user_id, $user_id, $user_id, $user_id, $profile_id, $profile_id, $profile_id, $user_id, $user_id);
 $c_stmt->execute();
 $contacts = $c_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
@@ -53,27 +70,80 @@ $contacts = $c_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 $selected_with = (int)($_GET['with'] ?? ($contacts[0]['user_id'] ?? 0));
 
 $active_contact = null;
+$context = null;
 $messages = [];
 
 if ($selected_with > 0) {
     // Fetch contact details
-    $u_stmt = $conn->prepare("SELECT u.id, u.full_name, cp.company_name FROM users u JOIN client_profiles cp ON u.id = cp.user_id WHERE u.id = ?");
+    $u_stmt = $conn->prepare("SELECT u.id, u.full_name, cp.id as profile_id, cp.company_name FROM users u JOIN client_profiles cp ON u.id = cp.user_id WHERE u.id = ?");
     $u_stmt->bind_param("i", $selected_with);
     $u_stmt->execute();
     $active_contact = $u_stmt->get_result()->fetch_assoc();
 
-    // Fetch conversation messages
-    $m_stmt = $conn->prepare("SELECT * FROM messages 
-        WHERE (sender_id = ? AND receiver_id = ?) OR (sender_id = ? AND receiver_id = ?) 
-        ORDER BY created_at ASC");
-    $m_stmt->bind_param("iiii", $user_id, $selected_with, $selected_with, $user_id);
-    $m_stmt->execute();
-    $messages = $m_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    if ($active_contact) {
+        $client_pid = (int)($active_contact['profile_id'] ?? 0);
 
-    // Mark messages as read
-    $read_stmt = $conn->prepare("UPDATE messages SET is_read = 1 WHERE sender_id = ? AND receiver_id = ?");
-    $read_stmt->bind_param("ii", $selected_with, $user_id);
-    $read_stmt->execute();
+        // Fetch context: active contract or recent proposal
+        $ctx_stmt = $conn->prepare("
+            SELECT c.id as contract_id, p.id as project_id, p.title as project_title, 'Contract' as context_type
+            FROM contracts c
+            JOIN projects p ON c.project_id = p.id
+            WHERE c.freelancer_id = ? AND c.client_id = ?
+            ORDER BY c.created_at DESC LIMIT 1
+        ");
+        $ctx_stmt->bind_param("ii", $profile_id, $client_pid);
+        $ctx_stmt->execute();
+        $context = $ctx_stmt->get_result()->fetch_assoc();
+
+        if (!$context) {
+            $prop_stmt = $conn->prepare("
+                SELECT pr.id as proposal_id, p.id as project_id, p.title as project_title, 'Proposal' as context_type
+                FROM proposals pr
+                JOIN projects p ON pr.project_id = p.id
+                WHERE pr.freelancer_id = ? AND p.client_id = ?
+                ORDER BY pr.created_at DESC LIMIT 1
+            ");
+            $prop_stmt->bind_param("ii", $profile_id, $client_pid);
+            $prop_stmt->execute();
+            $context = $prop_stmt->get_result()->fetch_assoc();
+        }
+
+        // Fetch conversation messages
+        $m_stmt = $conn->prepare("SELECT * FROM messages 
+            WHERE (sender_id = ? AND receiver_id = ?) OR (sender_id = ? AND receiver_id = ?) 
+            ORDER BY created_at ASC");
+        $m_stmt->bind_param("iiii", $user_id, $selected_with, $selected_with, $user_id);
+        $m_stmt->execute();
+        $messages = $m_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
+        // Mark messages as read
+        $read_stmt = $conn->prepare("UPDATE messages SET is_read = 1 WHERE sender_id = ? AND receiver_id = ?");
+        $read_stmt->bind_param("ii", $selected_with, $user_id);
+        $read_stmt->execute();
+
+        // Ensure active contact appears in sidebar
+        $found = false;
+        foreach ($contacts as &$c) {
+            if ($c['user_id'] == $active_contact['id']) {
+                $found = true;
+                $c['unread_count'] = 0;
+                break;
+            }
+        }
+        unset($c);
+
+        if (!$found) {
+            array_unshift($contacts, [
+                'user_id' => $active_contact['id'],
+                'full_name' => $active_contact['full_name'],
+                'profile_id' => $active_contact['profile_id'],
+                'company_name' => $active_contact['company_name'],
+                'last_message' => 'New conversation',
+                'last_time' => null,
+                'unread_count' => 0
+            ]);
+        }
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -86,17 +156,8 @@ if ($selected_with > 0) {
     <link rel="stylesheet" href="../css/freelancer/layout.css">
     <link rel="stylesheet" href="../css/freelancer/components.css">
     <link rel="stylesheet" href="../css/freelancer/inline-helpers.css">
+    <link rel="stylesheet" href="../css/chat.css">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        .chat-main { display: flex; flex-direction: column; height: 550px; }
-        .chat-messages { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
-        .message { max-width: 70%; padding: 12px 16px; border-radius: 12px; font-size: 0.95rem; line-height: 1.4; }
-        .message.sent { align-self: flex-end; background: var(--accent, #6366f1); color: white; border-bottom-right-radius: 2px; }
-        .message.received { align-self: flex-start; background: rgba(255,255,255,0.06); border: 1px solid var(--border-color); color: var(--text-primary); border-bottom-left-radius: 2px; }
-        .msg-time { font-size: 0.7rem; opacity: 0.7; margin-top: 4px; text-align: right; }
-        .chat-input form { display: flex; gap: 10px; padding: 15px 20px; border-top: 1px solid var(--border-color); }
-        .chat-input input { flex: 1; padding: 10px 15px; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary); }
-    </style>
 </head>
 <body>
     <aside class="freelancer-sidebar">
@@ -132,72 +193,155 @@ if ($selected_with > 0) {
         </header>
 
         <div class="freelancer-content">
-            <div class="chat-container">
+            <div class="chat-layout <?= $active_contact ? 'conversation-open' : '' ?>">
                 <!-- Sidebar Contacts -->
                 <div class="chat-sidebar">
-                    <?php if (empty($contacts)): ?>
-                        <div style="padding: 20px; text-align: center; color: var(--text-secondary); font-size: 0.9rem;">
-                            No message conversations yet. Apply to jobs or receive invitations to connect with clients.
-                        </div>
-                    <?php else: ?>
-                        <?php foreach ($contacts as $c): ?>
-                            <a href="chat.php?with=<?= $c['user_id'] ?>" class="chat-contact <?= ($selected_with == $c['user_id']) ? 'active' : '' ?>" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 12px; padding: 15px; border-bottom: 1px solid var(--border-color);">
-                                <div class="avatar-small avatar-bg-blue" style="width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; background: rgba(99, 102, 241, 0.2); color: #818cf8;">
-                                    <?= strtoupper(substr($c['company_name'] ?: $c['full_name'], 0, 2)) ?>
-                                </div>
-                                <div style="flex: 1; overflow: hidden;">
-                                    <h4 class="m-0 text-base" style="font-size: 0.95rem; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                                        <?= htmlspecialchars($c['company_name'] ?: $c['full_name']) ?>
-                                    </h4>
-                                    <p class="m-0 text-small text-secondary" style="font-size: 0.8rem; margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                                        <?= htmlspecialchars($c['last_message'] ?: 'Click to start conversation') ?>
-                                    </p>
-                                </div>
-                            </a>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
+                    <div class="chat-search-box">
+                        <i data-lucide="search" class="chat-search-icon"></i>
+                        <input type="text" id="chat-contact-search" placeholder="Search conversations..." autocomplete="off">
+                    </div>
+                    <div class="chat-contacts-list" id="chat-contacts-list">
+                        <?php if (empty($contacts)): ?>
+                            <div style="padding: 30px 20px; text-align: center; color: var(--text-secondary); font-size: 0.88rem; line-height: 1.5;">
+                                No conversations yet.<br>Apply to jobs or accept invitations to chat with clients.
+                            </div>
+                        <?php else: ?>
+                            <?php foreach ($contacts as $c): ?>
+                                <?php 
+                                    $display_name = $c['company_name'] ?: $c['full_name'];
+                                    $initials = strtoupper(substr($display_name, 0, 2));
+                                ?>
+                                <a href="chat.php?with=<?= $c['user_id'] ?>" 
+                                   class="chat-contact <?= ($selected_with == $c['user_id']) ? 'active' : '' ?>"
+                                   data-name="<?= htmlspecialchars(strtolower($display_name)) ?>"
+                                   data-preview="<?= htmlspecialchars(strtolower($c['last_message'] ?? '')) ?>">
+                                    <div class="chat-avatar purple">
+                                        <?= $initials ?>
+                                    </div>
+                                    <div class="chat-contact-info">
+                                        <div class="chat-contact-top">
+                                            <h4 class="chat-contact-name"><?= htmlspecialchars($display_name) ?></h4>
+                                            <span class="chat-contact-time"><?= $c['last_time'] ? time_ago($c['last_time']) : '' ?></span>
+                                        </div>
+                                        <div class="chat-contact-bottom">
+                                            <p class="chat-contact-preview"><?= htmlspecialchars($c['last_message'] ?: 'Click to start conversation') ?></p>
+                                            <?php if (!empty($c['unread_count']) && $c['unread_count'] > 0 && $selected_with != $c['user_id']): ?>
+                                                <span class="chat-unread-badge"><?= (int)$c['unread_count'] ?></span>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                </a>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </div>
                 </div>
                 
                 <!-- Main Chat Window -->
                 <div class="chat-main">
                     <?php if ($active_contact): ?>
-                        <div class="chat-header" style="padding: 15px 20px; border-bottom: 1px solid var(--border-color); font-weight: 600; font-size: 1.05rem;">
-                            <?= htmlspecialchars($active_contact['company_name'] ?: $active_contact['full_name']) ?>
+                        <?php 
+                            $c_display_name = $active_contact['company_name'] ?: $active_contact['full_name'];
+                            $c_initials = strtoupper(substr($c_display_name, 0, 2));
+                        ?>
+                        <div class="chat-header">
+                            <div class="chat-header-user">
+                                <button type="button" class="chat-back-btn" id="chat-back-btn" aria-label="Back to conversations">
+                                    <i data-lucide="arrow-left"></i>
+                                </button>
+                                <div class="chat-avatar purple">
+                                    <?= $c_initials ?>
+                                </div>
+                                <div class="chat-header-meta">
+                                    <h3>
+                                        <?= htmlspecialchars($c_display_name) ?>
+                                        <?php if (!empty($active_contact['profile_id'])): ?>
+                                            <a href="../guest/client-profile.php?id=<?= $active_contact['profile_id'] ?>" target="_blank" title="View Full Company Profile" style="color: var(--text-secondary); display: inline-flex; align-items: center;">
+                                                <i data-lucide="external-link" style="width: 15px; height: 15px;"></i>
+                                            </a>
+                                        <?php endif; ?>
+                                    </h3>
+                                    <p class="chat-header-subtitle">
+                                        Client Employer <?= (!empty($active_contact['company_name']) && $active_contact['company_name'] !== $active_contact['full_name']) ? '• ' . htmlspecialchars($active_contact['full_name']) : '' ?>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="chat-header-actions">
+                                <?php if ($context): ?>
+                                    <?php 
+                                        $ctx_url = ($context['context_type'] === 'Contract') ? 'work.php' : 'jobs.php';
+                                    ?>
+                                    <a href="<?= $ctx_url ?>" class="chat-context-badge" title="<?= htmlspecialchars($context['project_title']) ?> (<?= htmlspecialchars($context['context_type']) ?>)">
+                                        <i data-lucide="briefcase" style="width: 14px; height: 14px;"></i>
+                                        <span><?= htmlspecialchars($context['project_title']) ?> (<?= htmlspecialchars($context['context_type']) ?>)</span>
+                                    </a>
+                                <?php endif; ?>
+                            </div>
                         </div>
+
                         <div class="chat-messages" id="chat-messages">
                             <?php if (empty($messages)): ?>
-                                <p style="text-align: center; color: var(--text-secondary); margin: auto;">No messages exchanged yet. Send a greeting to start chatting!</p>
+                                <div class="chat-empty-state">
+                                    <i data-lucide="message-square"></i>
+                                    <h3>Start Conversation</h3>
+                                    <p>Send a message to <?= htmlspecialchars($c_display_name) ?> to discuss project timelines, milestones, or technical details.</p>
+                                </div>
                             <?php else: ?>
-                                <?php foreach ($messages as $msg): ?>
-                                    <div class="message <?= ($msg['sender_id'] == $user_id) ? 'sent' : 'received' ?>">
+                                <?php
+                                $last_date = '';
+                                foreach ($messages as $msg):
+                                    $msg_date = date('Y-m-d', strtotime($msg['created_at']));
+                                    if ($msg_date !== $last_date) {
+                                        $last_date = $msg_date;
+                                        $today = date('Y-m-d');
+                                        $yesterday = date('Y-m-d', strtotime('-1 day'));
+                                        if ($msg_date === $today) {
+                                            $date_label = 'Today';
+                                        } elseif ($msg_date === $yesterday) {
+                                            $date_label = 'Yesterday';
+                                        } else {
+                                            $date_label = date('M j, Y', strtotime($msg['created_at']));
+                                        }
+                                        echo '<div class="chat-date-divider"><span>' . htmlspecialchars($date_label) . '</span></div>';
+                                    }
+                                    $is_me = ($msg['sender_id'] == $user_id);
+                                ?>
+                                    <div class="chat-bubble <?= $is_me ? 'sent' : 'received' ?>">
                                         <?= nl2br(htmlspecialchars($msg['content'])) ?>
-                                        <div class="msg-time"><?= date('g:i A', strtotime($msg['created_at'])) ?></div>
+                                        <div class="chat-msg-time">
+                                            <?= date('g:i A', strtotime($msg['created_at'])) ?>
+                                            <?php if ($is_me): ?>
+                                                <i data-lucide="<?= $msg['is_read'] ? 'check-check' : 'check' ?>" style="width: 12px; height: 12px; display: inline;"></i>
+                                            <?php endif; ?>
+                                        </div>
                                     </div>
                                 <?php endforeach; ?>
                             <?php endif; ?>
                         </div>
-                        <div class="chat-input">
-                            <form method="POST" action="chat.php">
+
+                        <div class="chat-composer">
+                            <form method="POST" action="chat.php" id="chat-form">
                                 <input type="hidden" name="receiver_id" value="<?= $selected_with ?>">
-                                <input type="text" name="content" placeholder="Type your message here..." required autofocus autocomplete="off">
-                                <button type="submit" class="btn btn-primary" style="padding: 10px 18px;"><i data-lucide="send" class="icon-send"></i></button>
+                                <input type="text" name="content" id="chat-input" placeholder="Type a message to <?= htmlspecialchars($c_display_name) ?>..." required autofocus autocomplete="off">
+                                <button type="submit" class="btn btn-primary">
+                                    <i data-lucide="send"></i>
+                                </button>
                             </form>
                         </div>
                     <?php else: ?>
-                        <div style="display: flex; justify-content: center; align-items: center; height: 100%; color: var(--text-secondary);">
-                            Select a client conversation from the left to start messaging.
+                        <div class="chat-empty-state">
+                            <i data-lucide="messages-square"></i>
+                            <h3>Select a Conversation</h3>
+                            <p>Choose an employer conversation from the left to read and send messages.</p>
                         </div>
                     <?php endif; ?>
                 </div>
             </div>
         </div>
     </main>
+
+    <script src="../js/chat.js"></script>
     <script>
         lucide.createIcons();
-        const chatBox = document.getElementById('chat-messages');
-        if (chatBox) {
-            chatBox.scrollTop = chatBox.scrollHeight;
-        }
     </script>
 </body>
 </html>

@@ -350,9 +350,7 @@ if ($min_rating > 0) {
                                 </div>
 
                                 <?php if (!empty($fl['bio'])): ?>
-                                    <p class="fl-bio-text">
-                                        <?= htmlspecialchars(substr($fl['bio'], 0, 220)) ?><?= strlen($fl['bio']) > 220 ? '...' : '' ?>
-                                    </p>
+                                    <p class="fl-bio-text"><?= nl2br(htmlspecialchars($fl['bio'])) ?></p>
                                 <?php endif; ?>
 
                                 <?php if (!empty($fl['skills'])): ?>

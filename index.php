@@ -131,7 +131,7 @@ unset($tfl);
                                 </div>
                                 <div class="project-price"><?= format_currency($p['budget_max']) ?></div>
                             </div>
-                            <p class="project-desc"><?= htmlspecialchars(substr($p['description'], 0, 140)) ?>...</p>
+                            <p class="project-desc"><?= nl2br(htmlspecialchars($p['description'])) ?></p>
                             <div class="tags">
                                 <?php if ($p['skill_name']): ?>
                                     <span class="tag"><?= htmlspecialchars($p['skill_name']) ?></span>

@@ -159,9 +159,11 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
                     <div class="card-body">
                         <div class="content-panel submission-panel">
                             <h4>Message from <?= htmlspecialchars($milestone['freelancer_name']) ?></h4>
-                            <p class="submission-message">
-                                <?= $milestone['submission_message'] ? nl2br(htmlspecialchars($milestone['submission_message'])) : '<em>No submission note provided yet.</em>' ?>
-                            </p>
+                            <?php if ($milestone['submission_message']): ?>
+                                <?= render_expandable_text($milestone['submission_message'], 220, 3, 'submission-message') ?>
+                            <?php else: ?>
+                                <p class="submission-message"><em>No submission note provided yet.</em></p>
+                            <?php endif; ?>
                             
                             <?php if ($milestone['submission_link']): ?>
                                 <h4 class="section-heading" style="margin-top: 15px;">Deliverable Links & Files</h4>
@@ -244,6 +246,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
             </div>
         </div>
     </main>
+    <script src="../js/expandable.js"></script>
     <script>lucide.createIcons();</script>
 </body>
 </html>

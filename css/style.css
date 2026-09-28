@@ -295,6 +295,22 @@ header {
     color: #cbd5e1;
     margin-bottom: 20px;
     font-size: 0.95rem;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.job-card-desc {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 15px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .tags {
@@ -974,4 +990,72 @@ footer {
         text-align: center;
         gap: 12px;
     }
-}
+}
+
+/* ==========================================================================
+   Expandable Text & "See More" Component
+   ========================================================================== */
+.expandable-text {
+    position: relative;
+    margin: 8px 0;
+    white-space: normal;
+}
+
+.expandable-content.clamped-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.expandable-content.clamped-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.expandable-content.clamped-4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.expandable-text.expanded .expandable-content {
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+}
+
+.see-more-btn {
+    background: none;
+    border: none;
+    padding: 2px 0;
+    margin: 6px 0 0 0;
+    text-indent: 0;
+    white-space: nowrap;
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    line-height: 1.2;
+    transition: color 0.15s ease, opacity 0.15s ease;
+}
+
+.see-more-btn:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+.see-more-btn .icon-inline,
+.see-more-btn svg,
+.see-more-btn i {
+    width: 14px;
+    height: 14px;
+    stroke-width: 2.2;
+}
+
