@@ -200,7 +200,7 @@ INSERT INTO users (id, email, password_hash, full_name, role, status) VALUES
 (1, 'admin@freemark.com', '$2y$10$nePxMkwR6.xpD7uC9pxNG.AKdIWSMVy/CXFJD6Xrxix5UdfrqDv/e', 'Admin', 'admin', 'active'),
 (2, 'client@fincore.com', '$2y$10$KWwryCclvq97.h..C.L0jeW9prxl.XORrs54JZ0lDfYlh4P5MQt4y', 'FinCore Solutions', 'client', 'active'),
 (3, 'sami@freemark.com', '$2y$10$lmU/waRKmmxN5E05cVsVq.gwK7m8jApEryzOL2.gnty0sJ8va7D..', 'Md Sami', 'freelancer', 'active'),
-(4, 'fuad@freemark.com', '$2y$10$ouVrrJ9sKR2.gudeuO4YHeZaUqeDdkf7guKvcgdFNDvN0.74Qd45i', 'Fuad', 'freelancer', 'active');
+(4, 'fuad@freemark.com', '$2y$10$ouVrrJ9sKR2.gudeuO4YHeZaUqeDdkf7guKvcgdFNDvN0.74Qd45i', 'Iftekhar Alam Fuad', 'freelancer', 'active');
 
 -- Client Profiles
 INSERT INTO client_profiles (id, user_id, company_name, hiring_volume, bio) VALUES

@@ -93,9 +93,15 @@ function seed_freelancer_skill($conn, $freelancer_id, $skill_id) {
 }
 
 // ---------------------------------------------------------
-// 1. Skill Categories
+// 1. Admin Account
 // ---------------------------------------------------------
-echo "1. Checking & Seeding Skill Categories...\n";
+echo "1. Checking & Seeding Admin Account...\n";
+seed_user($conn, 'admin@freemark.com', 'admin123', 'System Administrator', 'admin', 'active');
+
+// ---------------------------------------------------------
+// 2. Skill Categories
+// ---------------------------------------------------------
+echo "\n2. Checking & Seeding Skill Categories...\n";
 $cat_frontend = seed_category($conn, 'Frontend Developer');
 $cat_backend  = seed_category($conn, 'Backend Developer');
 $cat_uiux     = seed_category($conn, 'UI/UX Design');
