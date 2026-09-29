@@ -76,6 +76,7 @@ $proposals = $prop_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
             <ul>
                 <li><a href="dashboard.php"><i data-lucide="layout-dashboard"></i> Overview</a></li>
                 <li><a href="profile.php"><i data-lucide="building"></i> Company Profile</a></li>
+                <li><a href="projects.php"><i data-lucide="briefcase"></i> My Projects</a></li>
                 <li><a href="post-project.php"><i data-lucide="plus-circle"></i> Post Project</a></li>
                 <li><a href="freelancers.php"><i data-lucide="users"></i> Freelancers</a></li>
                 <li><a href="proposals.php" class="active"><i data-lucide="file-text"></i> Proposals</a></li>
@@ -97,16 +98,23 @@ $proposals = $prop_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
                 <p>Review and hire applicants for your projects</p>
             </div>
             <?php if (!empty($client_projects)): ?>
-                <form method="GET" action="proposals.php">
-                    <select name="project_id" class="proposal-filter" onchange="this.form.submit()">
-                        <option value="0">All Projects</option>
-                        <?php foreach ($client_projects as $cp): ?>
-                            <option value="<?= $cp['id'] ?>" <?= $selected_project_id == $cp['id'] ? 'selected' : '' ?>>
-                                Filter by: <?= htmlspecialchars($cp['title']) ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
-                </form>
+                <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                    <form method="GET" action="proposals.php" style="margin: 0;">
+                        <select name="project_id" class="proposal-filter" onchange="this.form.submit()">
+                            <option value="0">All Projects</option>
+                            <?php foreach ($client_projects as $cp): ?>
+                                <option value="<?= $cp['id'] ?>" <?= $selected_project_id == $cp['id'] ? 'selected' : '' ?>>
+                                    Filter by: <?= htmlspecialchars($cp['title']) ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </form>
+                    <?php if ($selected_project_id > 0): ?>
+                        <a href="edit-project.php?id=<?= $selected_project_id ?>" class="btn btn-outline btn-compact" title="Edit this project">
+                            <i data-lucide="edit-3"></i> Edit Project
+                        </a>
+                    <?php endif; ?>
+                </div>
             <?php endif; ?>
         </header>
 

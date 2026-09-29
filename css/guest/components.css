@@ -159,6 +159,10 @@
     text-decoration: none;
 }
 
+.project-card .project-meta {
+    margin-top: auto;
+}
+
 .project-meta {
     margin-bottom: 20px;
     display: flex;

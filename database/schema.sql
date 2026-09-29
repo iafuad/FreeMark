@@ -64,7 +64,7 @@ CREATE TABLE projects (
     duration ENUM('less_1w', '1_4w', '1_3m', '3m_plus') DEFAULT '1_4w',
     budget_type ENUM('fixed', 'hourly') DEFAULT 'fixed',
     budget_max DECIMAL(10,2) NOT NULL,
-    status ENUM('open', 'in_progress', 'completed', 'cancelled') DEFAULT 'open',
+    status ENUM('open', 'in_progress', 'completed', 'closed') DEFAULT 'open',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (client_id) REFERENCES client_profiles(id) ON DELETE CASCADE,
     FOREIGN KEY (skill_category_id) REFERENCES skill_categories(id) ON DELETE SET NULL

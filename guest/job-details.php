@@ -218,16 +218,26 @@ $initials = strtoupper(substr($client_display_name, 0, 2));
                                 <i data-lucide="shield"></i>
                             </div>
                             <div>
-                                <strong style="color: var(--text-primary); display: block;">You are the client who posted this job</strong>
-                                <span style="color: var(--text-secondary); font-size: 0.85rem;">Manage received applications and proposals</span>
+                                <strong style="color: var(--text-primary); display: flex; align-items: center; gap: 8px;">
+                                    <span>You are the client who posted this job</span>
+                                    <?php if ($job['status'] === 'closed'): ?>
+                                        <span class="status-badge danger">Closed</span>
+                                    <?php endif; ?>
+                                </strong>
+                                <span style="color: var(--text-secondary); font-size: 0.85rem;">
+                                    <?= ($job['status'] === 'closed') ? 'This listing is closed and unlisted from public browse. You can reopen or edit it anytime.' : 'Manage received applications and proposals' ?>
+                                </span>
                             </div>
                         </div>
-                        <div style="display: flex; gap: 10px; align-items: center;">
+                        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                            <a href="../client/edit-project.php?id=<?= $job['id'] ?>" class="btn btn-outline btn-compact">
+                                <i data-lucide="edit-3"></i> Edit Listing
+                            </a>
                             <a href="../client/proposals.php?project_id=<?= $job['id'] ?>" class="btn btn-primary btn-compact">
                                 <i data-lucide="file-text"></i> Review Proposals (<?= $job['proposal_count'] ?>)
                             </a>
-                            <a href="../client/dashboard.php" class="btn btn-outline btn-compact">
-                                <i data-lucide="layout-dashboard"></i> Dashboard
+                            <a href="../client/projects.php" class="btn btn-outline btn-compact">
+                                <i data-lucide="briefcase"></i> My Projects
                             </a>
                         </div>
                     </div>
@@ -252,12 +262,18 @@ $initials = strtoupper(substr($client_display_name, 0, 2));
                                 </div>
                             <?php endif; ?>
                         <?php else: ?>
-                            <a href="../login.php" class="btn btn-primary btn-apply">
-                                <i data-lucide="log-in"></i> Log in to Apply
-                            </a>
-                            <a href="../register.php" class="btn btn-outline">
-                                Create Free Account
-                            </a>
+                            <?php if ($job['status'] === 'open'): ?>
+                                <a href="../login.php" class="btn btn-primary btn-apply">
+                                    <i data-lucide="log-in"></i> Log in to Apply
+                                </a>
+                                <a href="../register.php" class="btn btn-outline">
+                                    Create Free Account
+                                </a>
+                            <?php else: ?>
+                                <button class="btn btn-outline btn-apply" disabled style="opacity: 0.6; cursor: not-allowed;">
+                                    <i data-lucide="lock"></i> Listing Closed
+                                </button>
+                            <?php endif; ?>
                         <?php endif; ?>
                     </div>
                 <?php endif; ?>

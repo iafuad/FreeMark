@@ -181,7 +181,7 @@ $fl8_pid = seed_freelancer_profile($conn, $fl8_uid, 'Junior Web Developer', 'Pas
 seed_freelancer_skill($conn, $fl8_pid, $cat_frontend);
 
 // ---------------------------------------------------------
-// 4. Projects (Open, In Progress, Completed, Cancelled)
+// 4. Projects (Open, In Progress, Completed, Closed)
 // ---------------------------------------------------------
 echo "\n4. Seeding Projects across Multiple Clients & Categories...\n";
 
@@ -267,12 +267,12 @@ $proj_mobile_redesign = seed_project(
     $cat_uiux, '1_3m', 'fixed', 2500.00, 'completed'
 );
 
-// Cancelled Project (Demonstrates cancelled state in reports & dashboards)
-$proj_cancelled = seed_project(
+// Closed Project (Demonstrates closed state in reports & dashboards)
+$proj_closed = seed_project(
     $conn, $client1_pid,
     'Internal Legacy PHP 5.6 to Modern Laravel Upgrade',
     'Project scope altered before contract initiation; archived by client.',
-    $cat_backend, 'less_1w', 'fixed', 800.00, 'cancelled'
+    $cat_backend, 'less_1w', 'fixed', 800.00, 'closed'
 );
 
 // ---------------------------------------------------------

@@ -21,6 +21,7 @@ function get_status_badge($status) {
             return '<span class="status-badge warning">' . ucfirst(str_replace('_', ' ', $status)) . '</span>';
         case 'declined':
         case 'cancelled':
+        case 'closed':
         case 'suspended':
         case 'changes_requested':
             return '<span class="status-badge danger">' . ucfirst(str_replace('_', ' ', $status)) . '</span>';

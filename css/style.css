@@ -341,6 +341,10 @@ header {
     background: rgba(250, 204, 21, 0.06);
 }
 
+.project-card .project-meta {
+    margin-top: auto;
+}
+
 .project-meta {
     display: flex;
     gap: 20px;

@@ -105,6 +105,7 @@ $client_stats = $stat_stmt->get_result()->fetch_assoc();
             <ul>
                 <li><a href="dashboard.php"><i data-lucide="layout-dashboard"></i> Overview</a></li>
                 <li><a href="profile.php" class="active"><i data-lucide="building"></i> Company Profile</a></li>
+                <li><a href="projects.php"><i data-lucide="briefcase"></i> My Projects</a></li>
                 <li><a href="post-project.php"><i data-lucide="plus-circle"></i> Post Project</a></li>
                 <li><a href="freelancers.php"><i data-lucide="users"></i> Freelancers</a></li>
                 <li><a href="proposals.php"><i data-lucide="file-text"></i> Proposals</a></li>
