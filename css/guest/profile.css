@@ -224,7 +224,8 @@
     transform: translateX(2px);
 }
 
-.link-row i {
+.link-row i,
+.link-row svg {
     width: 15px;
     height: 15px;
     flex-shrink: 0;
