@@ -96,7 +96,7 @@ function seed_freelancer_skill($conn, $freelancer_id, $skill_id) {
 // 1. Admin Account
 // ---------------------------------------------------------
 echo "1. Checking & Seeding Admin Account...\n";
-seed_user($conn, 'admin@freemark.com', 'admin123', 'System Administrator', 'admin', 'active');
+$admin_uid = seed_user($conn, 'admin@freemark.com', 'admin123', 'System Administrator', 'admin', 'active');
 
 // ---------------------------------------------------------
 // 2. Skill Categories
@@ -776,6 +776,53 @@ seed_test_result($conn, $fl3_pid, $quiz_node, 3, 4); // 75% Passed -> Verified
 // Lucas Silva: Attempted React test with retake needed (Score 1/3 = 33% < 70%)
 // Demonstrates the "Needs Retake" warning badge on freelancer/tests.php!
 seed_test_result($conn, $fl7_pid, 2, 1, 3);
+
+// ========================================================
+// Seed Profile Reports (Suspicious Behavior Reporting)
+// ========================================================
+echo "\nPopulating Profile Reports...\n";
+function seed_profile_report($conn, $reporter_id, $reported_user_id, $target_type, $target_profile_id, $reason, $details, $status = 'pending', $admin_notes = null, $resolved_by = null, $resolved_at = null) {
+    $stmt = $conn->prepare("SELECT id FROM profile_reports WHERE reporter_id = ? AND target_type = ? AND target_profile_id = ?");
+    $stmt->bind_param("isi", $reporter_id, $target_type, $target_profile_id);
+    $stmt->execute();
+    $existing = $stmt->get_result()->fetch_assoc();
+    if ($existing) {
+        return (int)$existing['id'];
+    }
+
+    $ins = $conn->prepare("INSERT INTO profile_reports (reporter_id, reported_user_id, target_type, target_profile_id, reason, details, status, admin_notes, resolved_by, resolved_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $ins->bind_param("iisissssis", $reporter_id, $reported_user_id, $target_type, $target_profile_id, $reason, $details, $status, $admin_notes, $resolved_by, $resolved_at);
+    $ins->execute();
+    echo "  [+] Profile Report logged: User #$reporter_id reported $target_type (User #$reported_user_id) for '$reason' [$status]\n";
+    return (int)$ins->insert_id;
+}
+
+// 1. Client #1 reported Freelancer #1 (Sami) - Action Taken (Suspended)
+seed_profile_report(
+    $conn,
+    $client1_uid,
+    $fl1_uid,
+    'freelancer',
+    $fl1_pid,
+    'off_platform',
+    'During our project discussion, this freelancer repeatedly insisted on taking milestone payments via direct crypto transfers to bypass FreeMark platform escrow.',
+    'action_taken',
+    'Chat logs verified. Direct escrow bypass attempt detected. User account suspended.',
+    $admin_uid,
+    date('Y-m-d H:i:s', strtotime('-1 day'))
+);
+
+// 2. Freelancer #3 (Fuad) reported Client #2 - Pending Review
+seed_profile_report(
+    $conn,
+    $fl3_uid,
+    $client2_uid,
+    'client',
+    $client2_pid,
+    'scam_phishing',
+    'Received an unsolicited invite requiring me to download and execute an unsigned ZIP executable from an external third-party file sharing site before discussing the project scope.',
+    'pending'
+);
 
 echo "\n========================================================\n";
 echo "      Database Seeding Successfully Completed!         \n";

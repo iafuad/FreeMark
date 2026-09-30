@@ -64,7 +64,8 @@ $categories = $categories_res ? $categories_res->fetch_all(MYSQLI_ASSOC) : [];
                 <li><a href="skills.php" class="active"><i data-lucide="award"></i> Skill Categories</a></li>
                 <li><a href="quizzes.php"><i data-lucide="help-circle"></i> Quiz Banks</a></li>
                 <li><a href="users.php"><i data-lucide="users"></i> User Management</a></li>
-                <li><a href="reports.php"><i data-lucide="file-text"></i> Reports</a></li>
+                <li><a href="reports.php"><i data-lucide="file-text"></i> Analytics</a></li>
+                <li><a href="profile-reports.php"><i data-lucide="flag"></i> Profile Reports</a></li>
             </ul>
         </nav>
         <div class="sidebar-footer">

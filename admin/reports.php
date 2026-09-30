@@ -43,7 +43,8 @@ $contracts_summary = $contracts_summary_res ? $contracts_summary_res->fetch_asso
                 <li><a href="skills.php"><i data-lucide="award"></i> Skill Categories</a></li>
                 <li><a href="quizzes.php"><i data-lucide="help-circle"></i> Quiz Banks</a></li>
                 <li><a href="users.php"><i data-lucide="users"></i> User Management</a></li>
-                <li><a href="reports.php" class="active"><i data-lucide="file-text"></i> Reports</a></li>
+                <li><a href="reports.php" class="active"><i data-lucide="file-text"></i> Analytics</a></li>
+                <li><a href="profile-reports.php"><i data-lucide="flag"></i> Profile Reports</a></li>
             </ul>
         </nav>
         <div class="sidebar-footer">

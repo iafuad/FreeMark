@@ -46,6 +46,45 @@ $sk_stmt = $conn->prepare("SELECT sc.name FROM freelancer_skills fs JOIN skill_c
 $sk_stmt->bind_param("i", $freelancer_id);
 $sk_stmt->execute();
 $skills = array_column($sk_stmt->get_result()->fetch_all(MYSQLI_ASSOC), 'name');
+
+$report_success = '';
+$report_error = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'report_profile') {
+    if (!is_logged_in()) {
+        $report_error = "You must be logged in to report a profile.";
+    } else {
+        $reporter_id = (int)current_user_id();
+        $reported_user_id = (int)$freelancer['user_id'];
+        $reason = trim($_POST['reason'] ?? '');
+        $details = trim($_POST['details'] ?? '');
+        $allowed_reasons = ['scam_phishing', 'off_platform', 'fake_profile', 'harassment', 'spam', 'other'];
+
+        if ($reporter_id === $reported_user_id) {
+            $report_error = "You cannot report your own profile.";
+        } elseif (!in_array($reason, $allowed_reasons)) {
+            $report_error = "Please select a valid reason for the report.";
+        } elseif (strlen($details) < 10) {
+            $report_error = "Please provide at least 10 characters explaining the suspicious behavior.";
+        } else {
+            // Check for existing pending report from this user
+            $check_stmt = $conn->prepare("SELECT id FROM profile_reports WHERE reporter_id = ? AND target_type = 'freelancer' AND target_profile_id = ? AND status = 'pending'");
+            $check_stmt->bind_param("ii", $reporter_id, $freelancer_id);
+            $check_stmt->execute();
+            if ($check_stmt->get_result()->fetch_assoc()) {
+                $report_error = "You already have a pending report under review for this freelancer.";
+            } else {
+                $ins_stmt = $conn->prepare("INSERT INTO profile_reports (reporter_id, reported_user_id, target_type, target_profile_id, reason, details, status) VALUES (?, ?, 'freelancer', ?, ?, ?, 'pending')");
+                $ins_stmt->bind_param("iiiss", $reporter_id, $reported_user_id, $freelancer_id, $reason, $details);
+                if ($ins_stmt->execute()) {
+                    $report_success = "Report submitted successfully. Our trust and safety team will investigate this profile.";
+                } else {
+                    $report_error = "Failed to submit report. Please try again later.";
+                }
+            }
+        }
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,6 +127,19 @@ $skills = array_column($sk_stmt->get_result()->fetch_all(MYSQLI_ASSOC), 'name');
     </header>
 
     <main class="container">
+        <?php if (!empty($report_success)): ?>
+            <div class="alert alert-success" style="background: rgba(34, 197, 94, 0.15); border: 1px solid rgba(34, 197, 94, 0.3); color: #22c55e; padding: 12px 18px; border-radius: 8px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                <i data-lucide="check-circle" style="width: 20px; height: 20px; flex-shrink: 0;"></i>
+                <span><?= htmlspecialchars($report_success) ?></span>
+            </div>
+        <?php endif; ?>
+        <?php if (!empty($report_error)): ?>
+            <div class="alert alert-danger" style="background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.3); color: #ef4444; padding: 12px 18px; border-radius: 8px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                <i data-lucide="alert-circle" style="width: 20px; height: 20px; flex-shrink: 0;"></i>
+                <span><?= htmlspecialchars($report_error) ?></span>
+            </div>
+        <?php endif; ?>
+
         <div class="profile-layout">
             <!-- Sidebar -->
             <aside class="profile-sidebar">
@@ -171,6 +223,15 @@ $skills = array_column($sk_stmt->get_result()->fetch_all(MYSQLI_ASSOC), 'name');
                                     <i data-lucide="external-link" style="margin-left: auto; width: 13px; opacity: 0.6;"></i>
                                 </a>
                             <?php endif; ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (!is_logged_in() || current_user_id() != $freelancer['user_id']): ?>
+                        <div style="padding-top: 14px; border-top: 1px solid var(--border-color); margin-top: 16px;">
+                            <button type="button" class="btn-report-profile" onclick="openReportModal()">
+                                <i data-lucide="flag" style="width: 14px; height: 14px;"></i>
+                                <span>Report Suspicious Activity</span>
+                            </button>
                         </div>
                     <?php endif; ?>
                 </div>
@@ -272,7 +333,86 @@ $skills = array_column($sk_stmt->get_result()->fetch_all(MYSQLI_ASSOC), 'name');
             <p>&copy; 2026 FreeMark. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Report Profile Modal -->
+    <div id="reportProfileModal" class="report-modal-backdrop" style="display: none;">
+        <div class="report-modal-box">
+            <div class="report-modal-header">
+                <div class="report-modal-title-wrap">
+                    <div class="report-modal-icon-badge">
+                        <i data-lucide="flag" style="width: 18px; height: 18px;"></i>
+                    </div>
+                    <div>
+                        <h3 style="margin: 0; font-size: 1.15rem; color: var(--text-primary);">Report Suspicious Profile</h3>
+                        <p style="margin: 2px 0 0 0; font-size: 0.8rem; color: var(--text-secondary);">Help us maintain trust and safety on FreeMark</p>
+                    </div>
+                </div>
+                <button type="button" class="report-modal-close-btn" onclick="closeReportModal()">
+                    <i data-lucide="x" style="width: 18px; height: 18px;"></i>
+                </button>
+            </div>
+
+            <?php if (!is_logged_in()): ?>
+                <div class="report-modal-notice">
+                    <i data-lucide="lock" style="width: 18px; height: 18px; flex-shrink: 0;"></i>
+                    <span>You must be logged in to submit a report against this freelancer.</span>
+                </div>
+                <div class="report-modal-footer">
+                    <button type="button" class="btn btn-outline btn-compact" onclick="closeReportModal()">Cancel</button>
+                    <a href="../login.php" class="btn btn-primary btn-compact">Log In to Report</a>
+                </div>
+            <?php else: ?>
+                <div class="report-modal-notice">
+                    <i data-lucide="shield-alert" style="width: 18px; height: 18px; flex-shrink: 0;"></i>
+                    <span>Reporting <strong><?= htmlspecialchars($freelancer['full_name']) ?></strong>. False or malicious reports violate platform terms.</span>
+                </div>
+
+                <form method="POST" action="">
+                    <input type="hidden" name="action" value="report_profile">
+                    <div class="report-form-group">
+                        <label for="reportReason">Reason for Report <span style="color: #ef4444;">*</span></label>
+                        <select id="reportReason" name="reason" required>
+                            <option value="" disabled selected>Select a reason...</option>
+                            <option value="scam_phishing">Scam, Phishing, or Financial Fraud</option>
+                            <option value="off_platform">Asking for Off-Platform Escrow Bypass</option>
+                            <option value="fake_profile">Fake Identity / Misleading Credentials</option>
+                            <option value="harassment">Harassment, Abuse, or Inappropriate Conduct</option>
+                            <option value="spam">Spam, Bot Promotion, or Suspicious Links</option>
+                            <option value="other">Other Suspicious Activity</option>
+                        </select>
+                    </div>
+
+                    <div class="report-form-group">
+                        <label for="reportDetails">Detailed Description <span style="color: #ef4444;">*</span></label>
+                        <textarea id="reportDetails" name="details" rows="4" required minlength="10" placeholder="Please describe the suspicious behavior, messages, or deliverables with specifics..."></textarea>
+                    </div>
+
+                    <div class="report-modal-footer">
+                        <button type="button" class="btn btn-outline btn-compact" onclick="closeReportModal()">Cancel</button>
+                        <button type="submit" class="btn btn-compact" style="background: #ef4444; border-color: #ef4444; color: #ffffff;">Submit Report</button>
+                    </div>
+                </form>
+            <?php endif; ?>
+        </div>
+    </div>
+
     <script src="../js/expandable.js"></script>
-    <script>lucide.createIcons();</script>
+    <script>
+        function openReportModal() {
+            const modal = document.getElementById('reportProfileModal');
+            if (modal) modal.style.display = 'flex';
+        }
+        function closeReportModal() {
+            const modal = document.getElementById('reportProfileModal');
+            if (modal) modal.style.display = 'none';
+        }
+        window.addEventListener('click', function(e) {
+            const modal = document.getElementById('reportProfileModal');
+            if (modal && e.target === modal) {
+                closeReportModal();
+            }
+        });
+        lucide.createIcons();
+    </script>
 </body>
 </html>

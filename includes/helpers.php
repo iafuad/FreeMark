@@ -14,22 +14,52 @@ function get_status_badge($status) {
         case 'open':
         case 'accepted':
         case 'approved':
-            return '<span class="status-badge success">' . ucfirst(str_replace('_', ' ', $status)) . '</span>';
+            return '<span class="status-badge success">' . ucwords(str_replace('_', ' ', $status)) . '</span>';
         case 'pending':
         case 'in_progress':
         case 'submitted':
-            return '<span class="status-badge warning">' . ucfirst(str_replace('_', ' ', $status)) . '</span>';
+            return '<span class="status-badge warning">' . ucwords(str_replace('_', ' ', $status)) . '</span>';
         case 'declined':
         case 'cancelled':
         case 'closed':
         case 'suspended':
         case 'changes_requested':
-            return '<span class="status-badge danger">' . ucfirst(str_replace('_', ' ', $status)) . '</span>';
+        case 'action_taken':
+            return '<span class="status-badge danger">' . ucwords(str_replace('_', ' ', $status)) . '</span>';
         case 'completed':
-            return '<span class="status-badge primary">' . ucfirst($status) . '</span>';
+        case 'reviewed':
+            return '<span class="status-badge primary">' . ucwords(str_replace('_', ' ', $status)) . '</span>';
+        case 'dismissed':
+            return '<span class="status-badge muted" style="background: rgba(148, 163, 184, 0.15); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.3);">Dismissed</span>';
         default:
-            return '<span class="status-badge">' . ucfirst(str_replace('_', ' ', $status)) . '</span>';
+            return '<span class="status-badge">' . ucwords(str_replace('_', ' ', $status)) . '</span>';
     }
+}
+
+function get_report_reason_label($reason) {
+    $reasons = [
+        'scam_phishing' => 'Scam / Phishing / Fraud',
+        'off_platform'  => 'Off-Platform Escrow Bypass',
+        'fake_profile'  => 'Fake Identity / Impersonation',
+        'harassment'    => 'Harassment / Abusive Conduct',
+        'spam'          => 'Spam / Bot Promotion',
+        'other'         => 'Other Suspicious Activity'
+    ];
+    return $reasons[$reason] ?? ucwords(str_replace('_', ' ', $reason));
+}
+
+function get_report_reason_badge($reason) {
+    $label = get_report_reason_label($reason);
+    $color_map = [
+        'scam_phishing' => 'background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3);',
+        'off_platform'  => 'background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3);',
+        'fake_profile'  => 'background: rgba(168, 85, 247, 0.15); color: #a855f7; border: 1px solid rgba(168, 85, 247, 0.3);',
+        'harassment'    => 'background: rgba(244, 63, 94, 0.15); color: #f43f5e; border: 1px solid rgba(244, 63, 94, 0.3);',
+        'spam'          => 'background: rgba(14, 165, 233, 0.15); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.3);',
+        'other'         => 'background: rgba(148, 163, 184, 0.15); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.3);',
+    ];
+    $style = $color_map[$reason] ?? 'background: rgba(148, 163, 184, 0.15); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.3);';
+    return '<span style="display: inline-block; font-size: 0.75rem; font-weight: 600; padding: 3px 8px; border-radius: 4px; ' . $style . '">' . htmlspecialchars($label) . '</span>';
 }
 
 function time_ago($datetime) {

@@ -193,6 +193,25 @@ CREATE TABLE test_results (
     FOREIGN KEY (quiz_id) REFERENCES quizzes(id) ON DELETE CASCADE
 );
 
+-- 17. profile_reports (Suspicious profile reports)
+CREATE TABLE profile_reports (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    reporter_id INT NOT NULL,
+    reported_user_id INT NOT NULL,
+    target_type ENUM('freelancer', 'client') NOT NULL,
+    target_profile_id INT NOT NULL,
+    reason ENUM('scam_phishing', 'off_platform', 'fake_profile', 'harassment', 'spam', 'other') NOT NULL,
+    details TEXT NOT NULL,
+    status ENUM('pending', 'reviewed', 'dismissed', 'action_taken') DEFAULT 'pending',
+    admin_notes TEXT NULL,
+    resolved_by INT NULL,
+    resolved_at TIMESTAMP NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (reporter_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (reported_user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (resolved_by) REFERENCES users(id) ON DELETE SET NULL
+);
+
 -- ========== SEED DATA ==========
 
 -- Users

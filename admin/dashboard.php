@@ -126,8 +126,41 @@ if ($res) {
     }
 }
 
+// 2b. Pending Profile Reports (Suspicious Behavior Alerts)
+$report_notifs = [];
+$res = $conn->query("
+    SELECT pr.*, r_u.full_name as reporter_name, t_u.full_name as target_name
+    FROM profile_reports pr
+    JOIN users r_u ON pr.reporter_id = r_u.id
+    JOIN users t_u ON pr.reported_user_id = t_u.id
+    WHERE pr.status = 'pending'
+    ORDER BY pr.created_at DESC LIMIT 5
+");
+if ($res) {
+    while ($r_item = $res->fetch_assoc()) {
+        $report_notifs[] = [
+            'category' => 'security',
+            'tag' => 'Profile Report',
+            'tag_class' => 'tag-fraud',
+            'icon' => 'flag',
+            'icon_box' => 'icon-red',
+            'title' => 'Reported: ' . htmlspecialchars($r_item['target_name']) . ' (' . ucfirst($r_item['target_type']) . ')',
+            'desc' => 'Flagged by <strong>' . htmlspecialchars($r_item['reporter_name']) . '</strong> for ' . get_report_reason_label($r_item['reason']) . ': ' . htmlspecialchars(substr($r_item['details'], 0, 80)) . '...',
+            'meta' => time_ago($r_item['created_at']) . ' • Pending Investigation',
+            'action_url' => 'profile-reports.php?status=pending',
+            'action_text' => 'Investigate',
+            'action_class' => 'btn btn-primary btn-sm',
+            'unread' => true,
+            'timestamp' => $r_item['created_at'] ? strtotime($r_item['created_at']) : time()
+        ];
+    }
+}
+
+$pending_reports_cnt_res = $conn->query("SELECT COUNT(*) FROM profile_reports WHERE status = 'pending'");
+$total_pending_reports = $pending_reports_cnt_res ? (int)$pending_reports_cnt_res->fetch_row()[0] : 0;
+
 // Merge & Sort: unread first, then by timestamp
-$all_notifs = array_merge($approval_notifs, $security_notifs, $project_notifs, $contract_notifs);
+$all_notifs = array_merge($approval_notifs, $report_notifs, $security_notifs, $project_notifs, $contract_notifs);
 usort($all_notifs, function($a, $b) {
     if ($a['unread'] !== $b['unread']) {
         return $a['unread'] ? -1 : 1;
@@ -135,7 +168,7 @@ usort($all_notifs, function($a, $b) {
     return $b['timestamp'] <=> $a['timestamp'];
 });
 
-$action_count = count($approval_notifs) + count($security_notifs);
+$action_count = count($approval_notifs) + count($report_notifs) + count($security_notifs);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -166,7 +199,8 @@ $action_count = count($approval_notifs) + count($security_notifs);
                 <li><a href="skills.php"><i data-lucide="award"></i> Skill Categories</a></li>
                 <li><a href="quizzes.php"><i data-lucide="help-circle"></i> Quiz Banks</a></li>
                 <li><a href="users.php"><i data-lucide="users"></i> User Management</a></li>
-                <li><a href="reports.php"><i data-lucide="file-text"></i> Reports</a></li>
+                <li><a href="reports.php"><i data-lucide="file-text"></i> Analytics</a></li>
+                <li><a href="profile-reports.php"><i data-lucide="flag"></i> Profile Reports</a></li>
             </ul>
         </nav>
         <div class="sidebar-footer">
