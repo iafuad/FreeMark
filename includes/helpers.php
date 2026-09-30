@@ -249,3 +249,36 @@ function render_expandable_text($text, $threshold = 180, $clamp_lines = 3, $extr
     return '<div class="expandable-text"><div class="' . $content_classes . '">' . $safe_html . '</div><button type="button" class="see-more-btn" aria-expanded="false">See more <i data-lucide="chevron-down" class="icon-inline"></i></button></div>';
 }
 
+/**
+ * Formats statistics numbers cleanly (e.g. 7, 25+, 1,400+, 1.5M+).
+ */
+function format_stat_number($count) {
+    $count = (int)$count;
+    if ($count >= 1000000) {
+        return round($count / 1000000, 1) . 'M+';
+    } elseif ($count >= 1000) {
+        return number_format($count) . '+';
+    } elseif ($count >= 10) {
+        return number_format($count) . '+';
+    }
+    return number_format($count);
+}
+
+/**
+ * Formats monetary amounts for stats/hero sections (e.g. $500, $6,100+, $2.8M+).
+ */
+function format_stat_currency($amount) {
+    $amount = (float)$amount;
+    if ($amount >= 1000000) {
+        return '$' . round($amount / 1000000, 1) . 'M+';
+    } elseif ($amount >= 10000) {
+        return '$' . round($amount / 1000, 1) . 'k+';
+    } elseif ($amount >= 1000) {
+        return '$' . number_format($amount, 0) . '+';
+    } elseif ($amount > 0) {
+        return '$' . number_format($amount, 0);
+    }
+    return '$0';
+}
+
+

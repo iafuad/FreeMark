@@ -13,6 +13,30 @@ if ($user_role === 'freelancer') {
     $dash_url = 'admin/dashboard.php';
 }
 
+// Fetch real platform statistics for hero section
+$stats_query = $conn->query("
+    SELECT
+        (SELECT COUNT(*) FROM users WHERE role = 'freelancer' AND status = 'active') AS total_freelancers,
+        (SELECT COUNT(DISTINCT p.id) FROM projects p LEFT JOIN contracts c ON p.id = c.project_id WHERE p.status = 'completed' OR c.status = 'completed') AS total_completed_projects,
+        (SELECT COALESCE(SUM(paid_to_date), 0) FROM contracts) AS total_paid_out,
+        (SELECT AVG(stars) FROM reviews) AS avg_rating,
+        (SELECT COUNT(*) FROM reviews) AS review_count
+");
+$platform_stats = $stats_query ? $stats_query->fetch_assoc() : [
+    'total_freelancers' => 0,
+    'total_completed_projects' => 0,
+    'total_paid_out' => 0,
+    'avg_rating' => null,
+    'review_count' => 0
+];
+
+$stat_freelancers = format_stat_number($platform_stats['total_freelancers'] ?? 0);
+$stat_completed   = format_stat_number($platform_stats['total_completed_projects'] ?? 0);
+$stat_paid_out    = format_stat_currency($platform_stats['total_paid_out'] ?? 0);
+$stat_avg_rating  = (isset($platform_stats['avg_rating']) && $platform_stats['review_count'] > 0)
+    ? number_format((float)$platform_stats['avg_rating'], 1) . '★'
+    : '5.0★';
+
 // Fetch live open projects for showcase
 $proj_res = $conn->query("SELECT p.*, cp.company_name, sc.name as skill_name,
     (SELECT COUNT(*) FROM proposals WHERE project_id = p.id) as proposal_count
@@ -94,19 +118,19 @@ unset($tfl);
 
             <div class="stats">
                 <div class="stat-item">
-                    <h3>8,400+</h3>
+                    <h3><?= htmlspecialchars($stat_freelancers) ?></h3>
                     <p>Freelancers</p>
                 </div>
                 <div class="stat-item">
-                    <h3>5,600+</h3>
+                    <h3><?= htmlspecialchars($stat_completed) ?></h3>
                     <p>Projects completed</p>
                 </div>
                 <div class="stat-item">
-                    <h3>$2.8M+</h3>
+                    <h3><?= htmlspecialchars($stat_paid_out) ?></h3>
                     <p>Paid out</p>
                 </div>
                 <div class="stat-item">
-                    <h3>4.8★</h3>
+                    <h3><?= htmlspecialchars($stat_avg_rating) ?></h3>
                     <p>Avg. rating</p>
                 </div>
             </div>
